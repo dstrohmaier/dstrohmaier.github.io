@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Serious Work: The Case of Conceptual Analysis"
-date:   2018-04-27 21:51:13 +0100
+date:   2018-04-27 19:51:13 +0100
 categories: philosophy
 ---
 
