@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Upcoming Talk at Social Ontology 2018"
+title:  "Notes from Two Conferences"
 date:   2018-09-06 20:51:13 +0100
 categories: conferences
 ---
