@@ -13,7 +13,7 @@ This blog is maintained by David Strohmaier. You can contact me at davidstrohmai
 The title of this blog is a reference to a quote by the pragmatist philosopher C. S. Peirce:
 > Do not block the way of inquiry.
 
-The Pragmatists put an emphasis on responding to problems in situation. My PhD research rew on their theories to understand motivational change of humans.
+The Pragmatists put an emphasis on responding to problems in situation. My PhD research drew on their theories to understand motivational change of humans.
 
 This blog uses the Jekyll blog generator with the Minima theme.
 
