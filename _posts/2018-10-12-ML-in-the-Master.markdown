@@ -14,6 +14,6 @@ ML, inluding neural nets but also random forests, SVM and the like, has become d
 
 From a cognitive science perspective this raises the intriguing question how much (many?) of the human cognitive capacities are domain specific and how much is domain general. There are long standing debates in the literature on intelligence and about the modularity of the mind concerning this issue. (It is certainly no coincidence that Jerry Fodor was not only a major proponent of modularity but also a severe critique of connectionist approaches.) The development of ML as a field might show where exactly we will hit hard constraints of computational tractability with domain-general methods.[0] Already ML approaches illustrate that there is a range of intermediate positions where a general approach is combined with considerable domain-specificity, for example a particular neural network architecture might be suited for NLP tasks but not visual recognition. How far will the neural network approach go and at which point will domain-specific complications overwhelm it?
 
-
+***
 
 [0] Another constraint I've ignored here is getting good and sufficient training data for ML methods. For many if not most practical applications of ML that poses the bigger problem. However, it is not clear to me how it relates to the specificity vs. generality issue when it comes to human cognition. You might, for example, propose combining a domain-general neural network architecture with nativism, so that we are basically born with a pre-trained neural net requiring much less training data.
