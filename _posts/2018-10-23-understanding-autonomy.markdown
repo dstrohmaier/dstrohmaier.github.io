@@ -23,6 +23,6 @@ These metaphilosophical reflections remain incomplete. I'm not committing to a s
 ---
 [0] I don't think it is outrageous to think of autonomy as a natural kind, at least on an appropriate understanding of such kinds. But I hope to argue that another time.
 
-*References*
+_References_
 
-Haslanger, S. (2005). What Are We Talking about? The Semantics and Politics of Social Kinds. Hypatia, 20(4), 10–26.
+Haslanger, S. (2005). What Are We Talking about? The Semantics and Politics of Social Kinds. *Hypatia, 20*(4), 10–26.
