@@ -15,7 +15,7 @@ I'm writing a proper review of this book, so suffice here that it is a well-rese
 
 - Paul Graham: *Hackers & Painters*
 
-I'm currently working my way through another book by Graham: ANSI Common Lisp. This one here I could read while reading the Tube. Graham has been called a hacker philosopher, but, to be honest, I get more from his writing on hacking than when he touches on philosophy. That's not surprising. If a degree in philosophy didn't allow you to see the gaps in the arguments of a clever amateur, it would hardly amount to anything. Graham's essay on free speech remains unaware of a lot of subtleties, for example the idea that moral claims might have very different truth-conditions from descriptive claims or no proper truth-conditions at all. He just treats Galileo's claims about astronomy as unfoot with claims about how we should behave. Furthermore, society appears *exclusiviely* as an unsophistacted hoard and the individual as defender of truth against peer pressure. What about some epistemic humility as an individual? Now maybe Graham's got answers to these points, but he barely scratches the surface in this essay. Let's enjoy the insights about LISP instead.
+I'm currently working my way through another book by Graham: ANSI Common Lisp. This one here I could read while reading the Tube. Graham has been called a hacker philosopher, but, to be honest, I get more from his writing on hacking than when he touches on philosophy. Graham's essay on free speech neglects a lot of subtleties, for example the idea that moral claims might have very different truth-conditions from descriptive claims or no proper truth-conditions at all. He just treats Galileo's claims about astronomy as on foot with claims about how we should behave. Furthermore, society appears *exclusiviely* as an unsophistacted hoard and the individual as defender of truth against peer pressure. What about some epistemic humility as an individual? Maybe Graham's got answers to these points, he has studied philosophy in college after all[0], but he barely scratches the surface in this essay. Let's enjoy the insights about LISP instead.
 
 - Bryan Lee O'Malley: *Lost at Sea*
 
@@ -23,5 +23,8 @@ This coming-of-age graphic novel, or rather graphic novella, exceeded my expecta
 
 - Thomas Bernhard: *Wittgensteins Neffe*
 
-Why did Bernhard evoke the association with Ludwig Wittgenstein in the title? Within in the text, as so often with Bernhard it can hardly be called a "story", Ludwig Wittgenstein only serves as the one of whom Bernhard and Paul Wittgenstein do not speak. They mention him, but they never discuss his philosophy. By giving the book this title Bernhard made the comparison between the eccentric Paul and the successful, although equally eccentric, Ludwig much more salient than it would otherwise have been. I don't know why. Paul can stand for himself. Otherwise, this 
-book allows the reader to get a bit closer to Bernhard, which he probably wouldn't want you to.
+Why did Bernhard evoke the association with Ludwig Wittgenstein in the title? Within in the text, as so often with Bernhard it can hardly be called a "story", Ludwig Wittgenstein only serves as the one of whom Bernhard and Paul Wittgenstein do not speak. They mention him, but they never discuss his philosophy. By giving the book this title Bernhard made the comparison between the eccentric Paul and the successful, although equally eccentric, Ludwig much more salient than it would otherwise have been. I don't know why. Paul can stand for himself. Otherwise, this book allows the reader to get a bit closer to Bernhard, which he probably wouldn't want you to.
+
+
+---
+[0] See: http://www.paulgraham.com/philosophy.html There is much to be said about the limitations of this text by Graham, but I'll leave it for another time.
