@@ -2,7 +2,7 @@
 layout: post
 title:  "Managing Each Other's Motivations"
 date:   2018-05-20 17:41:13 +0100
-categories: motivational change
+categories: motivational_change
 ---
 
 Although in recent years the literature on preference change has grown (see especially Grüne-Yanoff & Hansson 2009), formal treatments of motivational change remain fragmentary at best. We do not understand well how our motivational landscape develops. I want to suggest that at the same time we manage each other's motivations on a daily basis and with perhaps surprising success. While we sometimes say "each to their own", as often we try to make each other change their wants and preferences.[0]

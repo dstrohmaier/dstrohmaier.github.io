@@ -2,7 +2,7 @@
 layout: post
 title:  "Studying at Cambridge: Setting the Scence"
 date:   2018-10-05 17:51:13 +0100
-categories: Cambridge, CS, NLP
+categories: Cambridge CS NLP
 ---
 
 My cross-disciplinary adventure is starting in earnest. My first courses in CS are beginning and I hope to document the experience and the outcomes on this blog. In this post I'll set the scene for what will follow over the next nine months.

@@ -2,7 +2,7 @@
 layout: post
 title:  "ML in the Masters programs"
 date:   2018-10-12 18:51:13 +0100
-categories: master, ML, CS
+categories: master ML CS
 ---
 
 

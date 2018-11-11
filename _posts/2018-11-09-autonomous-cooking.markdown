@@ -2,7 +2,7 @@
 layout: post
 title:  "Autonomous Cooking"
 date:   2018-11-09 18:51:13 +0100
-categories: autonomy, AI
+categories: autonomy
 ---
 
 In at least one of my currently circulating research statements I propose that in the future[0] we might construct cooking robots with a degree of motivational autonomy. Such a robot would control the development of its own tastes, managing them in a way responsive to our reaction -- the feedback we give it -- but without just cooking to our taste. It would develop tastes of its own with a degree of autonomy![1]
