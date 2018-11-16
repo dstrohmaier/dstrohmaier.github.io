@@ -1,0 +1,30 @@
+---
+layout: post
+title:  "CS Papers #2"
+date:   2018-11-16 13:51:13 +0100
+categories: reading
+---
+
+I intend to keep a log of the papers I'm reading in the course of my CS MPhil studies. To limit the amount of time needed, I offer only a very concise summary (1-3 sentences) and a similarly brief evaluation based on my reading and the discussion in my courses. Feel free to challenge both summary and evaluation by dropping me an email!
+
+
+Androutsopoulos, I. et al. (2000): An Experimental Comparison of Naive Bayesian and Keyword-Based Anti-Spam Filtering with Personal E-Mail Messages
+Summary: Spam filtering used to be done with hand-coded rules some engineer improvised. A simple machine learning technique such as a naive Bayes classifier performs better at identifying spam.
+Evaluation: While the overall lesson of this paper remains correct, the set-up is questionable. The ad-hoc anonymised corpus doesn't allow deeper investigations into the NLP aspect of the task and the chosen metric can appear ad-hoc.
+
+Medlock, B. (2006): An Adaptive, Semi-Structured Language Model Approach
+to Spam Filtering on a New Corpus
+Summary: Presents a new corpus for the spam-filtering task and uses a language model with interpolation for the classifcation of email. The emails are treated as semi-structured documents. The language model and SVM show good performance.
+Evaluation: While Androutsopoulos et al. take a machine learning perspective on a previously hand-coded rule-based task, Medlock approaches the problem as a computational linguist. Overall the paper is more mature and appears more reliable - but I haven't tried to replicate it.
+
+Klein et al. (2003): Named Entity Recognition with Character-Level Models
+Summary: A typical approach to named entity recognition (at the time anyways) uses word-internal features to make sense of unknown words. This paper tries to improve upon this solution by working at the character-level.  
+Evaluation: The performance differences don't seem amazing, but that might be misleading. If the improvement was mainly supposed to arise for unknown words (i.e. those not included in the gazeteer) why not just give numbers for them? 
+
+Ratino, L. & Roth D. (2009): Design Challenges and Misconceptions in Named Entity Recognition
+Summary: The paper explores a number of fundamental design decisions for NER, such as BIO vs BILOU scheme, the role of non-local features, and various algorithms. It turns out that greedy search does not do much worse than Viterbi or Beam search while requiring considerably less computational resources. 
+Evaluation: The unity of the paper appears precarious to me, although the discussion in the seminar helped in that regard. The result that greedy search performs comparatively to computationally more expensive algorithms falls into the category of "working better than it should", one that is all too familiar from other work in machine learning.
+
+Pang et al. (2002): Thumbs up? Sentiment Classification Using Machine Learning Techniques
+Summary: Pang et al. introduced the task of classifying movie reviews according to sentiment (positive or negative) and compares a number of basic machine learning algorithm. SVMs perform pretty well.
+Evaluation: I can't help but think of what Adorno would have said about such flattening aesthetic judgement to a classification into positive or negative. Perhaps he would find it dishearteningly appropriate for products of the cultural industry, but even for movie reviews it is dubious (consider movies that are so bad, they are good again). The paper doesn't care about that, they just want to experiment with machine learning algorithms.
