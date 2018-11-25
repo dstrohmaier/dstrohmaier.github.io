@@ -18,6 +18,7 @@ Hopefully, I have given some indication of why formal computational semantics ap
 
 ---
 [0] The SEP mentions computational semantics as part of [computational linguistics][SEP-compling].
+
 [1] [Jurafsky & Martin][jurafsky-martin] as well as the [NLTK-book][nltk-book-semantics] also cover the basics of computational semantics.
 
 [blackburnbos]: http://www.let.rug.nl/bos/comsem/
