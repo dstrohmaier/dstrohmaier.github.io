@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Is Stotting an Intentional Sign?"
-date:   2019-02-17 18:57:13 +0100
+date:   2019-03-17 18:57:13 +0100
 categories: reading
 ---
 
