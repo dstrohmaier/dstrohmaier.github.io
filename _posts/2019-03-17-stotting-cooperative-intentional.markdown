@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Is Stotting an Intentional Sign?"
+title:  "Is Stotting a Cooperative Intentional Sign?"
 date:   2019-03-17 18:57:13 +0100
 categories: reading
 ---

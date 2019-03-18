@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Indeterminacy and Another Kind of Preference Change"
+title:  "Indeterminacy and Preference Change"
 date:   2019-03-18 19:17:13 +0100
 categories: change
 ---
