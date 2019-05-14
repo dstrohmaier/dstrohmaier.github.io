@@ -24,7 +24,7 @@ If we cannot distinguish the normative aspects intrinsic to social kinds from th
 
 [1] Of course, that assertion has been questioned. Thomistic theories of natural law would be one example. 
 
-[2] "Intrinsic" appears more appropriate than "necessary" to me. I also hope to avoid discussing the modal character of kinds. 
+[2] "Intrinsic" appears more appropriate than "necessary" to me, but this linguistic intution might very well be questioned. I also hope to avoid discussing the modal character of kinds. 
 
 [3] I am not too committed at the relation being one of constitution. One might argue for grounding or any other ontological dependence relationship with explanatory force.
 
