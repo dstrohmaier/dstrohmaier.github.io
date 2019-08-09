@@ -8,7 +8,7 @@ My work crosses the divides between philosophy, computer science, and the social
 
 I also work in natural language processing and computational linguistics.
 
-For my CV click here.
+For my CV click [here](assets/pdf/cv_strohmaier.pdf).
 
 I have received a PhD in philosophy from the University of Sheffield and I have completed an MPhil in advanced computer science at the University of Cambridge. You can contact me at davidstrohmaier92@gmail.com.
 
