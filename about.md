@@ -4,22 +4,21 @@ title: About
 permalink: /about/
 ---
 
-I am fascinated by the flexible and social character of human agency confronted with changing situations. You go out the door assuming you can grab breakfast at the usual place. Turns out it's closed for renovation. In response to this experience you have to make up your mind quickly. Do you have time to get something else? Do you know another place nearby? Could you stand an empty stomach until lunch? All this might go through your head while you keep moving through the streets.
+My work crosses the divides between philosophy, computer science, and the social sciences. I investigate the fundamental ontology of the social and the dynamics of human agents. The flexible and social character of human agency confronted with changing situations fascinates me. 
 
-The human capacity to respond flexible to changing situations becomes even more impressive in combination with our social nature. Thinking about where to have your breakfast you have to take into account what others expect of you (would anyone mind if you came five minutes late?) and you have to consider where others might have opened their breakfast places. How do we put all this together? How do we pick out everything significant, adapt our beliefs and wants, and stay on time? How do we communicate and share reasons in such fluid environments? I also ask these questions with regard to groups: How do groups decide, change their goals, and adapt to changing situations? *Changing Insights* reports from my engagement with these questions and related issues.
+I also work in natural language processing and computational linguistics.
 
-I am also interested in other topics in philosophy and computer science, including but not limited to computational semantics, metaphysics, Prolog, cognitive science, machine learning.
+For my CV click here.
 
-This blog is maintained by David Strohmaier. I have received a PhD in philosophy from the University of Sheffield and I am currently working towards an MPhil in advanced computer science at the University of Cambridge. You can contact me at davidstrohmaier92@gmail.com.
+I have received a PhD in philosophy from the University of Sheffield and I have completed an MPhil in advanced computer science at the University of Cambridge. You can contact me at davidstrohmaier92@gmail.com.
 
 
 ---
 
-This blog uses the Jekyll blog generator with the Minima theme.
+This blog uses the Jekyll blog generator with the Prologue theme.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+You can find the source code for Prologue at GitHub:
+[Prologue](https://github.com/chrisbobbe/jekyll-theme-prologue)
 
 You can find the source code for Jekyll at GitHub:
 [jekyll][jekyll-organization] /
