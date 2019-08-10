@@ -4,12 +4,10 @@ title: About
 permalink: /about/
 ---
 
-[Picture of David Strohmaier](assets/images/small_me.jpg)
+![Picture of David Strohmaier](assets/images/small_me.jpg)
 
 
-My work crosses the divides between philosophy, computer science, and the social sciences. I investigate the fundamental ontology of the social and the dynamics of human agents. The flexible and social character of human agency confronted with changing situations fascinates me. 
-
-I also work in natural language processing and computational linguistics.
+My work crosses the divides between philosophy, computer science, and the social sciences. I investigate the ontology of the social and the dynamics of human agents.  In addition, I have an interest in machine learning and work in natural language processing and computational linguistics.
 
 For my CV click [here](assets/pdf/cv_strohmaier.pdf).
 
