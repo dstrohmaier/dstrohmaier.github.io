@@ -7,6 +7,7 @@
 /*
 	Prologue by HTML5 UP
 	html5up.net | @ajlkn
+	A few adaptations were made by David Strohmaier
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
@@ -65,7 +66,7 @@
 		font-size: 19pt;
 		font-weight: 300;
 		line-height: 1.75em;
-		color: #444;
+		color: #111;
 
 		&.is-loading * {
 			@include vendor('transition', 'none !important');
@@ -78,12 +79,12 @@
 		font-size: 19pt;
 		font-weight: 300;
 		line-height: 1.75em;
-		color: #444;
+		color: #111;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
 		font-weight: 300;
-		color: #333;
+		color: #111;
 		line-height: 1.5em;
 	}
 
@@ -92,7 +93,7 @@
 		text-decoration: none;
 
 		strong {
-			color: #222;
+			color: #111;
 		}
 	}
 
@@ -119,7 +120,7 @@
 
 	strong, b {
 		font-weight: 300;
-		color: #444;
+		color: #111;
 	}
 
 	em, i {
