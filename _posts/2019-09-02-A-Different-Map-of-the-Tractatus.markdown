@@ -7,7 +7,7 @@ categories: NLPhilosophy
 
 Over the years there have been a number of visualisations of Wittgenstein's Tractatus Logico-Philosophicus. Most of them have made use of the tree structure Wittgenstein imposed on his text. With today's web-technologies, [these](https://homepage.univie.ac.at/noichlm94/posts/tractatus/) [representations](https://pbellon.github.io/tractatus-tree/) of the text can be excellent. I present here a map of the Tractatus you might not have seen before. 
 
-[! /assets/images/visualisation_tractatus.gif]
+![3D GIF of Tractatus statements](/assets/images/visualisation_tractatus.gif)
 
 The picture shows an interactive representation of embeddings I have created for all statements in the Tractatus. Embeddings are vector-representations of meaning. Usually they are created on the levels of tokens, but there are ways of aggregating them to higher levels. I took the relatively easy root of averaging the embeddings for all the tokens in the statements. The result should be a map of how close the semantic relations between the statements are.[0] The closer two vectors are, the closer the statements.
 
