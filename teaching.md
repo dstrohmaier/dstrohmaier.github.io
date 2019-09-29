@@ -1,6 +1,6 @@
 ---
 title: Teaching
-subtitle: On my teaching
+subtitle: on my teaching
 layout: "page"
 icon: fa-book
 order: 4
