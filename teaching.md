@@ -2,12 +2,13 @@
 title: Teaching
 subtitle: on my teaching
 layout: "page"
-icon: fa-book
+icon: fa-graduation-cap
 order: 4
 ---
 
 Syllabuses
 * [Introduction to Social Ontology](assets/pdf/syllabus_strohmaier.pdf)
+* [Game Theory and Cooperation](assets/pdf/game_theory_strohmaier.pdf)
 
 
 Teaching Experience
