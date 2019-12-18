@@ -119,11 +119,12 @@
 	}
 
 	strong, b {
-		font-weight: 300;
+		font-weight: 400;
 		color: #111;
 	}
 
 	em, i {
+		font-weight: 400;
 		font-style: italic;
 	}
 
@@ -193,7 +194,7 @@
 
 	dl {
 		dt {
-			font-weight: 300;
+			font-weight: 400;
 			color: #666;
 		}
 		dd {
@@ -1061,6 +1062,17 @@
 				font-weight: 300;
 				color: #111;
 			}
+			
+			strong, b {
+				font-weight: 300;
+				color: #111;
+			}
+
+			em, i {
+				font-weight: 300;
+				font-style: italic;
+			}
+			
 
 			.container {
 				padding: 0 15px 0 15px;
@@ -1073,6 +1085,7 @@
 					a {
 						width: 2em;
 						font-size: 1.25em;
+						font-weight: 300;
 					}
 				}
 			}
