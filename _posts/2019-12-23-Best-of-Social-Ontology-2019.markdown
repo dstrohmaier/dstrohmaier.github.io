@@ -5,7 +5,7 @@ date:   2019-12-23 19:57:13 +0100
 categories: philosophy
 ---
 
-Social ontology, by which I mean a subfield of contemporary analytic philosophy, is a comparatively small enterprise so far. That makes gathering a Best-Of-list difficult. There just aren't that many great papers coming out each year, or other notable events. Here are five highlights I could find. Feel free to send me any others and I might update this entry.
+Social ontology, by which I mean a subfield of contemporary analytic philosophy, is a comparatively small enterprise so far. That makes gathering a Best-Of-list difficult. There just aren't that many great papers coming out each year, or other notable events. Here are five highlights I could find. Feel free to send me an email and suggest other contributions to the field. I might update this entry later.
 
 Brian Epstein's paper ["What are social groups? Their metaphysics and how to classify them"](https://philpapers.org/rec/EPSWAS-2) has been available as forthcoming for a while, but the official publication date has been 2019, which hopefully justifies including it in this list.[0]
 
