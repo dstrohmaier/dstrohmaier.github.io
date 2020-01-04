@@ -5,7 +5,7 @@ date:   2020-01-04 14:57:13 +0100
 categories: philosophy
 ---
 
-I've recently posted a short list of [social ontology highlights from 2019](http://dstrohmaier.com/philosophy/2019/12/23/Best-of-Social-Ontology-2019.html), but [Kirk Ludwig](http://philosophy.indiana.edu/people/ludwig.shtml) sent me a much more complete list. I present it here in rearranged form.
+I've recently posted a short list of [social ontology highlights from 2019](http://dstrohmaier.com/philosophy/2019/12/23/Best-of-Social-Ontology-2019.html), but [Kirk Ludwig](http://philosophy.indiana.edu/people/ludwig.shtml) sent me a much more extensive list. I present it here in rearranged form.
 
 ## Publications
 
