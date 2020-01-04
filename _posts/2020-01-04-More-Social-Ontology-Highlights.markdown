@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "More Social Ontology Highlight"
+title:  "More Social Ontology Highlights"
 date:   2020-01-04 14:57:13 +0100
 categories: philosophy
 ---
 
-I've recently posted a short list of [social ontology highlights from 2019](http://dstrohmaier.com/philosophy/2019/12/23/Best-of-Social-Ontology-2019.html), but [Kirk Ludwig](http://philosophy.indiana.edu/people/ludwig.shtml) sent me a much more complete list.  I it present here in rearranged form.
+I've recently posted a short list of [social ontology highlights from 2019](http://dstrohmaier.com/philosophy/2019/12/23/Best-of-Social-Ontology-2019.html), but [Kirk Ludwig](http://philosophy.indiana.edu/people/ludwig.shtml) sent me a much more complete list. I present it here in rearranged form.
 
 ## Publications
 
@@ -27,9 +27,11 @@ On top of Kirk's list was the [Social Ontology/ENSO conference in Tampere](https
 * [Social Agency, Group Agency & Relational Normativity](https://groupagency.univie.ac.at/fileadmin/user_upload/p_groupagency/Program_Conference_Social_Agency.pdf)
 * [Group Agency and Collective Responsibility](https://groupagency.univie.ac.at/events/workshops-and-conferences/workshop-group-agency-and-collective-responsibility/)
 * [Shared Agency, Rationality, Normativity ](https://groupagency.univie.ac.at/events/workshops-and-conferences/workshop-shared-agency-rationality-normativity/ ) (with Michael Bratman and David Velleman)
+
 There were two events in Milan:
 * Adelaide de Lastic "The Political Dimension of an Enterprise’s Collective Agency", Thursday 28 March 2019
 * [A Pragmatist take on Social Ontology: Habits, Social Practices, Statuses]( http://www.dipafilo.unimi.it/ecm/home/aggiornamenti-e-archivi/tutte-le-notizie/content/28-novembre-2019-italo-testa-a-pragmatist-take-on-social-ontology-habits-social-practices-statuses.0000.UNIMIDIRE-81494)
+
 Other events:
 * The [2019 Pacific APA meeting had a symposium](https://www.apaonline.org/event/2019pacific) on Kirk's second book, [From Plural to Institutional Agency: Collective Action 2](https://global.oup.com/academic/product/from-plural-to-institutional-agency-9780198789994). with Maria Jankovic and Carol Rovane as commentators
 * [Workshop on Social Ontology, Normativity, and Philosophy of Law](https://socialontologyglasgow.wordpress.com/events/), Glasgow University Law School, May 30-31
