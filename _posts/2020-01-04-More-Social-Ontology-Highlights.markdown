@@ -33,7 +33,7 @@ There were two events in Milan:
 * [A Pragmatist take on Social Ontology: Habits, Social Practices, Statuses]( http://www.dipafilo.unimi.it/ecm/home/aggiornamenti-e-archivi/tutte-le-notizie/content/28-novembre-2019-italo-testa-a-pragmatist-take-on-social-ontology-habits-social-practices-statuses.0000.UNIMIDIRE-81494)
 
 Other events:
-* The [2019 Pacific APA meeting had a symposium](https://www.apaonline.org/event/2019pacific) on Kirk's second book, [From Plural to Institutional Agency: Collective Action 2](https://global.oup.com/academic/product/from-plural-to-institutional-agency-9780198789994). with Maria Jankovic and Carol Rovane as commentators
+* The [2019 Pacific APA meeting had a symposium](https://www.apaonline.org/event/2019pacific) on Kirk's second book, [From Plural to Institutional Agency: Collective Action 2](https://global.oup.com/academic/product/from-plural-to-institutional-agency-9780198789994). (With Maria Jankovic and Carol Rovane as commentators)
 * [Workshop on Social Ontology, Normativity, and Philosophy of Law](https://socialontologyglasgow.wordpress.com/events/), Glasgow University Law School, May 30-31
 * [European Network for Philosophy of the Social Sciences (ENPOSS)](http://enposs.eu/past-enposs-2/) in Athens
 * The [PPE Society meeting in spring 2019](https://ppesociety.org/the-2019-ppe-society-meeting/) also featured some social ontology papers
