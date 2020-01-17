@@ -8,6 +8,8 @@
   <ul>
     {%- assign _pages = site.html_pages | where_exp: "page", "page.hide != true" -%}
     {%- unless _pages == null -%}
+	  <li><a href="assets/pdf/cv_strohmaier.pdf" id="CV-link" class="scrolly">CV</a></li>
+
       {%- assign _pages = _pages | sort: 'order' -%}
       {%- for _page in _pages -%}
         {%- assign _title = _page.title | default: _page.layout -%}
@@ -50,7 +52,6 @@
         {%- endif -%}
         <li><a href="#{{- _slug -}}" id="{{- _slug -}}-link" class="scrolly"><span class="{{ _class }} {{ _icon }}">{{- _title -}}</span></a></li>
       {%- endfor -%}
-	  <li><a href="assets/pdf/cv_strohmaier.pdf" id="CV-link" class="scrolly">CV</a></li>
     {%- endunless -%}
   </ul>
 </nav>
