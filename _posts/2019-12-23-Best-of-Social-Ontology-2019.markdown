@@ -20,4 +20,4 @@ BONUS: Arto Laitinen has told me that a book symposium on Ásta's *Categories We
 ***
 *Footnotes*
 
-[0] Two other publications on the ontology of groups deserve honourable mentions, even though they have appeared in 2018 (as forthcoming without a date yet). The first is Katherine Ritchie's ["Social Structures and the Ontology of Social Groups"](https://philpapers.org/rec/RITSSA-4) and the second is Gabriel Uzquiano's ["Groups: Toward a Theory of Plural Embodiment"](https://philpapers.org/rec/UZQGTA).
+[0] Two other publications on the ontology of groups deserve honourable mentions, even though they have appeared in 2018 (as forthcoming without a date yet in the first case). The first is Katherine Ritchie's ["Social Structures and the Ontology of Social Groups"](https://philpapers.org/rec/RITSSA-4) and the second is Gabriel Uzquiano's ["Groups: Toward a Theory of Plural Embodiment"](https://philpapers.org/rec/UZQGTA).
