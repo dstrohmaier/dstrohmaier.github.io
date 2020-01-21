@@ -16,6 +16,6 @@ Of course, this approach also leaves much unexplained. If the shake-up of the re
 Combined with the flamboyant figure of Talleyrand, the theory makes for a good story. That is one reason I don't trust it. We are suckers for such stories, all too willing to believe them because they engage us. This bias has to be corrected with a dose of scepticism, but that doesn't undermine the book's standing as an excellent telling of the story.
 
 ---
-#### Footnotes
+### Footnotes
 
-[0] I did not quite understand what Cooper means when he describes Talleyrand as being in favour of Europe. It is supposedly not just the status quo Talleyrand favours, but some sort of flourishing of the continent.
+[0] I do not quite understand what Cooper has in mind when he describes Talleyrand as being in favour of Europe. It is supposedly not just the status quo Talleyrand favours, but some sort of flourishing of the continent.
