@@ -5,7 +5,7 @@ date:   2020-04-30 11:00:13 +0000
 categories: Word_Senses
 ---
 
-For my most recent lockdown reading, I've turned to a classic: W.V.O. Quine's _Word & Object_. Expect a few postings on this book. My perspective is that of a philosopher working in NLP, specifically word sense disambiguation. 
+For my most recent lockdown reading, I've turned to a classic: W.V.O. Quine's *Word & Object*. Expect a few postings on this book. My perspective is that of a philosopher working in NLP, specifically word sense disambiguation. 
 
 In chapter 1 §4, Quine distinguishes different ways of learning words, or more specifically learning how to use words. Quine distinguishes three ways of learning words:
 
@@ -31,6 +31,6 @@ Despite these connections between Quine and the word embedding literature, there
 ---
 ## References
 
-Mikolov, T., Yih, W., & Zweig, G. (2013). "Linguistic Regularities in Continuous Space Word Representations". _Proceedings of the 2013 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies_, 746–751. https://www.aclweb.org/anthology/N13-1090
+Mikolov, T., Yih, W., & Zweig, G. (2013). "Linguistic Regularities in Continuous Space Word Representations". *Proceedings of the 2013 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies*, 746–751. https://www.aclweb.org/anthology/N13-1090
 
-Quine, Willard Van Orman (2013 [1960]). _Word and Object_. Edition. MIT Press.
+Quine, Willard Van Orman (2013 [1960]). *Word and Object*. Edition. MIT Press.
