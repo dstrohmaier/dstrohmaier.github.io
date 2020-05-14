@@ -5,17 +5,17 @@ date:   2020-04-30 11:00:13 +0000
 categories: Word_Senses
 ---
 
-For my most recent lockdown reading, I've turned to a classic: W.V.O. Quine's *Word & Object*. Expect a few postings on this book. My perspective is that of a philosopher working in NLP, specifically word sense disambiguation. 
+For my most recent lockdown reading, I've turned to a classic: W.V.O. Quine's *Word & Object*. Hopefully I will get to write a few posts on this book. As you will see exmemplifed by the present post, my perspective is that of a philosopher working in NLP, specifically word sense disambiguation. 
 
 In chapter 1 §4, Quine distinguishes different ways of learning words, or more specifically learning how to use words. Quine distinguishes three ways of learning words:
 
-1. Learning words in isolation (as a one-word sentences such as "Ouch!")
-2. Learning contextually (sometimes unavoidable, for example in the case of "sake")
-3. Learning by description (an especially significant form of learning contextually)
+1. Learning words in isolation. For example, one-word sentences such as "Ouch!" could be supposedly learned independently of other discourse.
+2. Learning contextually. According to Quine, sucht learning is sometimes unavoidable, for example in the case of "sake".
+3. Learning by description. Strictly speaking, this is supposed to be an especially significant form of learning contextually.
 
 What caught my fancy is Quine's discussion of learning by description, which he illustrates with the case of "microbes". He suggests that the intelligibility of such descriptions relies on analogy (more specifically extrapolation as a form of analogy). As Quine writes, "microbes are supposed to compare in size to motes of dust as these do to the bees" (p. 13). Analogies, thus, have a prominent place in making word senses intelligible.[0]
 
-As it happens, analogies also play an important part in the recent history of word senses in NLP. It has been shown that analogies such as "Tokyo" is to "Japan" as "Paris" is to "France" can be derived from word embeddings (cf. Mikolov et al. 2013). The analogy task is an ongoing challenge for word embeddings; a way to evaluate them without a more complicated downstream system.[1]
+As it happens, analogies also play an important part in the recent history of word senses in NLP. Current NLP research uses word embeddings, dense vectors, to represent senses. These representations can be evaluated in the analogy task, the goal of which is to assess whether analogies -- For example, "Tokyo" is to "Japan" as "Paris" is to "France". -- can be derived from word embeddings.[1]
 
 The prominence of analogies in these two areas raised for me the question whether analogies shed a special light on word senses. I propose that analogies are one of the simplest intelligible operations in the space of lexical meaning. In the case of word embeddings, we are concerned with a literal operation in vector space. The intelligible nature of this operation allows learning to take place, that is to acquire understanding about a new word sense, that is what Quine is concerned with. In the case of the analogy task for word embeddings, the representation is instead tested against a pre-existing understanding.
 
