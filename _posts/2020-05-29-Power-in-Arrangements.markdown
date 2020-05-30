@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Power in Subtle Arrangements"
-date:   2020-29-05 11:57:13 +0100
+date:   2020-05-29 11:57:13 +0100
 categories: Social_Ontology
 ---
 
