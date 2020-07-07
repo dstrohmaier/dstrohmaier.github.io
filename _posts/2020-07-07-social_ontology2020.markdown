@@ -11,6 +11,6 @@ In my [talk](https://so2020.isosonline.org/conference/social-computation-support
 
 There will also be a Q&A session, but they haven't been scheduled yet. 
 
-![Picture of Myself](assets/images/pixel_me.png)
+![Picture of Myself](/assets/images/pixel_me.png)
 
 
