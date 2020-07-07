@@ -9,8 +9,9 @@ I am presenting at the 2020 Social Ontology Conference and because it is virtual
 
 In my [talk](https://so2020.isosonline.org/conference/social-computation-supporting-kinds/), I discuss the notion of social-computation-supporting kinds. A longer paper exploring the idea will hopefully be published soon. The main advantage of the video is the excellent pixel art.
 
+![Picture of Myself](/assets/images/pixel_me.png)
+
 There will also be a Q&A session, but they haven't been scheduled yet. 
 
-![Picture of Myself](/assets/images/pixel_me.png)
 
 
