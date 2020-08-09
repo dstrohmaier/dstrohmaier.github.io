@@ -25,9 +25,9 @@ Changes in group formation can take place on a historical time-scale. The creati
 
 ### References
 
-Fine, G. A. (2010). The Sociology of the Local: Action and its Publics. _Sociological Theory_, 28(4), 355–376. https://doi.org/10.1111/j.1467-9558.2010.01380.x
+Fine, G. A. (2010). The Sociology of the Local: Action and its Publics. _Sociological Theory_, 28(4), 355–376. [https://doi.org/10.1111/j.1467-9558.2010.01380.x]
 
-Fine, G. A. (2012). Group Culture and the Interaction Order: Local Sociology on the Meso-Level. _Annual Review of Sociology_, 38(1), 159–179. https://doi.org/10.1146/annurev-soc-071811-145518
+Fine, G. A. (2012). Group Culture and the Interaction Order: Local Sociology on the Meso-Level. _Annual Review of Sociology_, 38(1), 159–179. [https://doi.org/10.1146/annurev-soc-071811-145518]
 
 
 
