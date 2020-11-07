@@ -1,15 +1,13 @@
-{%- comment -%}
-  Include vars:
-  scrolly_nav
-{%- endcomment -%}
+<header>
 
-<!-- Header -->
-<div id="header">
-  <div class="top">
-    {%- include logo.html -%}
-    {%- include nav.html section_items=include.scrolly_nav -%}
-  </div>
-  <div class="bottom">
-    {%- include social_icons.html -%}
-  </div>
-</div>
+  <h1>{{ site.author }}'s personal site</h1>
+  <p>
+    <a href="{{ site.baseurl }}/">Home</a> &middot;
+    <a href="{{ site.baseurl }}/essays">Essays</a> &middot;
+    <a href="{{ site.baseurl }}/tutorials">Tutorials</a> &middot;
+    <a href="{{ site.baseurl }}/about">About</a> &middot;
+    <a href="{{ site.baseurl }}/contact">Contact</a>
+  </p>
+  <hr />
+
+</header>
