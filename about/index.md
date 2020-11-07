@@ -6,12 +6,10 @@ permalink: /about/
 
 ![Picture of David Strohmaier](/assets/images/small_me.jpg)
 
-
-My work crosses the divides between philosophy, computer science, and the social sciences. I investigate the ontology of the social and the dynamics of human agents.  In addition, I have an interest in machine learning and work in natural language processing and computational linguistics.
+I have received a PhD in philosophy from the University of Sheffield and I have completed an MPhil in advanced computer science at the University of Cambridge. Currently I work as a research associate in the Department of Computer Science and Technology at Cambridge. I am supported by the [ALTA institute](http://alta.cambridgeenglish.org/). My research focusses on natural language processing using neural networks and I have also published in social ontology. You can contact me at ds858@cam.ac.uk.
 
 For my CV click [here](/assets/pdf/cv_strohmaier.pdf).
 
-I have received a PhD in philosophy from the University of Sheffield and I have completed an MPhil in advanced computer science at the University of Cambridge. You can contact me at davidstrohmaier92@gmail.com.
 
 
 ---
