@@ -4,9 +4,6 @@ title: Contact
 updated: 2020-04-01 09:00:00 +0200
 ---
 
-You can &hellip;
-
-- send me email to [{{ site.email }}][email]
-- chat with me on IRC. I go by *{{ site.irc }}* and mostly hang on [#{{ site.ircchannel }}][irc]
+I am always looking for feedback and cooperation. If you want to comment, work together, or complain, email me at [{{ site.email }}][email].
 
 [email]: mailto:{{ ds858@cam.ac.uk }}
