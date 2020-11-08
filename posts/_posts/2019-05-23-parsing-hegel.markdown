@@ -2,7 +2,7 @@
 layout: post
 title:  "Parsing Hegel"
 date:   2019-05-23 14:57:13 +0100
-categories: posts
+category: posts
 ---
 
 In another life I read a lot of Hegel, now a mere side-interest of mine. Despite the assurances of my former supervisor Bob Stern to the contrary, Georg Wilhelm Friedrich Hegel's work is infamously opaque. Making sense of his *Phenomenology of Spirit* poses a considerable challenge, and those who claim to understand him often end up with rather different readings.

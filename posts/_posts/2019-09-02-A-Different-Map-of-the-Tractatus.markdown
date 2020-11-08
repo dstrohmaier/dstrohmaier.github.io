@@ -2,7 +2,7 @@
 layout: post
 title:  "A Different Map of the Tractatus"
 date:   2019-09-02 17:57:13 +0000
-categories: posts
+category: posts
 ---
 
 Over the years there have been a number of visualisations of Wittgenstein's Tractatus Logico-Philosophicus. Most of them have made use of the tree structure Wittgenstein imposed on his text. With today's web-technologies, [these](https://homepage.univie.ac.at/noichlm94/posts/tractatus/) [representations](https://pbellon.github.io/tractatus-tree/) of the text can be excellent. In this post, however, I present a map of the Tractatus unlike any of these previous experiments. 

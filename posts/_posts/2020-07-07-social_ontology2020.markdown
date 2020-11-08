@@ -2,7 +2,7 @@
 layout: post
 title:  "Presentation at the 2020 Social Ontology Conference"
 date:   2020-07-07 11:57:13 +0100
-categories: posts
+category: posts
 ---
 
 I am presenting at the 2020 Social Ontology Conference and because it is virtual, you can all watch it online. The [conference website](https://so2020.isosonline.org/) provides videos of all talks.

@@ -2,7 +2,7 @@
 layout: post
 title:  "Best of Social Ontology 2019"
 date:   2019-12-23 19:57:13 +0100
-categories: posts
+category: posts
 ---
 
 Social ontology, by which I mean a subfield of contemporary analytic philosophy, is a comparatively small enterprise so far. That makes gathering a best-of-2019 list difficult. There just aren't that many great papers coming out each year, or other notable events. Here are five highlights I could find. Feel free to send me an email and suggest other contributions to the field. I might update this entry later.
