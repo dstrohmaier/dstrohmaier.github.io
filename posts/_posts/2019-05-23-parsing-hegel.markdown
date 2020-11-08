@@ -23,11 +23,7 @@ Despite the intuitive character of the boxes, it is not exactly easy to make sen
 
 "For whatever might appropriately be said about philosophy in a preface - say a historical statement of the main drift and the point of view, the general content and results, a string of random assertions and assurances about truth - none of this can be accepted as the way in which to expound philosophical truth. "
 
-Failing on such Germanic verbosity is nothing of which Boxer has to be ashamed.It ends, however, the present hopes of rendering Hegel intelligible with the current technology.
-
-I want to suggest that Hegel's *Phenomenology* in fact works better with the neo-Davidsonian approach of Boxer than other philosophy texts, because it tries to describes the actions and experiences of spirit. What it describes is closer to action than what we find in most philosophy books. 
-
-If you generously fund me for four to five years, I will try to produce such representations for the whole of the *Phenomenology*. The decision whether that is a worthy investment of your money is up to you.
+Failing on such Germanic verbosity is nothing of which Boxer has to be ashamed. It ends, however, the hopes of rendering Hegel intelligible with the current technology.[3] If you generously fund me for four to five years, I will try to produce such representations for the whole of the *Phenomenology*. The decision whether that is a worthy investment of your money is up to you.
 
 You can find the code I used in a [public github repository](https://github.com/dstrohmaier/parsinghegel), but you need to install the C&C parser as well as Boxer for it to work, which is a challenge in its own right.
 
@@ -38,3 +34,5 @@ You can find the code I used in a [public github repository](https://github.com/
 [1] I am using the Miller translation.
 
 [2] The parse neglects a few niceties such as representing the word-senses was WordNet synset and the like, but that is not the problem.
+
+[3] As a sidenote, let me suggest that Hegel's *Phenomenology* in fact works better with the neo-Davidsonian approach of Boxer than other philosophy texts, because it tries to describes the actions and experiences of spirit. What it describes is closer to action than what we find in most philosophy books. 
