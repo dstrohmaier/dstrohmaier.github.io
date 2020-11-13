@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Home
-updated: 2020-11-13 13:06:20 +0000
+updated: 2020-11-13 13:08:29 +0000
 ---
 
 
@@ -10,7 +10,7 @@ updated: 2020-11-13 13:06:20 +0000
 
 {% for category in site.categories %}
   {% assign cat = category | first %}
-  {% if cat == posts %} 
+  {% if cat == "posts" %} 
     <h3>New blog post</h3>
   {% else %}
     <h3>New {{ cat }}</h3>
