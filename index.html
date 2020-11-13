@@ -1,16 +1,20 @@
 ---
 layout: default
 title: Home
-updated: 2020-11-09 09:38:48 +0000
+updated: 2020-11-13 13:00:34 +0000
 ---
 
 
 
-<em>"I am one of those who are very willing to be refuted if I say anything which is not true, and very willing to refute any one else who says what is not true, and quite as ready to be refuted as to refute- for I hold that this is the greater gain of the two, just as the gain is greater of being cured of a very great evil than of curing another."</em> - Socrates, Gorgias
+<p><em>"I am one of those who are very willing to be refuted if I say anything which is not true, and very willing to refute any one else who says what is not true, and quite as ready to be refuted as to refute- for I hold that this is the greater gain of the two, just as the gain is greater of being cured of a very great evil than of curing another."</em> - Socrates, Gorgias</p>
 
 {% for category in site.categories %}
   {% assign cat = category | first %}
-  <h3>New {{ cat }}</h3>
+  {% if cat = post %} 
+    <h3>New blog post</h3>
+  {% else %}
+    <h3>New {{ cat }}</h3>
+  {% endif %}
   <ul>
   {% for post in site.categories[cat] limit:2 %}
     {% unless post.draft %}
