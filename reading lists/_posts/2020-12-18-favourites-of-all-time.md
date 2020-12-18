@@ -9,7 +9,7 @@ category: reading lists
 - Noam Chomsky: The Structure of Syntax
 - Max Stirner: Der Einzige und sein Eigentum
 - Robert Caro: The Power Broker
-- Saul Kripke: Nameing and Necessity
+- Saul Kripke: Naming and Necessity
 - C.S. Peirce: The Essential Peirce
 - Ludwig Wittgenstein: Tractatus Logico-Philosophicus
 - Plato: Politeia
@@ -20,7 +20,7 @@ category: reading lists
 - Shakespeare: Coriolanus
 - Joseph Conrad: Heart of Darkness
 - Natsume Sōseki: Sanshirō
-- Ralph Ellison: Inivisible Man
+- Ralph Ellison: Invisible Man
 - Ann Cotten: Fremdwörterbuchsonnette
 - Edgar Allan Poe: Short Stories
 - Zora Neil Hurston: Their Eyes Were Watching God
