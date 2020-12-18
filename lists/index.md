@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Posts
+title: Reading Lists
 updated: 2020-11-16 11:18:56 +0000
 ---
 
@@ -8,7 +8,7 @@ Here I collect a few reading lists of various sorts I put together. Some record 
 
 
 <p>
-{% for post in site.categories."reading lists" %}
+{% for post in site.categories.lists %}
   {% unless post.draft %}
   {% assign currentdate = post.date | date: "%Y" %}
   {% if currentdate != date %}

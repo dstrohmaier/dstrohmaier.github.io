@@ -2,7 +2,7 @@
 layout: post
 title:  "Favourite Books"
 date:   2020-12-18 13:10:13 +0000
-category: reading lists
+category: lists
 ---
 
 # Non-Fiction
