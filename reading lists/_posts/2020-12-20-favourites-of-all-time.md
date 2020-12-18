@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Favourite Books"
-date:   2020-12-20 19:47:13 +0000
-category: lists
+date:   2020-12-18 13:10:13 +0000
+category: reading lists
 ---
 
 # Non-Fiction
@@ -22,5 +22,6 @@ category: lists
 - Natsume Sōseki: Sanshirō
 - Ralph Ellison: Inivisible Man
 - Ann Cotten: Fremdwörterbuchsonnette
+- Edgar Allan Poe: Short Stories
 - Zora Neil Hurston: Their Eyes Were Watching God
 
