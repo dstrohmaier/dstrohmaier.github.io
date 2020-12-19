@@ -15,8 +15,8 @@ Here is shortened text version of my CV, for a longer and better formatted PDF [
 
 ## Education
 
--University of Cambridge (Darwin College): MPhil in Advanced Computer Science. Awarded with Distinction.
--University of Sheffield: PhD in Philosophy.
+- University of Cambridge (Darwin College): MPhil in Advanced Computer Science. Awarded with Distinction.
+- University of Sheffield: PhD in Philosophy.
 - University of Sheffield: MA in Philosophy. Awarded with Distinction.
 - University of Göttingen: BA in Philosophy and Sociology. Grade: 1.3.
 - University of Göttingen: BA in Sociology. Grade: 1.3.
