@@ -10,7 +10,9 @@ I am a research associate in the Natural Language and Information Processing ([N
 
 My career path has been highly interdisciplinary. I received an MA and PhD in philosophy from the [University of Sheffield](https://www.sheffield.ac.uk/) in 2018. Afterwards, I completed an MPhil in Advanced Computer Science at the University of Cambridge. My MPhil project covered word sense disambiguation for semantic parsing and was supervised by [Prof. Ted Briscoe](https://www.cl.cam.ac.uk/~ejb1/). I received my undergraduate degrees in Sociology and Philosophy/Sociology from the [University of Göttingen](https://www.uni-goettingen.de/en/1.html).
 
-For my CV click [here](/assets/pdf/cv_strohmaier.pdf).
+I am always looking for feedback and cooperation. If you want to comment on my blog, work together, or complain, email me at [{{ site.email }}][email].
+
+[email]: mailto:ds858@cam.ac.uk
 
 
 
