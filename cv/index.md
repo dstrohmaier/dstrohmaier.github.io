@@ -7,27 +7,31 @@ permalink: /cv/
 
 Here is a text version of my CV, for a better formatted PDF [click here](/assets/pdf/cv_strohmaier.pdf).
 
-## Programming Languages
+### Programming Languages
+
 |  |
 | :------------ | :--------- |
 | Proficient:   | Python     |
 | Intermediate: | Prolog     |
 | Familiarity:  | C++, Julia |
 
-## Skills
+### Skills
+
 |  |
 | :---- | :--------------- | :---------- | :-------------------------- | :- |
 | Git   | ML/Deep Learning | Jupyter Lab | Natural Language Processing |  |
 | spaCy | NLTK             | pyTorch     | BERT                        |  |
 
-## Selected Work Experience
+### Selected Work Experience
+
 |  |
 | :------ | :-: | :---------------------------------------------------------------------------------------------------------- |
 | 2019-21 | – | Research Associate. University of Cambridge. Department of Computer Science and Technology. ALTA Institute. |
 | 2016    | – | Internship at the Hamburg Institute for Social Research (HIS).                                              |
 | 2013-14 | – | Student assistant. University of Göttingen. Department of Sociology.                                        |
 
-## Education
+### Education
+
 <span>**University of Cambridge (Darwin College)**</span>  
 MPhil in Advanced Computer Science. Awarded with Distinction.
 
@@ -43,12 +47,14 @@ BA in Philosophy and Sociology. Grade: 1.3.
 <span>**University of Göttingen**</span>  
 BA in Sociology. Grade: 1.3.
 
-## Online Presence
+### Online Presence
+
 |  |
 | :---------- | :------------------------------------------------------- | :----------- | :----------------------------------------- |
 | **Github:** | [github.com/dstrohmaier](https://github.com/dstrohmaier) | **Website:** | [dstrohmaier.com](https://dstrohmaier.com) |
 
-## Publications, Papers and Proceedings
+### Publications, Papers and Proceedings
+
 |  |
 | :------- | :-: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Accepted | – | “Social-Computation-Supporting Kinds”. In: *Canadian Journal of Philosophy*.                                                                                                                                                   |
@@ -56,7 +62,8 @@ BA in Sociology. Grade: 1.3.
 | 2019     | – | “Two Theories of Group Agency”. In: *Philosophical Studies*.                                                                                                                                                                   |
 | 2018     | – | “Group Membership and Parthood”. In: *Journal of Social Ontology*.                                                                                                                                                             |
 
-## Summer Schools and Research Visits
+### Summer Schools and Research Visits
+
 <span>**31st European Summer School in Logic, Language, and Information**</span>  
 Location: Latvian University, Riga  
 Duration: 2 weeks
@@ -73,7 +80,8 @@ Duration: 1 semester
 Host: Prof. Michael Quante  
 Duration: Less than 1 month
 
-## Grants, Scholarships and Awards
+### Grants, Scholarships and Awards
+
 |  |
 | :------ | :-: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 2015-18 | – | Arts and Humanities Research Council (AHRC) Competition Studentship for three years. Competetively warded via White Rose College of the Arts and Humanities (WRoCAH). |
@@ -82,7 +90,8 @@ Duration: Less than 1 month
 | 2013    | – | Niedersachsenstipendium (competitively awarded)                                                                                                                       |
 | 2011    | – | Deutschlandstipendium (competitively awarded)                                                                                                                         |
 
-## Conferences and Workshops
+### Conferences and Workshops
+
 |  |
 | :--- | :-: | :---------------------------------------------------------------------------------------------------------------------------------------- |
 | 2020 | – | Social Ontology 2020. Online. Title: *Social-Computation-Supporting Kinds*.                                                               |
@@ -97,7 +106,8 @@ Duration: Less than 1 month
 | 2016 | – | Collective Intentionality X. The Hague. Title: *A New Condition for Group Agency*.                                                        |
 | 2016 | – | 3rd International Conference Economic Philosophy. Aix-en-Provence. Title: *Corporations as Group Agents*.                                 |
 
-## Other Work and Teaching Experience
+### Other Work and Teaching Experience
+
 |  |
 | :------ | :-: | :--------------------------------------------------------------------------------------------------------------------------------------- |
 | 2017-18 | – | Third-year BA/MA-Course: *I, You, We*. Designed and taught with James Lewis. Opportunity competitively awarded. University of Sheffield. |
@@ -105,14 +115,16 @@ Duration: Less than 1 month
 | 2016    | – | Internship at the Hamburg Institue for Social Research (HIS).                                                                            |
 | 2013-14 | – | Student assistant at the Department of Sociology. University of Göttingen.                                                               |
 
-## Languages
+### Languages
+
 |  |
 | :------ | :--------------- |
 | German  | (first language) |
 | English | (fluent)         |
 | French  | (basic)          |
 
-## References
+### References
+
 |  |
 | :-----------------------: | :------------------------: | :-------------------------: |
 |    Prof. Robert Stern     |    Prof. Brian Epstein     |     Dr. Yonatan Shemmer     |
