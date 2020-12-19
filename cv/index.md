@@ -9,24 +9,21 @@ Here is a text version of my CV, for a better formatted PDF [click here](/assets
 
 ### Programming Languages
 
-|  |
-| :------------ | :--------- |
 | Proficient:   | Python     |
+| :------------ | :--------- |
 | Intermediate: | Prolog     |
 | Familiarity:  | C++, Julia |
 
 ### Skills
 
-|  |
-| :---- | :--------------- | :---------- | :-------------------------- | :- |
 | Git   | ML/Deep Learning | Jupyter Lab | Natural Language Processing |  |
+| :---- | :--------------- | :---------- | :-------------------------- | :- |
 | spaCy | NLTK             | pyTorch     | BERT                        |  |
 
 ### Selected Work Experience
 
-|  |
-| :------ | :-: | :---------------------------------------------------------------------------------------------------------- |
 | 2019-21 | – | Research Associate. University of Cambridge. Department of Computer Science and Technology. ALTA Institute. |
+| :------ | :-: | :---------------------------------------------------------------------------------------------------------- |
 | 2016    | – | Internship at the Hamburg Institute for Social Research (HIS).                                              |
 | 2013-14 | – | Student assistant. University of Göttingen. Department of Sociology.                                        |
 
@@ -49,15 +46,13 @@ BA in Sociology. Grade: 1.3.
 
 ### Online Presence
 
-|  |
-| :---------- | :------------------------------------------------------- | :----------- | :----------------------------------------- |
 | **Github:** | [github.com/dstrohmaier](https://github.com/dstrohmaier) | **Website:** | [dstrohmaier.com](https://dstrohmaier.com) |
+| :---------- | :------------------------------------------------------- | :----------- | :----------------------------------------- |
 
 ### Publications, Papers and Proceedings
 
-|  |
-| :------- | :-: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Accepted | – | “Social-Computation-Supporting Kinds”. In: *Canadian Journal of Philosophy*.                                                                                                                                                   |
+| :------- | :-: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 2020     | – | “SeCoDa: Sense Complexity Dataset”. First author. With: Sian Gooding, Shiva Taslimipoor, and Ekaterina Kochmar. In: *12th International Conference on Language Resources and Evaluation (LREC 2020)*. (peer-review non-blind.) |
 | 2019     | – | “Two Theories of Group Agency”. In: *Philosophical Studies*.                                                                                                                                                                   |
 | 2018     | – | “Group Membership and Parthood”. In: *Journal of Social Ontology*.                                                                                                                                                             |
@@ -82,9 +77,8 @@ Duration: Less than 1 month
 
 ### Grants, Scholarships and Awards
 
-|  |
-| :------ | :-: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 2015-18 | – | Arts and Humanities Research Council (AHRC) Competition Studentship for three years. Competetively warded via White Rose College of the Arts and Humanities (WRoCAH). |
+| :------ | :-: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 2018    | – | Postgraduate Researcher Experience Programme (£500) for a research visit at the LSE.                                                                                  |
 | 2015    | – | Award for best BA dissertation in the social sciences at the University of Göttingen (€<span>250</span>).                                                             |
 | 2013    | – | Niedersachsenstipendium (competitively awarded)                                                                                                                       |
@@ -92,9 +86,8 @@ Duration: Less than 1 month
 
 ### Conferences and Workshops
 
-|  |
-| :--- | :-: | :---------------------------------------------------------------------------------------------------------------------------------------- |
 | 2020 | – | Social Ontology 2020. Online. Title: *Social-Computation-Supporting Kinds*.                                                               |
+| :--- | :-: | :---------------------------------------------------------------------------------------------------------------------------------------- |
 | 2019 | – | Socreal 2019. Sapporo. Title: *There Are No Empty Groups*.                                                                                |
 | 2019 | – | Social Ontology 2019. Tampere. Title: *Computational Social Ontology*.                                                                    |
 | 2018 | – | European Network for Philosophy of the Social Sciences (ENPOSS) Conference 2018. Hannover. Title: *Deep Cooperation*.                     |
@@ -108,18 +101,16 @@ Duration: Less than 1 month
 
 ### Other Work and Teaching Experience
 
-|  |
-| :------ | :-: | :--------------------------------------------------------------------------------------------------------------------------------------- |
 | 2017-18 | – | Third-year BA/MA-Course: *I, You, We*. Designed and taught with James Lewis. Opportunity competitively awarded. University of Sheffield. |
+| :------ | :-: | :--------------------------------------------------------------------------------------------------------------------------------------- |
 | 2016-17 | – | Student tutor. Course: *Paradox and Plurality. Zeno to Aristotle.* University of Sheffield.                                              |
 | 2016    | – | Internship at the Hamburg Institue for Social Research (HIS).                                                                            |
 | 2013-14 | – | Student assistant at the Department of Sociology. University of Göttingen.                                                               |
 
 ### Languages
 
-|  |
-| :------ | :--------------- |
 | German  | (first language) |
+| :------ | :--------------- |
 | English | (fluent)         |
 | French  | (basic)          |
 
