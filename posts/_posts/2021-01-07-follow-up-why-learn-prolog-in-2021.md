@@ -83,4 +83,4 @@ I am grateful for everyone who gave my blog post a chance.
 
 [0] I am also writing this in the context of a limited departmental curriculum, where students cannot just choose any course, but I won't go into that here.
 
-[1] See [https://www.metalevel.at/sudoku/] and  [https://www.metalevel.at/prolog/puzzles]
+[1] See [https://www.metalevel.at/sudoku/](https://www.metalevel.at/sudoku/) and  [https://www.metalevel.at/prolog/puzzles](https://www.metalevel.at/prolog/puzzles).
