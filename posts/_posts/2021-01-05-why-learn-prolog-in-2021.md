@@ -59,6 +59,8 @@ Currently, Prolog does not belong to the most popular programming languages. Its
 	true
 
 
+_UPDATE_ This blog post made its way to the frontpage of Hacker News where it received a sizeable number of [comments](https://news.ycombinator.com/item?id=25652369). In response, I wrote a [follow-up post](http://dstrohmaier.com/follow-up-why-learn-prolog-in-2021/).
+
 ### Footnote
 
 [0] I'm referencing here Robert Kowalski's formulation of Algorithm = Logic + Control.
