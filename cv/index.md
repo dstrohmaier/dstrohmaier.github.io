@@ -5,7 +5,7 @@ permalink: /cv/
 ---
 
 
-Here is shortened text version of my CV, for a longer and better formatted PDF [click here](/assets/pdf/cv_strohmaier.pdf).
+Here is shortened text version of my CV, for a longer and better formatted PDF [click here](/assets/cv_strohmaier.pdf).
 
 
 ## Selected Work Experience
