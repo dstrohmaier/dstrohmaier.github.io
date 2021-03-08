@@ -22,7 +22,8 @@ Here is shortened text version of my CV, for a longer and better formatted PDF [
 - University of Göttingen: BA in Sociology. Grade: 1.3.
 
 ## Publications
-- Forthcoming - Ontology, Neural Networks, and the Social Sciences". In: Synthese.
+- Forthcoming - "Organisations as Computing Systems". In: Journal of Social Ontology.
+- Forthcoming - "Ontology, Neural Networks, and the Social Sciences". In: Synthese.
 - 2020 – "Social-Computation-Supporting Kinds". In: Canadian Journal of Philosophy.
 - 2020 – "SeCoDa: Sense Complexity Dataset". First author. With: Sian Gooding, Shiva Taslimipoor, and Ekaterina Kochmar. In: 12th International Conference on Language Resources and Evaluation (LREC 2020). (peer-review non-blind.)
 - 2019 – "Two Theories of Group Agency". In: Philosophical Studies.
