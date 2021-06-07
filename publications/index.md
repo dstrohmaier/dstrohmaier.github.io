@@ -4,6 +4,8 @@ subtitle: a list of my publications
 layout: "page"
 ---
 
+<p><img src="/assets/images/swans.jpg" alt="header of swans" align="center" /></p>
+
 * [Organisations as Computing Systems](https://www.degruyter.com/document/doi/10.1515/jso-2020-0052/)
 * [Ontology, Neural Networks, and the Social Sciences](https://link.springer.com/article/10.1007/s11229-020-03002-6)
 * [Social-Computation-Supporting Kinds](https://philpapers.org/rec/STRSK)

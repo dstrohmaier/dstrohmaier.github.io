@@ -1,0 +1,51 @@
+I"�<p>In this blog post I share some preliminary musings on conceptual grain – how fine-grained concepts such as DOG and MAMMAL are – which have arisen from my work in NLP and specifically word sense disambiguation. The upshot is that we can develop multiple metrics of conceptual grain and that we have to address the question of what we want these metrics to do for us.</p>
+
+<p>The classic task of word sense disambiguation (WSD) seeks to assign senses to word tokens in contexts. When I give you a tip, I might give you either advice or money for your service. A WSD system should assign the correct sense, but assigning a sense to “tip” relies on a repository of senses from which a WSD system can draw.</p>
+
+<p>WordNet is the dominant sense repository in automatic word sense disambiguation (cf. Fellbaum 1998), but its shortcomings have been known for a long time. One of these shortcomings is an exceedingly fine grain (cf. Ide &amp; Wilks 2007; Navigli 2009). The concepts are too finely distinguished for current technology to perform well and arguably even for human annotators. WordNet offers 33 senses for the token “head”, so there is a good chance that some of them get confused some of the time.</p>
+
+<p>Despite the common complaint, the notion of grain on which it turns has remained rather unspecific. On the simplest interpretation, the grain of a sense repository such as WordNet is just the number of senses in it. There are just too many senses in WordNet! While fewer sense labels certainly would make it easier to create a classifier for WordNet, we might also look for a notion of grain with a little more theoretical heft. If we have our concepts organised with semantic relations, can we then describe grain in terms of such a linguistically founded organisation of concepts?</p>
+
+<p>Consider the concepts[0] of DOG and MAMMAL. You might propose that since dogs are a kind of mammal the concept is more fine-grained. In more linguistic terms, the hyponomy hierarchy of concepts provides a partial ordering of grain. A hyponym (DOG) is more fine-grained than its hypernym (MAMMAL).[1] Or to be a bit more formal, assume we have a tree of hyponyms and hypernyms, i.e. a taxonomy tree[2], then the depth at which a concept can be found in this tree could be considered its grain. Hence, we can define an order of grain using a function depth(), i.e. grain(DOG) ≥ grain(MAMMAL) if and only if depth(DOG) ≥ depth(MAMMAL).</p>
+
+<p>But there are other ways to specify the notion of grain. Consider again the example of “head” and its 33 senses. Prima facie, the problem here is not that the 33 senses are deep down in the hyponomy tree. The problem is that there are just too many senses that are <em>closely</em> related. Once again, we can approximate the intuition with features of the taxonomy tree. Specifically, the branching factor of nodes in the tree provide an indication of how many closely related concepts there are.[3] In other words, it would hold that grain(DOG) ≥ grain(MAMMAL) if and only if hyper-branching-factor(DOG) ≥ hyper-branching-factor (MAMMAL), where hyper-branching-factor() returns the branching factor for the closest hypernym.[4] The assumption is that if the senses of “head” are really too close, they will be child nodes of densely populated hypernym nodes in the taxonomy tree.</p>
+
+<p>So far, I considered the taxonomic tree to be constant and then pointed at features of it – depth and branching factor – to suggest metrics of conceptual grain. Instead one could postulate an ordering of increasingly detailed taxonomic trees. Assume you create a taxonomic ontology and you add batches of nodes to it in a natural way. Then the stages of your taxonomic tree will each have a certain grain. At the beginning you will have a very coarse-grained taxonomy and with each step it will be finer-grained. You can now have a function introduction-to-tree() which returns the number of the stage at which a certain concept was introduced. Then, grain(DOG) ≥ grain(MAMMAL) if and only if introduction-to-tree(DOG) ≥ introduction-to-tree(MAMMAL).</p>
+
+<p>Admittedly, this measure has a problem, namely the need for an ordering of node batches in a “natural way” of adding them. Much of the subtleties of conceptual grain are hiding there. It won’t do to just record the steps in which nodes where added to WordNet or any other ontology, since chance and history will not follow such a natural order. A concept might be added later to the tree, for many reasons that would not support an inference about its grain – maybe people were too focused on some other topic domain and forget about the more common and coarser-grained concept.</p>
+
+<p>All of these metrics have their positive and negative sides, depending on what we want to use them for. The use cases provide criteria for evaluation. One of the original reason for introducing a notion of grain was to allow us to complain about WordNet as being too fine-grained for word sense disambiguation. It has too many fine-grained concepts or it has concepts with too high an introduction-to-tree factor for our classifiers. Hence, I propose this first criterion:[5]</p>
+<ol>
+  <li>Conceptual grain correlates with difficulty in addressing WSD as a classification task.</li>
+</ol>
+
+<p>In addition to this NLP-driven criterion, we can also use some linguistic intuitions about grain – in both senses of linguistic – to evaluate the metrics. Such criteria serve the purpose of ensuring that the metric can support linguistic theorizing.</p>
+<ol>
+  <li>More fine-grained concepts should be (pragmatically?) exchangeable in more linguistic contexts than coarser concepts.</li>
+  <li>The grain of a concept should correlate with the length of a na&amp;#xEFve definition we might give for it.
+Further criteria could be proposed to ensure the integration of the metric in other disciplines, e.g. cognitive science. From the question of what is grain, we are driven the to the issue of what we the notion and its metrics to do for us.</li>
+</ol>
+
+<hr />
+<h3 id="footnotes">Footnotes</h3>
+<p>[0] I use “sense” and “concept” interchangeably in this post.</p>
+
+<p>[1] I assume that the hyponomy relation holds between concepts, not words. Otherwise I am not sure how to handle polysemy.</p>
+
+<p>[2] Maybe concepts connected by hyponomy edges form a directed graph and not a tree, but let’s not get bogged down in that for now.</p>
+
+<p>[3] This measure ignores the proximity between hypernyms and hyponyms, but the next one arguably captures it.</p>
+
+<p>[4] A generalization would be to take the average branching factor of set of hyponyms.</p>
+
+<p>[5] A 0th implicit criterion was that a metric of conceptual grain should provide at least a partial order over our concepts.</p>
+
+<hr />
+<h3 id="references">References</h3>
+
+<ul>
+  <li>Fellbaum, C. (Ed.). (1998). WordNet: An Electronic Lexical Database. MIT Press.</li>
+  <li>Ide, N., &amp; Wilks, Y. (2007). Making Sense About Sense. In E. Agirre &amp; P. Edmonds (Eds.), Word Sense Disambiguation: Algorithms and Applications (pp. 47–73). Springer Netherlands. https://doi.org/10.1007/978-1-4020-4809-8_3</li>
+  <li>Navigli, R. (2009). Word Sense Disambiguation: A Survey. ACM Computing Surveys, 41(2), 1–69. https://doi.org/10.1145/1459352.1459355</li>
+</ul>
+:ET
