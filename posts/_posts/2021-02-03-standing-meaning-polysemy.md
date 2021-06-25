@@ -6,11 +6,6 @@ category: posts
 ---
 
 
-The first options sticks with -- number/verb agreement, also "sticks with" sounds weird, use something more formal, e.g. is in line with the notion of
-On the second option we just accept that a word type, that is one abstract word string, can have multiple standing meanings and the context will then pick out one of them for further specification.  -- problems with this option?
-We might want to say that a word type has undergone (standing) meaning change, but if word types are individuated in terms of their meaning, then this statement would be incorrect. -- I don't understand this, why is it incorrect? It just takes on a different meaning, right?
-
-
 Lexical semantics investigates the meaning of words, but one might distinguish multiple levels of meaning for a single word. For example, the word "semantics" might have a very broad and a very narrow meaning at the same time, depending on how much contextual information we take into account. The relative dependence on contextual information created lexical levels of meaning. In this post, I will share a few thoughts on the simplest distinction of lexical levels of meaning, that is the distinction between standing and occasion meaning of a word. The main insight will be that the distinction faces a problem with regard to homonyms and that current NLP approaches can be interpreted as implementing a specific solution to this problem.
 
 ## Standing and Occasion Meaning

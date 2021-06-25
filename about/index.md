@@ -18,10 +18,13 @@ I am always looking for feedback and cooperation. If you want to comment on my b
 
 ---
 
-This blog uses the Jekyll blog generator with the plain-html-blog theme.
+This blog uses the Jekyll blog generator with a variation of the plain-html-blog theme. I've changed it a lot since then.
 
-You can find the source code for the theme on GitHub:
+You can find the source code for the original theme on GitHub:
 [plain-html-blog](https://github.com/sebbas/plain-html-blog)
+
+The code for my blog can be found on GitHub:
+[blog-repo](https://github.com/dstrohmaier/dstrohmaier.github.io)
 
 You can find the source code for Jekyll at GitHub:
 [jekyll][jekyll-organization] /
