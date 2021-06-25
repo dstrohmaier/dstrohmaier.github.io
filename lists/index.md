@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Reading Lists
-updated: 2020-11-16 11:18:56 +0000
+updated: 2021-06-25 12:20:38 +0100
 ---
 
 Here I collect a few reading lists of various sorts I put together. Some record what I have read or my personal favourites, others are of a more academic flavour.
@@ -22,4 +22,3 @@ Here I collect a few reading lists of various sorts I put together. Some record 
   {% endunless %}
 {% endfor %}
 </p>
-<p><a href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS</a> feed</p>
