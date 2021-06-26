@@ -16,5 +16,6 @@ categories: lists
 ### Advanced
 * Arora, S., Li, Y., Liang, Y., Ma, T., & Risteski, A. (2016). [A Latent Variable Model Approach to PMI-based Word Embeddings](https://doi.org/10.1162/tacl_a_00106). Transactions of the Association for Computational Linguistics, 4, 385–399. 
 * Arora, S., Li, Y., Liang, Y., Ma, T., & Risteski, A. (2018). [Linear Algebraic Structure of Word Senses, with Applications to Polysemy](https://doi.org/10.1162/tacl_a_00034). Transactions of the Association for Computational Linguistics, 6, 483–495.
+* Hashimoto, T. B., Alvarez-Melis, D., & Jaakkola, T. S. (2016). [Word Embeddings as Metric Recovery in Semantic Spaces](https://doi.org/10.1162/tacl_a_00098). Transactions of the Association for Computational Linguistics, 4, 273–286.
 * Kenyon-Dean, K., Newell, E., & Cheung, J. C. K. (2020). [Deconstructing Word Embedding Algorithms](https://doi.org/10.18653/v1/2020.emnlp-main.681). Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP), 8479–8484. 
 
