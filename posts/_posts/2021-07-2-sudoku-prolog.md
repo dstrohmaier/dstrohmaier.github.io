@@ -22,7 +22,7 @@ If you want to see how to program these constraints, see Congdon's [post](https:
 
 ## Full Solution: Thermo
 
-For the Thermo constraint, I've chosen the great "Spoons" puzzle by the well-known setter Phistomefel. To solve that puzzle yourself, [follow this link](https://app.crackingthecryptic.com/sudoku/BnRMNhBr8N). To solve it with Prolog, all we need are the following the two lines and the inclusion of the specific constraints:
+For the Thermo constraint, I've chosen the great "Spoons" puzzle by the well-known setter Phistomefel. To solve that puzzle yourself, [follow this link](https://app.crackingthecryptic.com/sudoku/BnRMNhBr8N). To solve it with Prolog, all we need beyond a standard solver are the following the two lines and the inclusion of the specific constraints:
 
 	smaller(L,Sn,L) :- Sn #< L.
 	thermo([L|Ls]) :- foldl(smaller,Ls,L,_).
