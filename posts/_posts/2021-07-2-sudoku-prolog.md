@@ -103,7 +103,7 @@ Disjoint groups are a further fascinating constraint. It is [defined as follows]
 
 > _cells with the same position in 3x3 boxes contains number from 1 to 9 i.e no number can repeat in the same position in 3x3 boxes._ 
 
-I wrote a working implementation for the disjoint group constraint and I post it here for completeness, but it is not very elegant.
+I wrote a working implementation for the disjoint group constraint and I post it here for completeness, but it is not very elegant. 
 
 	disjoint(Rows) :-
 		by3(Rows,First-[],Second-[],Third-[]),
@@ -119,7 +119,7 @@ I wrote a working implementation for the disjoint group constraint and I post it
 	by3([],A-A,B-B,C-C).
 	by3([N1,N2,N3|R],[N1|F]-A,[N2|S]-B,[N3|T]-C) :- by3(R,F-A,S-B,T-C).
 
-If you have a better implementation of the disjoint group constraint, then email me. And if you think you understand how it works and want to implement a solve yourself, give [this puzzle](https://app.crackingthecryptic.com/sudoku/LNqP9d8tdj) a try. I would love to see a good Prolog solver for it.
+In a nutshell, the predicate disjoint groups every third row (A, D, G) and every third+1 row (B, E, H), and every third+2 row (C, F, I) together and then applies the same grouping within rows to create the disjoint sets. If you have a better implementation of the disjoint group constraint, then email me. And if you think you understand how it works and want to implement a solve yourself, give [this puzzle](https://app.crackingthecryptic.com/sudoku/LNqP9d8tdj) a try. I would love to see a good Prolog solver for it.
 
 ---
 ### Footnote
