@@ -8,6 +8,8 @@ category: posts
 
 The Sudoku scene has undoubtedly been one of the pandemic winners. Thanks to the Youtube channel ["Cracking the Cryptic"](https://www.youtube.com/channel/UCC-UOdK8-mIjxBQm_ot1T-Q), its viral video on the ["Miracle Sudoku"](https://www.youtube.com/watch?v=yKf9aUIxdb4), and the many entertaining videos that followed, Sudoku puzzles with extended rule-sets have received widespread attention. That is a prime opportunity for Prolog aficionados like myself to show off the power of the language. Many Sudoku puzzles are easily solved with Prolog.
 
+![A Sudoku Setter at Work](/assets/images/compositor.jpg)
+
 ## Existing Resources
 
 A solver for standard Sudokus is a teaching example for the [CLPFD library](https://www.swi-prolog.org/man/clpfd.html). The Power of Prolog has a [dedicated page and video](https://www.metalevel.at/sudoku/) for solving standard Sudokus. Puzzles with extended rule-sets have not gone unnoticed either. In fact, the original "Miracle Sudoku" video has been discussed and solved with Prolog in [a blog post by Benjamin Congdon](https://benjamincongdon.me/blog/2020/05/23/Solving-the-Miracle-Sudoku-in-Prolog/). I want to add a little to these solvers. 
