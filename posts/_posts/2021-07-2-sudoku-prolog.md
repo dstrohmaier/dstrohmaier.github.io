@@ -27,6 +27,8 @@ For the Thermo constraint, I've chosen the great "Spoons" puzzle by the well-kno
 	smaller(L,Sn,L) :- Sn #< L.
 	thermo([L|Ls]) :- foldl(smaller,Ls,L,_).
 
+The thermo predicate defined in these lines, checks whether a list of integers increases monotonically from left to right.[0]
+
 My complete solution, based on the previous solvers metioned above, looks as follows:
 
 	:- use_module(library(clpfd)).
@@ -90,12 +92,12 @@ The solve took 0.141 seconds on my laptop.
 
 To show off the power of Prolog a little more, I'll finish with the implementation of two more constraints.
 
-Summing constraints are equally straight forward to handle. There are in fact multiple variations of summing constraints, including summing along arrows and summing along diagonals (little killer clues). The code will usually be the same.
+Summing constraints are equally straight forward to handle. There are in fact multiple variations of summing constraints, including summing along arrows and summing along diagonals (little killer clues). The code will usually be the same:
 
 	add(X,Y,S):- S #= X+Y.
 	sum(Xs,S):- foldl(add,Xs,0,S).
 
-In the case of an arrow clue, the _S_ will be another variable. In the case of little killer clues, it will usually be a given digit.
+The predicate sum relates a list of integers -- order does not matter -- to its sum _S_. When we implement a Sudoku puzzle, the _S_ will usually be another variable in the case of arrow clues and in the case of little killer clues, it will usually be a given digit.
 
 Disjoint groups are a further fascinating constraint. It is [defined as follows](https://www.funwithpuzzles.com/2014/08/disjoint-groups-sudoku-fun-with-sudoku.html):
 
@@ -119,3 +121,7 @@ I wrote a working implementation for the disjoint group constraint and I post it
 
 If you have a better implementation of the disjoint group constraint, then email me. And if you think you understand how it works and want to implement a solve yourself, give [this puzzle](https://app.crackingthecryptic.com/sudoku/LNqP9d8tdj) a try. I would love to see a good Prolog solver for it.
 
+---
+### Footnote
+
+[0] I consistently use here the predicates from the CLPFD library, rather than the vanilla mathematical predicates available in Prolog.
