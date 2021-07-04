@@ -1,8 +1,11 @@
 ---
 layout: page
 title: Posts
-updated: 2020-11-16 11:18:56 +0000
+updated: 2021-07-04 08:51:46 +0100
 ---
+
+<p><img src="/assets/images/edisons-electric-pen.jpg" alt="electric pen" height="250" /></p>
+
 <p>
 {% for post in site.categories.posts %}
   {% unless post.draft %}
