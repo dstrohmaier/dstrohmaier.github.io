@@ -1,2 +1,0 @@
-I"g<p>I’ve recently been reading up on distributional representations, that is representation of meaning that are based on count vectors. They were the exciting technology before neural networks and the embeddings networks create changed the field of NLP. Nowadays we do not count token occurrences, but let Word2Vec or BERT models create representations.</p>
-:ET

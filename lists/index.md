@@ -1,11 +1,10 @@
 ---
 layout: page
 title: Reading Lists
-updated: 2021-06-25 12:20:38 +0100
+updated: 2021-07-07 16:22:47 +0100
 ---
 
 Here I collect a few reading lists of various sorts I put together. Some record what I have read or my personal favourites, others are of a more academic flavour.
-
 
 <p>
 {% for post in site.categories.lists %}
@@ -22,3 +21,5 @@ Here I collect a few reading lists of various sorts I put together. Some record 
   {% endunless %}
 {% endfor %}
 </p>
+
+<p><img src="/assets/images/demon-beelzebub.jpg" alt="reading a book in front of a demon" height="250" /></p>
