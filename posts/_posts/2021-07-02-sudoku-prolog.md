@@ -123,6 +123,22 @@ I wrote a working implementation for the disjoint group constraint and I post it
 
 In a nutshell, the predicate disjoint groups every third row (A, D, G) and every third+1 row (B, E, H), and every third+2 row (C, F, I) together and then applies the same grouping within rows to create the disjoint sets. If you have a better implementation of the disjoint group constraint, then email me. And if you think you understand how it works and want to implement a solve yourself, give [this puzzle](https://app.crackingthecryptic.com/sudoku/LNqP9d8tdj) a try. I would love to see a good Prolog solver for it.
 
+
+## Update [22.07.2021]
+I've been sent this clever implementation of the disjoint group constraint by Janne U. using a DCG:
+
+
+	disjoint_groups2(Rows) :-
+		phrase(blockrows(Rows), Blocks),
+		transpose(Blocks, BlocksT),
+		maplist(all_distinct, BlocksT).
+
+	blockrows([]) --> [].
+	blockrows([[],[],[]|R]) --> blockrows(R).
+	blockrows([[N1,N2,N3|Ns1], [N4,N5,N6|Ns2], [N7,N8,N9|Ns3]|R]) -->
+		[[N1,N2,N3,N4,N5,N6,N7,N8,N9]],
+		blockrows([Ns1,Ns2,Ns3|R]).
+
 ---
 ### Footnote
 
