@@ -15,7 +15,7 @@ A part of me would like Saba's arguments to succeed. While I mostly work with ne
 
 In this post, I won't try to cover all arguments from _The Gradient_ essay. For example, I won't cover what Saba says on intensions, other than to frankly admit being puzzled by his claim that ML is all about extension. I'll leave those argument to others. Instead, I'll argue that we just don't know enough about how language fundamentally works to adjudicate whether ML can solve NLU.[0] To make this argument, I pick out one of Saba's claims about language and argue that the situation is more complicated. The claim I will take offense with is the following:
 	
-	[...] language understanding does not admit any degrees of freedom. A full understanding of an utterance or a question requires understanding the one and only one thought that a speaker is trying to convey. 
+> [...] language understanding does not admit any degrees of freedom. A full understanding of an utterance or a question requires understanding the one and only one thought that a speaker is trying to convey. 
 
 According to Saba, when we speak we are trying to convey one determinate thought, that is, a thought with a determinate content. The understanding of this content does not admit any degrees of freedom. As I interpret Saba, there is a matter of fact whether one correctly understands the other person or not and this fact either obtains or it does not. It doesn't hold in degrees, only absolutely. 
 
@@ -23,7 +23,7 @@ In response, one might be tempted to point to examples where people are misunder
 
 Consider Saba's own example of an utterance:
 
-    Do we have a retired BBC reporter that was based in an East European country during the Cold War?
+> Do we have a retired BBC reporter that was based in an East European country during the Cold War?
 	
 For the sake of illustration, assume that I utter this question as a member of a network of experts and that I want to know whether we, the network, include such a person. Saba suggests that I am expressing one determinate thought, that there is one correct analysis of my utterance, which an NLU system should produce. According to him, there is no degree of freedom in this analysis. I disagree, or at least I see good reasons for disagreement.
 
@@ -39,7 +39,7 @@ I don't know whether the epistemic move itself can be pulled off -- do I really 
 
 My overall argument does not depend on whether I am right in the final analysis. Maybe I intended to utter one determinate thought and maybe it is accessible to humans. Even if this were so, we do not know it. What matters is that Saba's assumption is not safely established. We do not know that
 
-	[...] language understanding does not admit any degrees of freedom. A full understanding of an utterance or a question requires understanding the one and only one thought that a speaker is trying to convey. 
+> [...] language understanding does not admit any degrees of freedom. A full understanding of an utterance or a question requires understanding the one and only one thought that a speaker is trying to convey. 
 
 We know too little about the foundations of language.
 
@@ -47,7 +47,7 @@ We know too little about the foundations of language.
 ---
 ### Footnotes
 
-[0] In my argument, I'm applying here relatively high standards of knowledge. - Different standards for knowledge? See David Lewis' [paper _Elusive Knowledge_](https://philpapers.org/rec/LEWEK) - By denying that we have knowledge about how language fundamentally works, I am not denying that we have theories about it and I am not even ruling out that one of these theories is largely correct. I am, instead, suggesting that no theory of language and our understanding of it reaches the level of certainty Saba presumes.
+[0] In my argument, I'm applying relatively high standards of knowledge. - Different standards for knowledge? See David Lewis' [paper _Elusive Knowledge_](https://philpapers.org/rec/LEWEK) - By denying that we have knowledge about how language fundamentally works, I am not denying that we have theories about it and I am not even ruling out that one of these theories is largely correct. I am, instead, suggesting that no theory of language and our understanding of it reaches the level of certainty Saba presumes.
 
 [1] This state of affairs differs from the missing text phenomenon, the fact that we do not express the fullness of our thoughts in utterances, that Saba happily acknowledges and makes argumentative use of. In my example, I'm not just leaving part of my thought unsaid because the part can be derived from my fragmentary statement together with common knowledge. Otherwise, I would myself be able to recover the left out part.
 
