@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Proposals
-updated: 2021-07-04 08:51:46 +0100
+updated: 2021-09-27 16:42:44 +0100
 ---
 
 # MPhil Projects
@@ -13,9 +13,9 @@ These are proposals for MPhil project with the NLIP group. If you are an MPhil s
 
 **Supervisors:** David Strohmaier and Paula Buttery
 
-The representation of word meaning poses a significant challenge in NLP. To select interpretable meaning representations, NLP researchers often make use of sense repositories, such as dictionaries and topic labels. Many such repositories have been created, but researchers have not settled on a single “correct” repository. In fact, there are good reasons to think that there is no such uniquely correct repository.
+Words are often ambiguous. For many applications, for example, to explain a text to a language learner, we would like to automatically disambiguate them with representations of word meaning. These word meanings should be interpretable, in the best case also for language learners. To select interpretable meaning representations, NLP researchers make use of sense repositories, such as dictionaries and topic labels. Many such repositories have been created, but researchers have not settled on a single “correct” repository. In fact, there are good reasons to think that there is no such uniquely correct repository.
 
-In this project, you will be combining these repositories in a multi-task learning setup. You will fine-tune a BERT-based classification system to predict the correct meaning of a word based on its context for multiple repositories. You are free to explore different neural architectural choices (within time constraints).
+To overcome the challenge of selecting between sense repositories, you will be combining these repositories in a multi-task learning setup. You will fine-tune a BERT-based classification system to predict the correct meaning of a word based on its context for multiple repositories. You are free to explore different neural architectural choices (within time constraints).
 
 ### Required Resources:
 * To finetune a BERT system, access to a GPU will be required.
@@ -38,7 +38,7 @@ In this project, you will be combining these repositories in a multi-task learni
 
 **Supervisors:** David Strohmaier and Paula Buttery
 
-Predicting lexical complexity, that is predicting how difficult a word token is to produce or understand, is a well-established NLP task with many practical applications. Currently, the task is often approached with pre-trained language models, such as BERT. In this project, you will build such a lexical complexity prediction model and adapt it to a different application: prediction the diachronic lexical complexity in learner data.
+In education technology we often need to predict the complexity of a word token. Currently, the task of lexical complexity prediction is often approached with pre-trained language models, such as BERT. In this project, you will build such a lexical complexity prediction model and adapt it to a different application: prediction the diachronic lexical complexity in learner data.
 
 Over the course of acquiring a new language, the grasp of learners on new concepts increases. It stands to reason, that a learners early uses of a content word might be less complex than their later uses, corresponding to the learners progress. Using your own lexical complexity prediction system, you will be able to track their development and evaluate this hypothesis. Generally, applying complexity prediction to diachronic learner data opens multiple application-oriented directions of research, which you can explore.
 
@@ -59,7 +59,7 @@ Over the course of acquiring a new language, the grasp of learners on new concep
 
 **Supervisors:** David Strohmaier and Paula Buttery
 
-With the advance of massive language models, the skill of probing such models to uncover their inner workings has become central to much NLP research. This research project will develop your probing skills on an application-oriented task: Probing for the difference between native speaker and language learner data.
+In recent years massive language models that are difficult to interpret have become widespread in NLP. To understand their inner workings, we need to probe them with various techniques. This research project will develop your probing skills on an application-oriented task: Probing for the difference between native speaker and language learner data.
 
 Learner data includes many mistakes, such as spelling errors and grammatical infelicities. How does this affect the processing of the lexical semantic knowledge within the language model? To answer this question, you will use state-of-the-art probing techniques and apply them to BERT (or one of its derivatives). The results will help us to assess the use of such language models in educational technologies.
 
