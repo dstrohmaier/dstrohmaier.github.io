@@ -7,7 +7,7 @@ category: posts
 
 ### Disclaimer
 
-_I am currently founded by money from Cambridge University Press and Assessment, which also stewards various English dictionaries. All opinions in this post are distinctly mine._
+_I am currently funded by money from Cambridge University Press and Assessment, which also stewards various English dictionaries. All opinions in this post are distinctly mine._
 
 ---
 
