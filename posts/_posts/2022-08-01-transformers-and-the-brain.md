@@ -15,6 +15,8 @@ The main conclusions are:
 3. We do not know why the Transformer-architecture performs so well, but semantics might play a role.
 4. We need better brain data.
 
+![Picture of a Talking Head](/assets/images/talking_head.jpg)
+
 ## Human Sentence Processing: Recurrence or Attention?
 
 [This paper by Merkx and Frank (2021)](https://doi.org/10.18653/v1/2021.cmcl-1.2) explicitly compares GRU-RNN to Transformer models. They implement these models themselves and make them comparable, e.g. the total number of parameters are relatively close. The models are trained on the next-word prediction task. They are evaluated on 
