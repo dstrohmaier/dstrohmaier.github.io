@@ -7,6 +7,18 @@ a {
 }
 
 
+a:link {
+    color: #7b7b0b;
+}
+/* visited link */
+a:visited {
+    color: #51510a;
+}
+/* mouse over link */
+a:hover {
+    color: #A8A800;
+}
+
 p {
     margin-top: 10px;
     margin-bottom: 15px;
