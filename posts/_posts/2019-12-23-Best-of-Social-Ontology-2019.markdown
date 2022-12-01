@@ -9,7 +9,7 @@ Social ontology, by which I mean a subfield of contemporary analytic philosophy,
 
 Brian Epstein's paper ["What are social groups? Their metaphysics and how to classify them"](https://philpapers.org/rec/EPSWAS-2) has been available as forthcoming for a while, but the official publication date has been 2019, which hopefully justifies including it in this list.[0]
 
-The International Social Ontology Society has started a [Youtube channel](https://www.youtube.com/channel/UCoHANz5VREBjb_TBoWx0a8A) this year and published keynotes from last years conference. 
+The International Social Ontology Society has started a [Youtube channel](https://www.youtube.com/channel/UCoHANz5VREBjb_TBoWx0a8A) this year and published keynotes from last years conference.
 
 The [Social Ontology conference in Tampere](https://isosonline.org/SO2019), organised by the European Network of Social Ontology. I believe the keynotes have been recorded, so there is hope that they will appear on ISOS Youtube channel at some point.
 

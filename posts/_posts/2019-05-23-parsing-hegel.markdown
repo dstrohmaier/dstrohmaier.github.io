@@ -35,4 +35,4 @@ You can find the code I used in a [public github repository](https://github.com/
 
 [2] The parse neglects a few niceties such as representing the word-senses was WordNet synset and the like, but that is not the problem.
 
-[3] As a sidenote, let me suggest that Hegel's *Phenomenology* in fact works better with the neo-Davidsonian approach of Boxer than other philosophy texts, because it tries to describes the actions and experiences of spirit. What it describes is closer to action than what we find in most philosophy books. 
+[3] As a sidenote, let me suggest that Hegel's *Phenomenology* in fact works better with the neo-Davidsonian approach of Boxer than other philosophy texts, because it tries to describes the actions and experiences of spirit. What it describes is closer to action than what we find in most philosophy books.

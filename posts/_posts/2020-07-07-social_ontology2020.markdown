@@ -11,7 +11,4 @@ In my [talk](https://so2020.isosonline.org/conference/social-computation-support
 
 ![Picture of Myself](/assets/images/pixelated_me.png)
 
-There will also be a Q&A session, but they haven't been scheduled yet. 
-
-
-
+There will also be a Q&A session, but they haven't been scheduled yet.

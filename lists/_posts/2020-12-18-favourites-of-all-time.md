@@ -24,4 +24,3 @@ category: lists
 - Ann Cotten: Fremdwörterbuchsonnette
 - Edgar Allan Poe: Short Stories
 - Zora Neil Hurston: Their Eyes Were Watching God
-

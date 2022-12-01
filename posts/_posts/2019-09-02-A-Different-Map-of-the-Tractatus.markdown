@@ -5,7 +5,7 @@ date:   2019-09-02 17:57:13 +0000
 category: posts
 ---
 
-Over the years there have been a number of visualisations of Wittgenstein's Tractatus Logico-Philosophicus. Most of them have made use of the tree structure Wittgenstein imposed on his text. With today's web-technologies, [these](https://homepage.univie.ac.at/noichlm94/posts/tractatus/) [representations](https://pbellon.github.io/tractatus-tree/) of the text can be excellent. In this post, however, I present a map of the Tractatus unlike any of these previous experiments. 
+Over the years there have been a number of visualisations of Wittgenstein's Tractatus Logico-Philosophicus. Most of them have made use of the tree structure Wittgenstein imposed on his text. With today's web-technologies, [these](https://homepage.univie.ac.at/noichlm94/posts/tractatus/) [representations](https://pbellon.github.io/tractatus-tree/) of the text can be excellent. In this post, however, I present a map of the Tractatus unlike any of these previous experiments.
 
 ![3D GIF of Tractatus statements](/assets/images/visualisation_tractatus.gif)
 
@@ -22,6 +22,6 @@ The code is available on [github](https://github.com/dstrohmaier/tractatus_embed
 ---
 [0] It is actually a bit trickier than that, because I use information from multiple layers in the neural network to create the token-embeddings.
 
-[1] While embeddings capture some aspect of the semantic content of a token, they do not represent it entirely faithfully. As so much in machine learning, they are best seen as an approximation that works for certain purposes. 
+[1] While embeddings capture some aspect of the semantic content of a token, they do not represent it entirely faithfully. As so much in machine learning, they are best seen as an approximation that works for certain purposes.
 
 [2] I avoided putting the text of the Tractatus online, since I am not sure what the copyright situation is. If you want it, email me.

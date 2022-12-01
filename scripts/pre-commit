@@ -1,6 +1,6 @@
 #!/bin/sh
 # Script to modify the `updated` field in the YAML front matter
-# 
+#
 # Since git does not keep track of hooks in .git/hooks, there is this script in the main project directory (not in .git)
 # It should be symlinked to .git/hooks/pre-commits
 
