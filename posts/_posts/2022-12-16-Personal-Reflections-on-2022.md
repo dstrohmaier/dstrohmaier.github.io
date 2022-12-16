@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Personal Reflections"
+title:  "Personal Reflections on 2022"
 date:   2022-12-16 21:08:13 +0000
 category: posts
 ---
@@ -8,12 +8,14 @@ category: posts
 
 Another year has passed and I want to take the opportunity to reflect on my research pursuits at a higher-level of abstraction. Hence, I will jot down notes on the lessons I cannot but take myself to have learned and sketch an intention of how to live as a researcher.
 
+![Picture of a reading man](/assets/images/reading.jpg)
+
 
 ## A Conclusion I've Drawn, Rightly or Wrongly,
 
 As a human being, it is hard to avoid drawing lessons from one's life, even though one knows the data underlying this inference process to be limited and biased. On this occasion, I will indulge the impulse. One of the lessons I have drawn for myself is the following: Pursue a limited number of research project doggedly. As my eclectic CV indicates, this is a lesson I learned the hard way.
 
-I already [hinted at this lesson in 2020]((http://dstrohmaier.com/end-of-year/). Back then, I pointed out a danger of this lesson: the danger of ending up in a blind alley. Some research paths lead nowhere, no matter the determination with which one follows them. In some cases, there is little to be done about that, because the universe does not signpost the paths to its secrets. Research is usually a gamble. Often, however, a clear-eyed look at where one''s research efforts have led so far allow to infer that they will not lead to pastures bearing sweeter fruits. That does not necessarily stop those who have already committed them to the path. Untold numbers of academics have ended up spending their life in such a manner, many even enjoyed it.
+I already [hinted at this lesson in 2020](http://dstrohmaier.com/end-of-year/). Back then, I pointed out a danger of this lesson: the danger of ending up in a blind alley. Some research paths lead nowhere, no matter the determination with which one follows them. In some cases, there is little to be done about that, because the universe does not signpost the paths to its secrets. Research is usually a gamble. Often, however, a clear-eyed look at where one''s research efforts have led so far allow to infer that they will not lead to pastures bearing sweeter fruits. That does not necessarily stop those who have already committed them to the path. Untold numbers of academics have ended up spending their life in such a manner, many even enjoyed it.
 
 Occasional reflection is supposed to fend this danger off. Pursue a limited number of research projects doggedly, but once in a while step back, to reconsider them. One can consider a research project from various distances, and this post serves for reflection of the largest distance, that is of the greatest abstraction: research as a choice of what to spend a life one. So let it be recorded that, from this distance, I am still optimistic with regard to the path I have chosen.
 
