@@ -9,7 +9,7 @@ Here is shortened text version of my CV, for a longer and better formatted PDF [
 
 
 ## Selected Work Experience
-- 2019-* –	Research Associate. University of Cambridge. Department of Computer Science and Technology. ALTA Institute.
+- 2019-Ongoing – Research Associate. University of Cambridge. Department of Computer Science and Technology. ALTA Institute.
 - 2016 – Internship at the Hamburg Institute for Social Research (HIS).
 - 2013-14 – Student assistant. University of Göttingen. Department of Sociology.
 
@@ -22,8 +22,12 @@ Here is shortened text version of my CV, for a longer and better formatted PDF [
 - University of Göttingen: BA in Sociology. Grade: 1.3.
 
 ## Publications
-- Forthcoming - "Organisations as Computing Systems". In: Journal of Social Ontology.
-- Forthcoming - "Ontology, Neural Networks, and the Social Sciences". In: Synthese.
+- 2022 . "Contrafactives and Learnability". Second author. With: Simon Wimmer. In: Amsterdam Colloquium 2022.
+- 2022 - "A Category Theory Framework for Sense Systems". Equal contribution. With: Gladys Tyen. In: GLOBALEX 2022 @ LREC.
+- 2021 - "Cambridge at SemEval-2021 Task 1: An Ensemble of Feature-Based and Neural Models for Lexical Complexity Prediction". Third author. With: Zheng Yuan, Gladys Tyen. In: SemEval-2021
+- 2021 - "Cambridge at SemEval-2021 Task 2: Neural WiC-Model with Data Augmentation and Exploration of Representation". Second author. With: Zheng Yuan. In: SemEval-2021
+- 2021 - "Organisations as Computing Systems". In: Journal of Social Ontology.
+- 2021 - "Ontology, Neural Networks, and the Social Sciences". In: Synthese.
 - 2020 – "Social-Computation-Supporting Kinds". In: Canadian Journal of Philosophy.
 - 2020 – "SeCoDa: Sense Complexity Dataset". First author. With: Sian Gooding, Shiva Taslimipoor, and Ekaterina Kochmar. In: 12th International Conference on Language Resources and Evaluation (LREC 2020). (peer-review non-blind.)
 - 2019 – "Two Theories of Group Agency". In: Philosophical Studies.
