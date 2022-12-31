@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Selected Papers on Whether Transformers Converge with Psychometric Data"
-date:   2021-12-31 13:33:13 +0100
+date:   2022-12-31 13:33:13 +0100
 categories: lists
 ---
 
@@ -21,4 +21,4 @@ models converge with human cognition as captured by psychometric data
 * Schrimpf, M., Blank, I. A., Tuckute, G., Kauf, C., Hosseini, E. A., Kanwisher, N., Tenenbaum, J. B., & Fedorenko, E. (2021). The neural architecture of language: Integrative modeling converges on predictive processing. Proceedings of the National Academy of Sciences, 118(45), e2105646118. <https://doi.org/10.1073/pnas.2105646118>
 * Wilcox, E. G., Gauthier, J., Hu, J., Qian, P., & Levy, R. (2020). On the Predictive Power of Neural Language Models for Human Real-Time Comprehension Behavior (arXiv:2006.01912). arXiv. <https://doi.org/10.48550/arXiv.2006.01912>
 
-See also [my post on this issue](transformers-and-the-brain/).
+See also [my post on this issue](/transformers-and-the-brain/).
