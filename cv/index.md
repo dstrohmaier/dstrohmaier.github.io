@@ -9,7 +9,7 @@ Here is shortened text version of my CV, for a longer and better formatted PDF [
 
 
 ## Selected Work Experience
-- 2019-21 –	Research Associate. University of Cambridge. Department of Computer Science and Technology. ALTA Institute.
+- 2019-* –	Research Associate. University of Cambridge. Department of Computer Science and Technology. ALTA Institute.
 - 2016 – Internship at the Hamburg Institute for Social Research (HIS).
 - 2013-14 – Student assistant. University of Göttingen. Department of Sociology.
 
