@@ -1,14 +1,14 @@
 ---
 layout: default
 title: Home
-updated: 2022-05-31 18:05:32 +0100
+updated: 2022-12-31 11:33:38 +0100
 ---
 
 <h2>Homepage</h2>
 
 <p>You have reached the website of David Strohmaier.</p>
 
-<p>I am a computer scientist and philosopher. My current research applies machine/deep learning to computational semantics. I also have a long-standing interest in decision theory. Previously, I have published in social ontology.</p>
+<p>I am a computer scientist and philosopher. My current research applies machine/deep learning to computational lexical semantics. I also have a long-standing interest in decision theory. Previously, I have published in social ontology, but I am not actively persuing this interest anymore.</p>
 
 <p><img src="/assets/images/printing.jpg" alt="Illustration of typesetting" height="250"/></p>
 
@@ -16,7 +16,7 @@ updated: 2022-05-31 18:05:32 +0100
 
 {% for category in site.categories %}
   {% assign cat = category | first %}
-  {% if cat == "posts" %} 
+  {% if cat == "posts" %}
     <h3>New blog posts</h3>
   {% else %}
     <h3>New {{ cat }}</h3>
