@@ -24,6 +24,7 @@ p {
     margin-bottom: 15px;
     margin-right: 70px;
     margin-left: 70px;
+    max-width: 450px;
     line-height: 1.4;
     text-align: justify;
     text-justify: inter-word;
