@@ -1,5 +1,10 @@
 body {
-    font-family: Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
+  position: absolute;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, 00%);
+  width: 70%;
 }
 
 a {
