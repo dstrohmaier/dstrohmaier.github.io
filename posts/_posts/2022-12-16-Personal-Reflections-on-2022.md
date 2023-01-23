@@ -11,7 +11,7 @@ Another year has passed and I want to take the opportunity to reflect on my rese
 ![Picture of a reading man](/assets/images/reading.jpg)
 
 
-## A Conclusion I've Drawn, Rightly or Wrongly,
+## A Conclusion I've Drawn, Rightly or Wrongly
 
 As a human being, it is hard to avoid drawing lessons from one's life, even though one knows the data underlying this inference process to be limited and biased. On this occasion, I will indulge the impulse. One of the lessons I have drawn for myself is the following: Pursue a limited number of research project doggedly. As my eclectic CV indicates, this is a lesson I learned the hard way.
 
