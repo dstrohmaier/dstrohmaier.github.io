@@ -1,6 +1,5 @@
 permalink: /:title/
-plugins:
-  - jekyll-sitemap
+
 
 title: David Strohmaier
 subtitle: Website and Blog

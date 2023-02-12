@@ -201,6 +201,7 @@ img {
     max-width: 90%;
 }
 
+
 details {
   summary {
     &::before {

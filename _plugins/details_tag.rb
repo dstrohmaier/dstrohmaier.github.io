@@ -1,4 +1,4 @@
-# _plugins/details_tag.rb
+# _plugins/details-tag.rb
 
 module Jekyll
   module Tags
