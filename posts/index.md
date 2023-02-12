@@ -1,11 +1,11 @@
 ---
 layout: page
 title: Posts
-updated: 2021-07-04 08:51:46 +0100
+updated: 2023-02-12 14:19:33 +0000
 ---
 
 <p><img src="/assets/images/edisons-electric-pen.jpg" alt="electric pen" height="250" /></p>
-
+<p><a href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS</a> feed</p>
 <p>
 {% for post in site.categories.posts %}
   {% unless post.draft %}
@@ -21,4 +21,3 @@ updated: 2021-07-04 08:51:46 +0100
   {% endunless %}
 {% endfor %}
 </p>
-<p><a href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS</a> feed</p>

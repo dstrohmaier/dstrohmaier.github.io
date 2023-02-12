@@ -4,7 +4,7 @@ subtitle: a list of my publications
 layout: "page"
 ---
 
-<p><img src="/assets/images/swans.jpg" alt="header of swans" height="120" /></p>
+<p><img src="/assets/images/swans.jpg" alt="header of swans" height="220px" /></p>
 
 * [Cambridge at SemEval-2021 Task 1: An Ensemble of Feature-Based and
 Neural Models for Lexical Complexity Prediction](https://aclanthology.org/volumes/2021.semeval-1/) (with Zheng Yuan and Gladys Tyen)

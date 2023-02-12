@@ -15,6 +15,7 @@ Here is shortened text version of my CV, for a longer and better formatted PDF [
 
 ## Education
 
+- Ongoing: University of Cambridge (Darwin College): PhD in Computer Science.
 - University of Cambridge (Darwin College): MPhil in Advanced Computer Science. Awarded with Distinction.
 - University of Sheffield: PhD in Philosophy.
 - University of Sheffield: MA in Philosophy. Awarded with Distinction.

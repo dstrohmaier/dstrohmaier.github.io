@@ -1,16 +1,23 @@
 <footer>
 
-  <hr />
   <table width="100%" border="0">
-    <tb>
-      <tr>This page online <code class="footer">{{ site.url }}{{ page.url }}</code></tr>
       <tr>
-        <td>
-          <a href="/"><em>{{ site.author }}</em></a> &middot; <a href="mailto:{{ site.email }}"><em>{{ site.email }}</em></a>
-        </td>
-        <td align="right">Last updated: {{ page.updated }}</td>
+          <td>
+              Find me on:
+              <a href="{{ site.social.mastodon_url }}">
+                  <em>Mastodon</em>
+              </a>  &middot;
+            <a href="{{ site.social.linkedin_url }}">
+                <em>Linkedin</em>
+            </a> &middot;
+            <a href="mailto:{{ site.email }}">
+                <em>{{ site.email }}</em>
+            </a>  &middot;
+            <a href="/feed.xml">
+                <em>RSS</em>
+            </a>
+          </td>
       </tr>
-    </tb>
   </table>
 
 </footer>
