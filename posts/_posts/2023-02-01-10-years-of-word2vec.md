@@ -5,7 +5,7 @@ date:   2023-02-10 13:32:13 +0000
 category: posts
 ---
 
-Once in a while, a publication resets the literature. There is a clear before and after them, as researchers cite the new publications, while neglecting the earlier literature upon which they built. The _word2vec_ papers by Mikolov et al., which have been published about a decade ago in 2013, are an instance of this.[0] As can happen with such papers, the original motivations became overshadowed by later applications.
+Once in a while, a publication resets the literature. There is a clear before and after them, as researchers cite the new publications, while neglecting the earlier literature upon which they built. The _word2vec_ papers by Mikolov et al., which have been published about a decade ago in 2013, are an instance of this.[^1] As can happen with such papers, the original motivations became overshadowed by later applications.
 
 In this post I will lay out those motivations were, how the embedding literature built upon them, and what made word2vec such an outstanding success.
 
@@ -61,12 +61,7 @@ A key takeaway is that word2vec was able to reset the literature 10 years ago, b
 <!-- Following word2vec the general, although not only approach, to creating embeddings has been to use distributional information, i.e. how likely is a word to occur in the context of another. That, however, is certainly not a task which only required information about word meaning. Syntactic regularities obviously play a role. The reverse also holds, not all aspects of word meaning might be well captured by distributional information. -->
 
 
-### Footnotes
-
-[0]  On Google scholar, [one of the word2vec papers](https://scholar.google.com/citations?view_op=view_citation&citation_for_view=oBu8kMMAAAAJ:CB2v5VPnA5kC) is cited more than 37000 publications, while [an important source](https://scholar.google.com/citations?view_op=view_citation&hl=en&citation_for_view=mxiO4IkAAAAJ:9yKSN-GCB0IC) of that paper has a mere 1216 citations to its name. Similar disruptions in citation patterns have been used as [a measure of scientific progress](https://www.nature.com/articles/s41586-022-05543-x).
-
-
-### References
+{% details References %}
 
 - Arora, S., Li, Y., Liang, Y., Ma, T., & Risteski, A. (2019). [A Latent Variable Model Approach to PMI-based Word Embeddings (arXiv:1502.03520; Version 4).](https://doi.org/10.48550/arXiv.1502.03520)
 
@@ -91,3 +86,10 @@ A key takeaway is that word2vec was able to reset the literature 10 years ago, b
 - Mikolov, T., Yih, W., & Zweig, G. (2013c). [Linguistic Regularities in Continuous Space Word Representations.](https://www.aclweb.org/anthology/N13-1090) Proceedings of the 2013 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, 746–751.
 
 - Peters, M., Neumann, M., Iyyer, M., Gardner, M., Clark, C., Lee, K., & Zettlemoyer, L. (2018). [Deep Contextualized Word Representations.](https://doi.org/10.18653/v1/N18-1202) Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long Papers), 2227–2237.
+
+{% enddetails %}
+
+### Footnotes
+
+
+[^1]:  On Google scholar, [one of the word2vec papers](https://scholar.google.com/citations?view_op=view_citation&citation_for_view=oBu8kMMAAAAJ:CB2v5VPnA5kC) is cited more than 37000 publications, while [an important source](https://scholar.google.com/citations?view_op=view_citation&hl=en&citation_for_view=mxiO4IkAAAAJ:9yKSN-GCB0IC) of that paper has a mere 1216 citations to its name. Similar disruptions in citation patterns have been used as [a measure of scientific progress](https://www.nature.com/articles/s41586-022-05543-x).
