@@ -1,0 +1,1313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>David Strohmaier</title>
+    <description>This is the website and blog of David Strohmaier.</description>
+    <link>https://dstrohmaier.com/</link>
+    <atom:link href="https://dstrohmaier.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 12 Feb 2023 21:59:19 +0000</pubDate>
+    <lastBuildDate>Sun, 12 Feb 2023 21:59:19 +0000</lastBuildDate>
+    <generator>Jekyll v4.2.0</generator>
+    
+     
+      <item>
+        <title>10 Years of word2vec: Motivations and Success</title>
+        <description>&lt;p&gt;Once in a while, a publication resets the literature. There is a clear before and after them, as researchers cite the new publications, while neglecting the earlier literature upon which they built. The &lt;em&gt;word2vec&lt;/em&gt; papers by Mikolov et al., which have been published about a decade ago in 2013, are an instance of this.&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; As can happen with such papers, the original motivations became overshadowed by later applications.&lt;/p&gt;
+
+&lt;p&gt;In this post I will lay out those motivations were, how the embedding literature built upon them, and what made word2vec such an outstanding success.&lt;/p&gt;
+
+&lt;p&gt;I will not go into the details of the word2vec algorithms, since numerous blog posts have been written on this topic already. If you need a refresher, the following might be worth a look:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://mccormickml.com/2016/04/27/word2vec-resources/&quot;&gt;Word2Vec Resources&lt;/a&gt; (by Chris McCormick)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://p.migdal.pl/2017/01/06/king-man-woman-queen-why.html/&quot;&gt;king - man + woman is queen; but why?&lt;/a&gt; (by Piotr Migdał)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jalammar.github.io/illustrated-word2vec/&quot;&gt;The Illustrated word2vec&lt;/a&gt; (by Jay Alammar)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;why-word2vec&quot;&gt;Why word2vec&lt;/h2&gt;
+
+&lt;p&gt;Mikolov et al. motivated the word2vec algorithms as fulfilling the following goals:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Motivation: Go beyond representing words as atomic units.&lt;/li&gt;
+  &lt;li&gt;Motivation: Introduce a way to measure similarity.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The first motivation was strongly associated with the idea of representation learning (cf. Bengio et al. 2013). Back then, the representations were often used by non-neural systems. We used word2vec embeddings with an SVM for sentiment classification during my MPhil studies. But with the progress of neural NLP, Seq2Seq models such as Transformers have become the standard. The representations inside those models are primarily used to explain their behaviour, and rarely taken as the primary object of research.&lt;/p&gt;
+
+&lt;p&gt;The second motivation had its source in the linguistic notion of a semantic space, which had been explored by computational linguists and NLP researchers for years prior to word2vec (see Erk 2012). These models had been largely motivated by theories of lexical meaning and attempted to implement them.&lt;/p&gt;
+
+&lt;h2 id=&quot;analogies-and-lexical-semantic-properties&quot;&gt;Analogies and Lexical Semantic Properties&lt;/h2&gt;
+
+&lt;p&gt;Famously, word2vec was able to solve analogy problems, at least some of them.&lt;/p&gt;
+
+&lt;p&gt;For example, starting with the embeddings for CAR and DRIVER, one can calculate that for PLANE the analogous concept to DRIVER is that of PILOT. All one had to do was to subtract the vector of CAR from the vector for DRIVE and add the result to the vector of PLANE. The next closest vector would, if it worked, be that for PILOT, i.e.&lt;/p&gt;
+
+&lt;p&gt;\[ \vec{v}_{plane} + ( \vec{v}_{driver} - \vec{v}_{car} ) \approx \vec{v}_{pilot} \]&lt;/p&gt;
+
+&lt;p&gt;We can think of these analogies as capturing as relations, e.g. there is a relation that holds both between CAR and DRIVER as well as PILOT and PLANE.&lt;/p&gt;
+
+&lt;p&gt;The embeddings appeared to capture such relations in an intuitively interpretable way. In response, researchers sought to explain how these results came about (e.g. Levy &amp;amp; Goldberg 2014; Arora 2019; Hashimoto 2016), and then improve the linguistic quality of embeddings. Researchers engaged in that second endeavour argued that representing words as simple vectors failed to encode various lexical semantic properties, for example:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Polysemy: A single vectors does not appear to exhibit the variety of senses a word might carry.&lt;/li&gt;
+  &lt;li&gt;Vagueness: OLD is a vague concept, and OCTOGENARIAN is not, or at least to a much smaller extent. A vector does not carry a specification of the vagueness in an obvious manner.&lt;/li&gt;
+  &lt;li&gt;Taxonomical hierarchies: All dogs are mammals, but the vectors are not exhibiting such inclusion relationships.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The claim here is not that embeddings can never be used to detect polysemy or vagueness, e.g. by feeding them into a neural classifier, but that the vectors do not reflect such semantic properties in a straightforward way, similar to the way in which they captured analogies. Highly sophisticated approaches have been proposed, but the resulting models are often hard to train (for a survey and discussion see Emerson 2020).&lt;/p&gt;
+
+&lt;h2 id=&quot;two-perspectives-on-embeddings&quot;&gt;Two Perspectives on Embeddings&lt;/h2&gt;
+
+&lt;p&gt;In its focus on encoding semantic properties, parts of the embedding literature have deviated from the priority ranking of Mikolov et al. While Mikolov et al. referred to “meaningful regularities”, what mattered in the first instance was the downstream application. Vectors were not expected to reflect all regularities of word meanings.&lt;/p&gt;
+
+&lt;p&gt;Reconsidering Mikolov et al.’s original motivation as well as the literature it spawned, both a perspective emphasising downstream application and one focused on encoding semantic properties can be discerned. I will give one argument for each of the two views:&lt;/p&gt;
+
+&lt;p&gt;My argument for the first perspective is that word meanings as cognitive objects in human language users do not exist independently of other practical purposes. Both the word processing in human brains and the vectors we are concerned with have their role within larger computational processes (cf. Gauthier &amp;amp; Ivanova 2018). Encoding linguistic properties, such as taxonomical hierarchy, for their own sake would therefore not reflect human language cognition.&lt;/p&gt;
+
+&lt;p&gt;To support the second view, one can argue that human word meanings are general purpose, and that they achieve this status &lt;em&gt;because&lt;/em&gt; they exhibit the semantic properties in question, e.g. taxonomical hierarchy or logical entailment. Accordingly, working towards encoding such properties brings us closer to improvements on many downstream tasks.&lt;/p&gt;
+
+&lt;p&gt;A problem with the argument for the second view is that the embeddings created to encode semantic properties have found little use so far. For example, region embeddings, that should be able to capture taxonomical hierarchies have not found a purpose in more application-oriented systems yet. By comparison, word2vec embeddings and contextualised embeddings based on ELMo (Peters et al. 2018) and BERT (Devlin et al. 2019) did so very quickly.&lt;/p&gt;
+
+&lt;p&gt;A key takeaway is that word2vec was able to reset the literature 10 years ago, because it made progress both in capturing linguistic regularities &lt;em&gt;and&lt;/em&gt; in supporting downstream applications. With the exception of contextualised embeddings, such success has not been forthcoming since, despite many attempts. Whoever will find another way to make such combined progress, has a good chance of changing NLP history.&lt;/p&gt;
+
+&lt;!-- Following word2vec the general, although not only approach, to creating embeddings has been to use distributional information, i.e. how likely is a word to occur in the context of another. That, however, is certainly not a task which only required information about word meaning. Syntactic regularities obviously play a role. The reverse also holds, not all aspects of word meaning might be well captured by distributional information. --&gt;
+
+&lt;details&gt;&lt;summary&gt;References&lt;/summary&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Arora, S., Li, Y., Liang, Y., Ma, T., &amp;amp; Risteski, A. (2019). &lt;a href=&quot;https://doi.org/10.48550/arXiv.1502.03520&quot;&gt;A Latent Variable Model Approach to PMI-based Word Embeddings (arXiv:1502.03520; Version 4).&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Bengio, Y., Courville, A. C., &amp;amp; Vincent, P. (2013). &lt;a href=&quot;https://doi.org/10.1109/TPAMI.2013.50&quot;&gt;Representation learning: A review and new perspectives.&lt;/a&gt; IEEE Trans. Pattern Anal. Mach. Intell., 35(8), 1798–1828.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Devlin, J., Chang, M.-W., Lee, K., &amp;amp; Toutanova, K. (2019). &lt;a href=&quot;http://arxiv.org/abs/1810.04805&quot;&gt;BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding.&lt;/a&gt; ArXiv:1810.04805.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Emerson, G. (2020). &lt;a href=&quot;https://doi.org/10.18653/v1/2020.acl-main.663&quot;&gt;What are the Goals of Distributional Semantics?&lt;/a&gt; Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics, 7436–7453.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Erk, K. (2012). &lt;a href=&quot;https://doi.org/10.1002/lnco.362&quot;&gt;Vector Space Models of Word Meaning and Phrase Meaning: A Survey.&lt;/a&gt; Language and Linguistics Compass, 6(10), 635–653.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Gauthier, J., &amp;amp; Ivanova, A. (2018). &lt;a href=&quot;https://doi.org/10.48550/arXiv.1806.00591&quot;&gt;Does the brain represent words? An evaluation of brain decoding studies of language understanding (arXiv:1806.00591).&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Hashimoto, T. B., Alvarez-Melis, D., &amp;amp; Jaakkola, T. S. (2016). &lt;a href=&quot;https://doi.org/10.1162/tacl_a_00098&quot;&gt;Word Embeddings as Metric Recovery in Semantic Spaces.&lt;/a&gt; Transactions of the Association for Computational Linguistics, 4, 273–286.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Levy, O., &amp;amp; Goldberg, Y. (2014). &lt;a href=&quot;https://proceedings.neurips.cc/paper/2014/file/feab05aa91085b7a8012516bc3533958-Paper.pdf&quot;&gt;Neural word embedding as implicit matrix factorization.&lt;/a&gt; Proceedings of the 27th International Conference on Neural Information Processing Systems - Volume 2, 2177–2185.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Mikolov, T., Chen, K., Corrado, G., &amp;amp; Dean, J. (2013a). &lt;a href=&quot;http://arxiv.org/abs/1301.3781&quot;&gt;Efficient Estimation of Word Representations in Vector Space.&lt;/a&gt; ICLR Workshop.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Mikolov, T., Sutskever, I., Chen, K., Corrado, G., &amp;amp; Dean, J. (2013b). &lt;a href=&quot;http://dl.acm.org/citation.cfm?id=2999792.2999959&quot;&gt;Distributed Representations of Words and Phrases and Their Compositionality.&lt;/a&gt; Proceedings of the 26th International Conference on Neural Information Processing Systems - Volume 2, 3111–3119.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Mikolov, T., Yih, W., &amp;amp; Zweig, G. (2013c). &lt;a href=&quot;https://www.aclweb.org/anthology/N13-1090&quot;&gt;Linguistic Regularities in Continuous Space Word Representations.&lt;/a&gt; Proceedings of the 2013 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, 746–751.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Peters, M., Neumann, M., Iyyer, M., Gardner, M., Clark, C., Lee, K., &amp;amp; Zettlemoyer, L. (2018). &lt;a href=&quot;https://doi.org/10.18653/v1/N18-1202&quot;&gt;Deep Contextualized Word Representations.&lt;/a&gt; Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long Papers), 2227–2237.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;/details&gt;
+
+&lt;h3 id=&quot;footnotes&quot;&gt;Footnotes&lt;/h3&gt;
+
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;On Google scholar, &lt;a href=&quot;https://scholar.google.com/citations?view_op=view_citation&amp;amp;citation_for_view=oBu8kMMAAAAJ:CB2v5VPnA5kC&quot;&gt;one of the word2vec papers&lt;/a&gt; is cited more than 37000 publications, while &lt;a href=&quot;https://scholar.google.com/citations?view_op=view_citation&amp;amp;hl=en&amp;amp;citation_for_view=mxiO4IkAAAAJ:9yKSN-GCB0IC&quot;&gt;an important source&lt;/a&gt; of that paper has a mere 1216 citations to its name. Similar disruptions in citation patterns have been used as &lt;a href=&quot;https://www.nature.com/articles/s41586-022-05543-x&quot;&gt;a measure of scientific progress&lt;/a&gt;. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Fri, 10 Feb 2023 13:32:13 +0000</pubDate>
+        <link>https://dstrohmaier.com/10-years-of-word2vec/</link>
+        <guid isPermaLink="true">https://dstrohmaier.com/10-years-of-word2vec/</guid>
+        
+        
+        <category>posts</category>
+        
+      </item>
+      
+    
+     
+      <item>
+        <title>Zotero BibLaTeX Style</title>
+        <description>&lt;p&gt;I regularly use &lt;a href=&quot;https://www.zotero.org/&quot;&gt;Zotero&lt;/a&gt; for managing my bibliographies. I then usually typeset my writings in LaTex, citing references with BibLaTeX.&lt;/p&gt;
+
+&lt;p&gt;For exporting BibLaTeX .bib files, I recommend the &lt;a href=&quot;https://github.com/retorquere/zotero-better-bibtex&quot;&gt;“Better BibTeX” extension&lt;/a&gt;. But sometimes I prefer to attach citations to my clipboard rather than have to export an entire .bib file. For BibTeX, there exists a &lt;a href=&quot;https://www.zotero.org/styles?q=bibtex&quot;&gt;bibliography style&lt;/a&gt; that allows Zotero users to do so. I have now start to adapt this file to BibLateX. You can find the result &lt;a href=&quot;https://github.com/dstrohmaier/biblatex_csl&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The file is still work-in-progress and you should not rely upon it. If you find any problems with the style, feel free to email me or make a pull request.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 22 Jan 2023 12:00:00 +0000</pubDate>
+        <link>https://dstrohmaier.com/Zotero-BibLaTeX-Style/</link>
+        <guid isPermaLink="true">https://dstrohmaier.com/Zotero-BibLaTeX-Style/</guid>
+        
+        
+        <category>posts</category>
+        
+      </item>
+      
+    
+     
+      <item>
+        <title>Personal Reflections on 2022</title>
+        <description>&lt;p&gt;Another year has passed and I want to take the opportunity to reflect on my research pursuits at a higher-level of abstraction. Hence, I will jot down notes on the lessons I cannot but take myself to have learned and sketch an intention of how to live as a researcher.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/reading.jpg&quot; alt=&quot;Picture of a reading man&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;a-conclusion-ive-drawn-rightly-or-wrongly&quot;&gt;A Conclusion I’ve Drawn, Rightly or Wrongly&lt;/h2&gt;
+
+&lt;p&gt;As a human being, it is hard to avoid drawing lessons from one’s life, even though one knows the data underlying this inference process to be limited and biased. On this occasion, I will indulge the impulse. One of the lessons I have drawn for myself is the following: Pursue a limited number of research project doggedly. As my eclectic CV indicates, this is a lesson I learned the hard way.&lt;/p&gt;
+
+&lt;p&gt;I already &lt;a href=&quot;/end-of-year/&quot;&gt;hinted at this lesson in 2020&lt;/a&gt;. Back then, I pointed out a danger of this lesson: the danger of ending up in a blind alley. Some research paths lead nowhere, no matter the determination with which one follows them. In some cases, there is little to be done about that, because the universe does not signpost the paths to its secrets. Research is usually a gamble. Often, however, a clear-eyed look at where one’’s research efforts have led so far allow to infer that they will not lead to pastures bearing sweeter fruits. That does not necessarily stop those who have already committed them to the path. Untold numbers of academics have ended up spending their life in such a manner, many even enjoyed it.&lt;/p&gt;
+
+&lt;p&gt;Occasional reflection is supposed to fend this danger off. Pursue a limited number of research projects doggedly, but once in a while step back, to reconsider them. One can consider a research project from various distances, and this post serves for reflection of the largest distance, that is of the greatest abstraction: research as a choice of what to spend a life one. So let it be recorded that, from this distance, I am still optimistic with regard to the path I have chosen.&lt;/p&gt;
+
+&lt;p&gt;Research into lexical acquisition in human agents and NLP models remains promising. There is clear progress in NLP, widely advertised, but the progress is not well understood and clearly patchy. For example, how transformers cope with the compositionality of lexical meaning has, as far as I am aware, not yet been explained. I have no reasonable doubt that research in this area will push the epistemic frontier forward – and I want to contribute to it.&lt;/p&gt;
+
+&lt;p&gt;&lt;!-- A further danger of the dogged pursuit is excessive self-denial. While following one interest to the exclusion of other might come natural to some, my interest tend to be manifold. Frustration in one project leads to me seek out another. But the research area of lexical acquisition in human agents and NLP models is vast. Many sub-projects can have their place in this larger area. As a compensation strategy, I try to direct my interests into this area in coordinate them.--&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;why-writing-such-reflections-infrequently-is-a-good-idea&quot;&gt;Why Writing Such Reflections Infrequently Is a Good Idea&lt;/h2&gt;
+
+&lt;p&gt;As already mentioned, I have written &lt;a href=&quot;/end-of-year/&quot;&gt;another post like this back in 2020&lt;/a&gt;, but then I skipped 2021. Instead I started 2021 with a &lt;a href=&quot;/why-learn-prolog-in-2021/&quot;&gt;post on Prolog&lt;/a&gt;, which has probably been my most successful blog post so far, in terms of engagement but also in what I was able to learn from the results. Generalising from my limited blogging experience, writing about first-order interests, such as a neglected programming language, has proven more productive and more in line with my own goals than obscure ruminations about my research path.&lt;/p&gt;
+
+&lt;p&gt;Second- and higher-order thoughts, such as the reflections in the present post, serve to correct our first-order pursuits or increase their efficiency,[0] but they can become their own pursuit that distort our behaviour. If I intend to live my life as a researcher, then not for the sake of writing about this life. I live it for the sake of the epistemic progress brought about by this research. Any post like the present one should be no more than the rare exception. Special events, such as the passing of year, provide a limited occasion to engage in such exceptional behaviour. This post fills that role for this year, and now it is done.&lt;/p&gt;
+
+&lt;p&gt;Onward, for scientific progress!&lt;/p&gt;
+
+&lt;h3 id=&quot;footnotes&quot;&gt;Footnotes&lt;/h3&gt;
+
+&lt;p&gt;[0] What is they justification for this assertion of purpose? Ah, there is the rub. That is a philosophical question, I’ll leave for another day.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 16 Dec 2022 21:08:13 +0000</pubDate>
+        <link>https://dstrohmaier.com/Personal-Reflections-on-2022/</link>
+        <guid isPermaLink="true">https://dstrohmaier.com/Personal-Reflections-on-2022/</guid>
+        
+        
+        <category>posts</category>
+        
+      </item>
+      
+    
+     
+      <item>
+        <title>Transformers and the Brain: Literature Notes</title>
+        <description>&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;Neural networks with Transformer-architecture remain the state of the art in natural language processing (NLP). For many tasks the first approach is to throw some version of the BERT model (&lt;a href=&quot;http://arxiv.org/abs/1810.04805&quot;&gt;Devlin et al. 2019&lt;/a&gt;) at it – a practice I’ve participated in (Yuan et al. &lt;a href=&quot;https://doi.org/10.18653/v1/2021.semeval-1.74&quot;&gt;2021a&lt;/a&gt;, &lt;a href=&quot;https://doi.org/10.18653/v1/2021.semeval-1.96&quot;&gt;2021b&lt;/a&gt;). The success of the Transformer-architecture has raised the question how such models compare to language processing in the human brain and a literature is growing around this question. In this post, I collect notes on selected papers which try to map representation in Transformer models to brain data. First I’ll list a few conclusions from the literature and then move through the selected papers to substantiate the conclusions and make further points.&lt;/p&gt;
+
+&lt;p&gt;The main conclusions are:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;The Transformer-architecture is better than previous RNN architectures. That is, the mapping of Transformer models to brain data allows to predict more of it than if one uses an RNN architecture, typically LSTMs or GRU networks.&lt;/li&gt;
+  &lt;li&gt;Word prediction performance matters, but is not everything. The capacity for predicting the next word given an incomplete sequence does not explain all that is special about Transformers.&lt;/li&gt;
+  &lt;li&gt;We do not know why the Transformer-architecture performs so well, but semantics might play a role.&lt;/li&gt;
+  &lt;li&gt;We need better brain data.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/talking_head.jpg&quot; alt=&quot;Picture of a Talking Head&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;human-sentence-processing-recurrence-or-attention&quot;&gt;Human Sentence Processing: Recurrence or Attention?&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://doi.org/10.18653/v1/2021.cmcl-1.2&quot;&gt;This paper by Merkx and Frank (2021)&lt;/a&gt; explicitly compares GRU-RNN to Transformer models. They implement these models themselves and make them comparable, e.g. the total number of parameters are relatively close. The models are trained on the next-word prediction task. They are evaluated on&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;self-paced reading (SPR)&lt;/li&gt;
+  &lt;li&gt;eye-tracking (ET),&lt;/li&gt;
+  &lt;li&gt;and electroencephalography (EEG) data.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The top-line result is that even controlling for performance as a language model, i.e. being able to predict word tokens, Transformer models tend to do better, specifically on the SPR and EEG datasets.[0] Something about the architecture other than its ability to capture statistical information about word distributions appears to make it especially well-suited for predicting brain performance.&lt;/p&gt;
+
+&lt;p&gt;The authors show themselves surprised by the superior performance of the Transformer-architecture, because they “considered the Transformer’s unlimited memory and access to past inputs implausible given current theories on[sic] human language processing”. (p. 18). While the author are not giving up this view and therefore remain more sceptical than the authors of other papers I’ll mention, they consider the possibility that Transformers capture something about human language cognition. Specifically, they entertain that the attention-mechanism resembles cue-based retrieval, but since they do not provide much details on this hypothesis and I do not feel confident evaluating it.&lt;/p&gt;
+
+&lt;h2 id=&quot;brains-and-algorithms-partially-converge-in-natural-language-processing&quot;&gt;Brains and Algorithms Partially Converge in Natural Language Processing&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://doi.org/10.1038/s42003-022-03036-1&quot;&gt;Caucheteux and King (2021)&lt;/a&gt; look at Transformer models and ask how the performance of such models on a word prediction task[1] and predicting brain measurement relate. The key findings are:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Performance on predicting words strongly correlates with predicting brain scores.&lt;/li&gt;
+  &lt;li&gt;The relationship breaks down at the upper end of next-word prediction performance, that is the best models the authors have trained for word prediction do somewhat worse predicting brain scores. This suggests that Transformer models start to overfit to the word-prediction task to the detriment of being able to predict brain measurements.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;different-kinds-of-cognitive-plausibility-why-are-transformers-better-than-rnns-at-predicting-n400-amplitude&quot;&gt;Different Kinds of Cognitive Plausibility: Why Are Transformers Better than RNNs at Predicting N400 Amplitude?&lt;/h2&gt;
+
+&lt;p&gt;Similarly to Merkx and Frank, &lt;a href=&quot;http://arxiv.org/abs/2107.09648&quot;&gt;Michaelov et al. (2021)&lt;/a&gt; compare RNNs and Transformer models in how well they can predict brain data, in this case the N400 amplitude (EEG study). They used an already existing LSTM model and GPT-2. In contrast to the experiments by Merkx and Frank, the models differ in many ways other than the difference between RNN and Transformer, e.g. vocabulary size and number of parameters.&lt;/p&gt;
+
+&lt;p&gt;The paper also shows that the Transformer model does better at predicting the human brain data than its RNN competitor. Additional experiments suggest that part of the reason GPT-2 does better is that the cosine similarity feeds more into the surprisal of the model. Taking cosine similarity as a measure of semantic similarity, the authors hypothesize that ‘bag-of-words’ semantic activation may be part of the neurocognitive system that is measured by the N400 amplitude. But this claim is again to be considered speculative.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-neural-architecture-of-language-integrative-modeling-converges-on-predictive-processing&quot;&gt;The Neural Architecture of Language: Integrative Modeling Converges on Predictive Processing&lt;/h2&gt;
+
+&lt;p&gt;This paper by &lt;a href=&quot;https://doi.org/10.1073/pnas.2105646118&quot;&gt;Schrimpf et al. (2021)&lt;/a&gt; offers one of the most encompassing comparisons across model architectures and datasets. Without going into all the details, GPT-2 stands out as the best model.&lt;/p&gt;
+
+&lt;p&gt;The authors replicate the finding that performance on next-word prediction predicts performance on predicting brain measurements. Importantly, the authors compare the next-word prediction task with tasks from the GLUE benchmark and find that these do not predict brain scores.&lt;/p&gt;
+
+&lt;p&gt;The paper also test whether the model architecture matters by computing brain scores for models with random weights.[2] The authors show that even under such conditions some models achieved noteworthy correlation. The Transformer architecture alone seems to do some of the work.&lt;/p&gt;
+
+&lt;p&gt;The paper is perhaps the most optimistic one when it comes to ability to Transformers to predict brain data. On some datasets, the authors come to the conclusion that Transformer models reach noise ceiling, i.e. that the model does as good as possible. One dataset, however, remains very challenging: The Blank 2014 dataset consists of fMRI measurement where the stimuli are auditorily presented stories. Both the larger narrative context of stories and the auditory transmission stand out.[3]&lt;/p&gt;
+
+&lt;p&gt;The authors on this paper suggest a convergence between neural model in NLP and cognitive science, since (next-)word prediction is a key task in NLP and predictive processing holds increasing sway in cognitive science. While the authors comparison with the GLUE tasks is suggestive in this regard, I am not yet sold that we see a proper convergence. The tasks humans did might be biased towards the next-word prediction (with perhaps the exception of Blank (2014), where the models did worst). Furthermore, I would not be surprised if the data from the GLUE benchmark are not as reliable as those for next-word prediction since they rely on challenging annotation by experts, hence the network might start to model noise to a great extend.&lt;/p&gt;
+
+&lt;p&gt;Be that as it may, a convergence on prediction would not explain why the Transformer-architecture performs so well on both standard NLP tasks and predicting cognitive measures. LSTMs have also been trained on next-word prediction but do not perform as well. To explain the role of the Transformer-architecture, the authors point (amongst other things) towards the role of smoothed multi-scale processing and propose that this might capture something about language structure, but this discussion is merely suggestive.&lt;/p&gt;
+
+&lt;p&gt;Coming from NLP rather than neuro-science, this paper also made clear to me that we need better brain data. The noise ceilings estimated by the authors, that is their estimate for how well brain measurements can be predicted in general, are rather low. Accordingly, much of the brain measurements is treated as individualised noise. The authors suggest that such a low ceiling might be due to language processing occuring on high level of cognition where the brain processing might not be stimulus-driven but top-down. As a result, there might just not be one pattern across individuals to predict. That seems speculative to me and better measurement might help raise the ceilings and thereby&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;I’ve already listed above the conclusions I’ve drawn from this emerging literature. The papers indicate a clear direction: Transformer models do well at predicting brain measurements, usually better than RNNs, and the architecture plays a role. Why they are doing better remains unclear, with multiple hypotheses being considered. It is intriguing that both the hypothesis by Merkx and Frank (cue-based retrieval) and Michaelov et al. (‘bag-of-words’ semantic activation) have a semantic tendency, i.e. Transformers are taken to do better because they capture something about semantic processing in the brain. But these discussions remain mostly suggestive, with the experiment by Michaelov et al. concerning the predictive power of cosine distance being the strongest piece of evidence, as far as I can tell, and that is not paricularly strong evidence since the cosine distance doesn’t necessarily just concern seamntics. Without a better understanding of language processing in the brain, it might prove difficult to reconstruct why the Transformer-architecture performs so well. Even worse, without better understanding of the human brain, it will become increasingly difficult to compare neural architectures in this way.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;footnotes&quot;&gt;Footnotes&lt;/h3&gt;
+
+&lt;p&gt;[0] I don’t understand why this literature is so averse to publishing tables. Graphs are good, but being able to check against a table of data provides a way to test whether one has truly understood what is going on.&lt;/p&gt;
+
+&lt;p&gt;[1] From the paper, it is not entirely clear to me whether the next word or a randomly masked word has to be predicted.&lt;/p&gt;
+
+&lt;p&gt;[2] There is still a linear model trained on top of the randomly initialised models.&lt;/p&gt;
+
+&lt;p&gt;[3] The Futrell 2018 dataset used by the authors is also story-based and the Transformer-model does better at predicting it, but it consists of self-paced reading data instead of brain measurements.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Blank, I., Kanwisher, N., &amp;amp; Fedorenko, E. (2014). &lt;a href=&quot;https://doi.org/10.1152/jn.00884.2013&quot;&gt;A functional dissociation between language and multiple-demand systems revealed in patterns of BOLD signal fluctuations&lt;/a&gt;. Journal of Neurophysiology, 112(5), 1105–1118.&lt;/li&gt;
+  &lt;li&gt;Caucheteux, C., &amp;amp; King, J.-R. (2022). &lt;a href=&quot;https://doi.org/10.1038/s42003-022-03036-1&quot;&gt;Brains and algorithms partially converge in natural language processing&lt;/a&gt;. Communications Biology, 5(1), 1–10.&lt;/li&gt;
+  &lt;li&gt;Devlin, J., Chang, M.-W., Lee, K., &amp;amp; Toutanova, K. (2019). &lt;a href=&quot;http://arxiv.org/abs/1810.04805&quot;&gt;BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding&lt;/a&gt;. ArXiv:1810.04805 [Cs].&lt;/li&gt;
+  &lt;li&gt;Futrell, R., Gibson, E., Tily, H. J., Blank, I., Vishnevetsky, A., Piantadosi, S., &amp;amp; Fedorenko, E. (2018, May). &lt;a href=&quot;https://aclanthology.org/L18-1012&quot;&gt;The Natural Stories Corpus&lt;/a&gt;. Proceedings of the Eleventh International Conference on Language Resources and Evaluation (LREC 2018).&lt;/li&gt;
+  &lt;li&gt;Merkx, D., &amp;amp; Frank, S. L. (2021). &lt;a href=&quot;https://doi.org/10.18653/v1/2021.cmcl-1.2&quot;&gt;Human Sentence Processing: Recurrence or Attention?&lt;/a&gt; Proceedings of the Workshop on Cognitive Modeling and Computational Linguistics, 12–22.&lt;/li&gt;
+  &lt;li&gt;Michaelov, J. A., Bardolph, M. D., Coulson, S., &amp;amp; Bergen, B. K. (2021). &lt;a href=&quot;http://arxiv.org/abs/2107.09648&quot;&gt;Different kinds of cognitive plausibility: Why are transformers better than RNNs at predicting N400 amplitude?&lt;/a&gt; ArXiv:2107.09648 [Cs].&lt;/li&gt;
+  &lt;li&gt;Schrimpf, M., Blank, I. A., Tuckute, G., Kauf, C., Hosseini, E. A., Kanwisher, N., Tenenbaum, J. B., &amp;amp; Fedorenko, E. (2021). &lt;a href=&quot;https://doi.org/10.1073/pnas.2105646118&quot;&gt;The neural architecture of language: Integrative modeling converges on predictive processing&lt;/a&gt;. Proceedings of the National Academy of Sciences, 118(45), e2105646118.&lt;/li&gt;
+  &lt;li&gt;Yuan, Z., Tyen, G., &amp;amp; Strohmaier, D. (2021a). &lt;a href=&quot;https://doi.org/10.18653/v1/2021.semeval-1.74&quot;&gt;Cambridge at SemEval-2021 Task 1: An Ensemble of Feature-Based and Neural Models for Lexical Complexity Prediction&lt;/a&gt;. Proceedings of the 15th International Workshop on Semantic Evaluation (SemEval-2021), 590–597.&lt;/li&gt;
+  &lt;li&gt;Yuan, Z., &amp;amp; Strohmaier, D. (2021b). &lt;a href=&quot;https://doi.org/10.18653/v1/2021.semeval-1.96&quot;&gt;Cambridge at SemEval-2021 Task 2: Neural WiC-Model with Data Augmentation and Exploration of Representation&lt;/a&gt;. Proceedings of the 15th International Workshop on Semantic Evaluation (SemEval-2021), 730–737.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 01 Aug 2022 17:00:13 +0100</pubDate>
+        <link>https://dstrohmaier.com/transformers-and-the-brain/</link>
+        <guid isPermaLink="true">https://dstrohmaier.com/transformers-and-the-brain/</guid>
+        
+        
+        <category>posts</category>
+        
+      </item>
+      
+    
+     
+      <item>
+        <title>The Unmasking of Dictionaries by Strong Opinion</title>
+        <description>&lt;h3 id=&quot;disclaimer&quot;&gt;Disclaimer&lt;/h3&gt;
+
+&lt;p&gt;&lt;em&gt;I am currently funded by money from Cambridge University Press and Assessment, which also stewards various English dictionaries. All opinions in this post are distinctly mine.&lt;/em&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;em&gt;The Unmasking of English Dictionaries&lt;/em&gt; (CUP, 2018) is on a mission to change lexicography forever and on the way it tries to insult as many lexicographers as possible. Its author, the linguist R. M. W. Dixon, has a chip on his shoulder. Dictionaries of the English language are all wrong. Their creators misunderstand what a dictionary is for, and are, in general, lazy plagiarists. Surprisingly, the book is not just entertaining, but also makes intriguing suggestions, even though some of the arguments for them have serious gaps.&lt;/p&gt;
+
+&lt;p&gt;Dixon repeats again and again that the purpose of dictionary is to “tell you when to use one word rather than another” (p. ix). That is the premise, and on its basis Dixon discusses the shortcomings of dictionaries:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;They treat words in isolation, rather than contrastive in their semantic field&lt;/li&gt;
+  &lt;li&gt;They rely excessively on definitions&lt;/li&gt;
+  &lt;li&gt;They neglect to provide grammatical information that is required for correct word use&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The examples Dixon gives suggested that there is at least something to his diagnoses. He proposes that the problem be solved by the construction of a new dictionary organised semantic fields. The entries for these fields would compare the usage of the words contained in it, including the grammatical constraints on this usage. For illustration, the book contains a few sketches of such comparative discussions of lexical semantics, e.g. the field including “want”, “wish”, “desire”.&lt;/p&gt;
+
+&lt;p&gt;One might, however, wonder about the correctness of Dixon’s premise that the main purpose of dictionaries is to enable the choice between words to use. I don’t think its true, at least descriptively. Dixon takes a distinctly productive task as the purpose for a dictionary, choosing one word to use over others. I expect, however, that much of the use of dictionaries is receptive. My expectation is that dictionaries are most frequently consulted when one is stumped by previously unfamiliar word in a text one tries to comprehend. Of course, that is speculation on my part, but so is Dixon’s claim that the purpose relates to productive use of English. And that leads us to the heart of the problem, Dixon does not sysematically engage with users of dictionaries – others than himself, that is – even though the whole point was to propose a new type of dictionary that is better suited for the needs of its users.&lt;/p&gt;
+
+&lt;p&gt;After another swipe against lexicographers as lazy copyists, Dixon proposes the following procedure for producing a dictionary (p. 25-26):&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Select sets of related words&lt;/li&gt;
+  &lt;li&gt;Consult corpora to compare and contrast those related words&lt;/li&gt;
+  &lt;li&gt;Work out a conceptual template for the sets of words using “critical notions”&lt;/li&gt;
+  &lt;li&gt;Only at the last step should one compare with other scholars and dictionaries.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Dixon’s proposed procedure does not include users at any point. There are no user studies, not even a step to incorporate informal feedback. The goal is to work “form first principles and with a fresh viewpoint” (p. 25). These first principles might please a linguistic expert such as Dixon, but surely the average dictionary user has different needs and these should be assessed in the process of constructing a dictionary.&lt;/p&gt;
+
+&lt;p&gt;The lack of considering actual users and their needs also shows up in another assumption by Dixon, namely that contrastive but relatively abstract outlining of different usage patterns is sufficient to help with the choice between words. Dixon would have dictionaries present &lt;em&gt;everything&lt;/em&gt; that is required for choosing between words. That includes a lot of rather abstract linguistic information. The distinction of different types of clauses might quickly overwhelm a learner who just wanted to understand what “hanker” meant in a text they were reading, and while Dixon does envisage the usage of sentential examples, the theory-driven contrasting of words in a semantic set comes first as the organising principle (see p. 227).&lt;/p&gt;
+
+&lt;p&gt;I would also like to add that for someone who emphasises “first principles”, Dixon does not spend much time on actually laying out his theoretical framework for lexical semantics. From Dixon’s approach, I would assume that he endorses some sort of lexical relation/frame semantics, but it is not obvious that these approaches correctly reflect word senses as they are cognitively encoded. Surely the first principles for organising a dictionary would be principles that reflect the entries in our mental lexicon? The problem here might be that Dixon does not think highly of many efforts of investigating “the role of language in human cognition” (p. 192). Although my main criticism is that the focus on linguistic “first principles” is to the exclusion of empirically assessing dictionary user needs, it might be noted that even the claimed “first principles” are not exactly fast foundations (using the word “fast” here in the antiquated secondary sense discussed on p. 131-134).&lt;/p&gt;
+
+&lt;p&gt;Dixon’s book has great entertainment potential, especially for those of us who enjoy academic philippics. As is common for this text genre, the positive argument reveals holes upon closer expectation. Dixon’s assumption should be considered expert guesses about dictionary use, but guesses they remain. That being said, investigating Dixon’s proposals in actual user studies might be of great interest. The results could show to which extent lexicography really needs to be reborn.&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 31 May 2022 17:00:13 +0100</pubDate>
+        <link>https://dstrohmaier.com/The-Unmasking/</link>
+        <guid isPermaLink="true">https://dstrohmaier.com/The-Unmasking/</guid>
+        
+        
+        <category>posts</category>
+        
+      </item>
+      
+    
+     
+      <item>
+        <title>We Know So Little</title>
+        <description>&lt;p&gt;Will machine learning (ML) solve natural language understanding (NLU)? A recent &lt;a href=&quot;https://thegradient.pub/machine-learning-wont-solve-the-natural-language-understanding-challenge/&quot;&gt;essay in &lt;em&gt;The Gradient&lt;/em&gt; by Walid Saba&lt;/a&gt; argues that it won’t. I lack the confidence for either affirming or denying that ML will lead to NLU, especially without much further explanation of what we understand ML and NLU to be, but I am confident that Saba’s arguments are not of the knock-down kind.&lt;/p&gt;
+
+&lt;p&gt;A part of me would like Saba’s arguments to succeed. While I mostly work with neural nets and other ML methods, I have a soft spot for symbolic approaches to NLP.  I have read and enjoyed &lt;a href=&quot;https://www.coli.uni-saarland.de/publikationen/softcopies/Blackburn:1997:RIN.pdf&quot;&gt;&lt;em&gt;Representation and Inference for Natural Language&lt;/em&gt;&lt;/a&gt; and I am an avowed admirer of Prolog. When I got into  NLP, I began by reading Chomsky’s &lt;em&gt;Syntactic Structures&lt;/em&gt;, only later did I read &lt;em&gt;Neural Network Methods for Natural Language Processing&lt;/em&gt;. Certainly, I am the kind of person Saba’s argument should appeal to, and yet… and yet I can’t say it wins me over. At the end, I’m left unsure, not knowing whether ML will solve NLU.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/fatality.jpg&quot; alt=&quot;Picture of a man measuring words&quot; height=&quot;500&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In this post, I won’t try to cover all arguments from &lt;em&gt;The Gradient&lt;/em&gt; essay. For example, I won’t cover what Saba says on intensions, other than to frankly admit being puzzled by his claim that ML is all about extension. I’ll leave those argument to others. Instead, I’ll argue that we just don’t know enough about how language fundamentally works to adjudicate whether ML can solve NLU.[0] To make this argument, I pick out one of Saba’s claims about language and argue that the situation is more complicated. The claim I will take offense with is the following:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;[…] language understanding does not admit any degrees of freedom. A full understanding of an utterance or a question requires understanding the one and only one thought that a speaker is trying to convey.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;According to Saba, when we speak we are trying to convey one determinate thought, that is, a thought with a determinate content. The understanding of this content does not admit any degrees of freedom. As I interpret Saba, there is a matter of fact whether one correctly understands the other person or not and this fact either obtains or it does not. It doesn’t hold in degrees, only absolutely.&lt;/p&gt;
+
+&lt;p&gt;In response, one might be tempted to point to examples where people are misunderstanding in degrees. If a speaker utters the sentence “The train is late” and one listener misunderstands it as meaning that the train will not arrive today at all and another listener misunderstands it as meaning that bananas are straight, then both are misunderstanding the sentence but the second listener is doing worse. As the example, one can misunderstand someone else more or less badly. But Saba can accept that one can be wrong in degrees, because his point is only that &lt;em&gt;full understanding&lt;/em&gt; does not admit any degrees of freedom. There might be many ways of doing it wrong, but there is only one way of doing it right. According to Saba, when we understand each other, there is one and only one thought with a determinate content to understand for each utterance. That is a much more plausible position, nonetheless, I will disagree with it.&lt;/p&gt;
+
+&lt;p&gt;Consider Saba’s own example of an utterance:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Do we have a retired BBC reporter that was based in an East European country during the Cold War?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;For the sake of illustration, assume that I utter this question as a member of a network of experts and that I want to know whether we, the network, include such a person. Saba suggests that I am expressing one determinate thought, that there is one correct analysis of my utterance, which an NLU system should produce. According to him, there is no degree of freedom in this analysis. I disagree, or at least I see good reasons for disagreement.&lt;/p&gt;
+
+&lt;p&gt;As Saba states, understanding the exact thought of the question requires interpreting the phrase “retired BBC reporter”. This interpretation, however, turns out to be much harder than his gloss “the set of all reporters that worked at BBC and who are now retired” suggests. To see the problem, assume that in response to my question, someone asks me whether I intended to include freelance reporters who worked for the BBC or only its employees. The honest response to this question might very well be that I don’t know. I don’t know whether I meant to include freelancers in the extension of “BBC reporters” or not. Of course, I can make it up on the spot now, but I cannot decide the difference with regard to my prior intentions.&lt;/p&gt;
+
+&lt;p&gt;Contrary to Saba, the difference I cannot decide is semantically significant. It might be that a former BBC freelancer meeting the description belongs to the network, but no employee BBC reporter does. Whether my question is to be answered affirmatively depends on a difference in phrasal meaning that 
+1) I do not know how to resolve,
+2) I do not know whether I intended to resolve it all when I uttered the sentence.[1]&lt;/p&gt;
+
+&lt;p&gt;It seems that there is not one determinate content I sought to express.[2] There are at least two propositions that seem to fit my intention. But you might disagree and suggest that I intended to express one specific determinate proposition, I just don’t any longer know or never knew which one. In other words, instead of denying the determinacy of intended thought, you deny the epistemic access to the determinate intended thought. This suggestion seeks to rescue Saba’s argument with an epistemic move.&lt;/p&gt;
+
+&lt;p&gt;I don’t know whether the epistemic move itself can be pulled off – do I really lack this introspection? – but I am confident that, in any case, it won’t achieve the argumentative goal. It cannot rescue Saba’s argument, because if I don’t have access to my determinate thoughts, you certainly don’t either. Even if one of the two interpretations is the truly correct one, you at best have approximately correct access to it. Yet, you have NLU, you understand natural language as well as any other human. You would have NLU without access to the one true thought, human-level NLU rather than super-human-level NLU. If Saba’s arguments only showed that ML can lead to no better NLU than human-level NLU, then those working on ML-based NLU won’t be all that worried.&lt;/p&gt;
+
+&lt;p&gt;My overall argument does not depend on whether I am right in the final analysis. Maybe I intended to utter one determinate thought and maybe it is accessible to humans. Even if this were so, we do not know it. What matters is that Saba’s assumption is not safely established. We do not know that&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;[…] language understanding does not admit any degrees of freedom. A full understanding of an utterance or a question requires understanding the one and only one thought that a speaker is trying to convey.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;We know too little about the foundations of language.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;footnotes&quot;&gt;Footnotes&lt;/h3&gt;
+
+&lt;p&gt;[0] In my argument, I’m applying relatively high standards of knowledge. - Different standards for knowledge? See David Lewis’ &lt;a href=&quot;https://philpapers.org/rec/LEWEK&quot;&gt;paper &lt;em&gt;Elusive Knowledge&lt;/em&gt;&lt;/a&gt; - By denying that we have knowledge about how language fundamentally works, I am not denying that we have theories about it and I am not even ruling out that one of these theories is largely correct. I am, instead, suggesting that no theory of language and our understanding of it reaches the level of certainty Saba presumes.&lt;/p&gt;
+
+&lt;p&gt;[1] This state of affairs differs from the missing text phenomenon, the fact that we do not express the fullness of our thoughts in utterances, that Saba happily acknowledges and makes argumentative use of. In my example, I’m not just leaving part of my thought unsaid because the part can be derived from my fragmentary statement together with common knowledge. Otherwise, I would myself be able to recover the left out part.&lt;/p&gt;
+
+&lt;p&gt;[2] That claim resembles, of course, &lt;a href=&quot;https://plato.stanford.edu/entries/quine/#IndeTran&quot;&gt;Quine’s indeterminacy of translation&lt;/a&gt;. That being said, I am not sure what to make of Quine’s position, because I am not sharing his behaviourist assumptions and I do not know whether his position can be defended without them.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 15 Aug 2021 22:30:13 +0100</pubDate>
+        <link>https://dstrohmaier.com/We-know-so-little/</link>
+        <guid isPermaLink="true">https://dstrohmaier.com/We-know-so-little/</guid>
+        
+        
+        <category>posts</category>
+        
+      </item>
+      
+    
+     
+      <item>
+        <title>On the State of Analytic Philosophy</title>
+        <description>&lt;p&gt;A debate about the state of analytic philosophy has been developing in the philosophical blogosphere over the last few months, started by &lt;a href=&quot;https://sootyempiric.blogspot.com/2021/05/the-end-of-analytic-philosophy.html&quot;&gt;Liam Bright’s pessimistic assessment of the state&lt;/a&gt;. In this original post, Bright described analytic philosophy as a &lt;a href=&quot;https://plato.stanford.edu/entries/lakatos/#FalsMethScieReseProg1970&quot;&gt;“degenerate research programme”&lt;/a&gt;. No longer was there a shared paradigm, and instead philosophers either took a politically applied turn or just bumbled along not knowing what else to do.&lt;/p&gt;
+
+&lt;p&gt;Bright summarises the situation, by describing a threefold lack of confidence:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Lack of confidence that analytic philosophy can solve its own problems.&lt;/li&gt;
+  &lt;li&gt;Lack of confidence that analytic philosophy can be modified so as to do better.&lt;/li&gt;
+  &lt;li&gt;Lack of confidence that the problems are worth solving in the first place.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Overall, I found myself largely agreeing with the pessimistic sentiments expressed in Bright’s post; otherwise I presumably wouldn’t have switched fields. That being said, I am modestly more optimistic on 1 and 2, as should become clear later in the presentation of my perspective.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/path-moon.jpg&quot; alt=&quot;Picture of a path to the moon&quot; height=&quot;300&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;the-debate&quot;&gt;The Debate&lt;/h2&gt;
+
+&lt;p&gt;Bright’s post has started a debated, which has underlined for me how different the various sub-groups of academic philosophy are. Representatives of different areas in philosophy give different responses and many disagree with Bright more than I do.[0] One example of that is the recent &lt;a href=&quot;https://sootyempiric.blogspot.com/2021/07/further-reflections-on-analytic.html&quot;&gt;guest post by Preston Stovall&lt;/a&gt; on Bright’s blog.&lt;/p&gt;
+
+&lt;p&gt;Stovall criticises the “march of Kripke” narrative in Bright’s original post, i.e. the narrative that sees Kripke’s work as the high point of the analytic tradition on which the later work relied, and by changing the narrative Stovall suggests a vision for a unified analytic philosophy. While I am vaguely familiar and attracted by the narrative that Stovall sketches, I cannot say that I recognise much from my own philosophical-academic experience and work in it. To tell the truth, I can recognise as a distinctly Pittsburghian approach to analytic philosophy, rather than the one I am used to. Perhaps this Pittsburghian view can take over, and unification be achieved behind another tradition with in analytic philosophy. For now, however, a diversity of viewpoints prevails.&lt;/p&gt;
+
+&lt;p&gt;To add to this diversity, I want to present my own perspective, that is the perspective of one particular person who has turned to computer science out of dissatisfaction with philosophy’s current state. Hence, my post will be unabashedly self-centred, focussing on three of my own qualms with academic analytic philosophy:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Dissatisfaction with the methods used.&lt;/li&gt;
+  &lt;li&gt;Lack of interest in the questions of the applied turn.&lt;/li&gt;
+  &lt;li&gt;Lack of opportunities for career advancement.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;dissatisfaction-with-methods&quot;&gt;Dissatisfaction with Methods&lt;/h2&gt;
+
+&lt;p&gt;My dissatisfaction with the methods of analytic philosophy is an instance of the one described by Bright. I share the lack of confidence that analytic philosophy as it stands can solve its own problems and it troubles me deeply. But not all find this prospect of unsolved problems so dismal. As Bright summarises, one common response to his diagnosis of the lack of suggests that&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;while it is true that philosophers generally cannot plausibly believe they will achieve rational consensus, this is not such a bad thing. The mistake was ever hoping for that in the first place, and once we have gotten over that hangup we can enjoy the sort of pluralistic free play of ideas that comes with a taste for dissensus.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I find the lack of ambition in this response deeply unappealing. We should aspire to solve our problems, or at least to make substantial progress towards such solutions. The rationales for the lack of ambition do not convince me. They seem to turn on the nature of philosophy and suggest that it is an open-ended discipline that can reach no conclusions at all. As is to be expected, I disagree with this view and while settling the nature of philosophy is beyond the reach of a blog post, outlining the difference is not.&lt;/p&gt;
+
+&lt;p&gt;It might be true that philosophy constantly raises new questions. But there is a need to distinguish whether philosophy as a discipline can always raise new unanswered questions, and whether we can answer current questions in philosophy.[1] To give an example, I have published on the nature of social groups and I want philosophers to reach a rational consensus on this issue. Are groups pluralities or not? The common response appears to suggest that we might clarify this question itself, but never quite answer it.&lt;/p&gt;
+
+&lt;p&gt;I am not as pessimistic as those who respond with accepting the problems as unresolvable. In contrast to them, I hold out a modicum of hope that one by one, we could reach widespread consensus in philosophy.[2] Undoubtedly it will be challenging and it might be a never-ending quest, since we are never running out of new questions. Still that is a far cry from the pessimism of being unable to reach consensus on any of them. In fact, I believe it makes me even more optimistic than Bright, who apparently does not dare to hope for a methodological renewal, at least not one that leads to true problem-solving.&lt;/p&gt;
+
+&lt;p&gt;That being said, I am to be counted amongst the pessimists insofar I believe in the need for a far-reaching methodological change, crossing disciplinary boundaries, and do not see such change happening at the moment. My pessimism is sustained by a folk-sociological assessment, not by one of philosophy’s nature.&lt;/p&gt;
+
+&lt;h2 id=&quot;applied-turn&quot;&gt;Applied Turn&lt;/h2&gt;
+
+&lt;p&gt;Analytic philosophy in the US and the UK has undergone a sharp turn towards socio-politically hot topics, such as racism and gender. Before I turned to computer science, I primarily worked in social ontology, a sub-field of philosophy in which the applied turn has been especially notable. That is not entirely surprising, since the applied turn has focused on social issues. But my experience of it has differed from that described by Bright:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Many of the projects that seem most exciting to junior philosophers concern injustice, oppression, propaganda, ideology – all things about which it is felt that philosophical analysis might be able to have a real world impact.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I am one of the junior philosophers for whom that was not the case. These projects did not excite me. Similar to Bright, I remain sceptical about the ability of philosophers to have “real world impact” in this way. But even if one were to grant that philosophy can have the intended impact, there are subtle and not-so-subtle differences in my political view and the one hegemonic in the applied turn. These differences give the applied turn a direction that does not suit me and what I want.&lt;/p&gt;
+
+&lt;p&gt;As I did not share the political sentiment of the applied turn, I mostly stayed away from it. Over the years, however, its influence in social ontology increased and crowded out the issues I was more interested in, such as the ontological foundations of the social sciences. While my interests still form part of social ontology and are recognised as such, the crowding-out effect matters especially on a difficult job market, where opportunities for career advancement are scarce.&lt;/p&gt;
+
+&lt;h2 id=&quot;lack-of-career-opportunities-and-conclusion&quot;&gt;Lack of Career Opportunities and Conclusion&lt;/h2&gt;
+
+&lt;p&gt;I take a rather naive view on the issue of the philosophy job market. Of course, one can bemoan the state of funding for the humanities and on some days I have sympathies for such a take – usually on days when my attention is not on the relative scarcity of GPU time. But bracketing this issue, there are too many people for too few positions. A solution is for people to leave the academic discipline. From my perspective, this does not happen to a sufficient degree for two reasons:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Lack of confidence in one’s own skills&lt;/li&gt;
+  &lt;li&gt;Exaggerated attachment to philosophy as an &lt;em&gt;academic&lt;/em&gt; field&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Many philosophy graduates believe they are only suited for philosophy, underestimating their skills and most importantly their capacity to acquire further skills. It is my experience that with few exceptions, notably students working in cognitive science, philosophy graduates tend not to think of themselves as people who can program. The large majority of them most certainly could and they could earn income with this skill. If they gave programming a try, they might also find it intellectually rewarding.&lt;/p&gt;
+
+&lt;p&gt;The second claim rests on my impression that philosophers identify deeply with philosophy as a field. You do not just &lt;em&gt;study philosophy&lt;/em&gt;, you &lt;em&gt;are a philosopher&lt;/em&gt;. Certainly, I have felt that ways and to an extent still. It is deeply appealing to identify with such a rich tradition of more than 2000 years, a tradition that has brought about many great insights. But that identification does not imply that one has to secure a position in &lt;em&gt;academic&lt;/em&gt; philosophy. As is well-known, few of the most famous philosophers of history worked as academics. In addition, philosophy can also be pursued from positions in other fields.&lt;/p&gt;
+
+&lt;p&gt;Of course, I solved my problems by moving into another field, computer science. My actions and the view expressed in this post are coherent. Furthermore, my choice of computer science addresses all three issues I have raised. While analytic philosophy took a socio-politically applied turn, I instead chose an implementational turn. This implementational turn, so I hoped and still do, could help us overcome the methodological impasse in asking the questions of philosophy. Of course, computer science also offers more opportunities for career advancement. I can always sell my Python, NLP, and Deep Learning skills on the job market.&lt;/p&gt;
+
+&lt;p&gt;Clearly, I am advertising the solution of switching to computer science, but I don’t think this post will convince many. That one can earn more with a degree in CS is well-known and widely accepted, my methodological claim and its argumentational justification would have to do the work of changing minds. But because I have not sufficiently argued for how the methodological impasse of philosophy could be overcome by the methods of computer science, my post lacks argumentative power. At this point, I doubt I have an argument that can do the work. Luckily, I only promised to offer my perspective in this post.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;footnotes&quot;&gt;Footnotes&lt;/h3&gt;
+
+&lt;p&gt;[0] For more of the debate, follow these links to various blog posts: &lt;a href=&quot;https://dailynous.com/2021/05/24/analytic-philosophys-triple-failure-of-confidence/&quot;&gt;1&lt;/a&gt;, &lt;a href=&quot;https://fliegenderbrief.wordpress.com/2021/06/01/dont-let-it-end/&quot;&gt;2&lt;/a&gt;, &lt;a href=&quot;http://lilith.cc/~victor/dagboek/index.php/2021/05/28/on-the-end-of-analytic-philosophy/&quot;&gt;3&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;[1] A connecting assumption is a deep holism about philosophical questions, as expressed in &lt;a href=&quot;http://lilith.cc/~victor/dagboek/index.php/2021/05/28/on-the-end-of-analytic-philosophy/&quot;&gt;this blogpost&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Any philosophical problem is all philosophical problems. You will have known nothing if you have not known everything.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I don’t want to dismiss such assertions entirely, but notice that asserting it leads to an odd incoherence. As far as I am concerned, the question of holism about philosophy is a philosophical question. To know the positive answer to it, that is to know that any philosophical problem is all philosophical problems, would therefore require us to know everything.&lt;/p&gt;
+
+&lt;p&gt;[2] I am not ruling out that some problems in philosophy might not be solvable. There might be a lack of epistemic access of one sort or another. But I do not think that we have justification to act on this assumption with regards to all or most philosophical problems. The background of my position is Peircean, taking hope in success as an important factor for the progress of inquiry.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 07 Jul 2021 17:30:13 +0100</pubDate>
+        <link>https://dstrohmaier.com/state-of-analytic-philosophy/</link>
+        <guid isPermaLink="true">https://dstrohmaier.com/state-of-analytic-philosophy/</guid>
+        
+        
+        <category>posts</category>
+        
+      </item>
+      
+    
+     
+      <item>
+        <title>Using Prolog for Sudoku Variants</title>
+        <description>&lt;p&gt;The Sudoku scene has undoubtedly been one of the pandemic winners. Thanks to the Youtube channel &lt;a href=&quot;https://www.youtube.com/channel/UCC-UOdK8-mIjxBQm_ot1T-Q&quot;&gt;“Cracking the Cryptic”&lt;/a&gt;, its viral video on the &lt;a href=&quot;https://www.youtube.com/watch?v=yKf9aUIxdb4&quot;&gt;“Miracle Sudoku”&lt;/a&gt;, and the many entertaining videos that followed, Sudoku puzzles with extended rule-sets have received widespread attention. That is a prime opportunity for Prolog aficionados like myself to show off the power of the language. Many Sudoku puzzles are easily solved with Prolog.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/compositor.jpg&quot; alt=&quot;A Sudoku Setter at Work&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;existing-resources&quot;&gt;Existing Resources&lt;/h2&gt;
+
+&lt;p&gt;A solver for standard Sudokus is a teaching example for the &lt;a href=&quot;https://www.swi-prolog.org/man/clpfd.html&quot;&gt;CLPFD library&lt;/a&gt;. The Power of Prolog has a &lt;a href=&quot;https://www.metalevel.at/sudoku/&quot;&gt;dedicated page and video&lt;/a&gt; for solving standard Sudokus. Puzzles with extended rule-sets have not gone unnoticed either. In fact, the original “Miracle Sudoku” video has been discussed and solved with Prolog in &lt;a href=&quot;https://benjamincongdon.me/blog/2020/05/23/Solving-the-Miracle-Sudoku-in-Prolog/&quot;&gt;a blog post by Benjamin Congdon&lt;/a&gt;. I want to add a little to these solvers.&lt;/p&gt;
+
+&lt;p&gt;The extended solver of Congdon adds three constraints to the classical solver:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;King’s Move: Cells that are removed from each other by the equivalent of a move of a chess king cannot contain the same digit.&lt;/li&gt;
+  &lt;li&gt;Knight’s Move: Cells that are removed from each other by the equivalent of a move of a chess knight cannot contain the same digit.&lt;/li&gt;
+  &lt;li&gt;Orthogonal Adjancency: Orthogonally adjacent cells cannot contain consecutive digits.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If you want to see how to program these constraints, see Congdon’s &lt;a href=&quot;https://benjamincongdon.me/blog/2020/05/23/Solving-the-Miracle-Sudoku-in-Prolog/&quot;&gt;post&lt;/a&gt;. But there are other constraints that often appear on Cracking the Cryptic and I thought I would fill the gap. For a start, I want to address one of the most common constraint type:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Thermo: Numbers on a line are montonically increasing starting from a thermometer bulb.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;full-solution-thermo&quot;&gt;Full Solution: Thermo&lt;/h2&gt;
+
+&lt;p&gt;For the Thermo constraint, I’ve chosen the great “Spoons” puzzle by the well-known setter Phistomefel. To solve that puzzle yourself, &lt;a href=&quot;https://app.crackingthecryptic.com/sudoku/BnRMNhBr8N&quot;&gt;follow this link&lt;/a&gt;. To solve it with Prolog, all we need beyond a standard solver are the following the two lines and the inclusion of the specific constraints:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;smaller(L,Sn,L) :- Sn #&amp;lt; L.
+thermo([L|Ls]) :- foldl(smaller,Ls,L,_).
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The thermo predicate defined in these lines, checks whether a list of integers increases monotonically from left to right.[0]&lt;/p&gt;
+
+&lt;p&gt;My complete solution, based on the previous solvers metioned above, looks as follows:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:- use_module(library(clpfd)).
+
+puzzle(Rows) :-
+	Rows = [
+		[A1,A2,A3,A4,A5,A6,A7,A8,A9],
+		[B1,B2,B3,B4,B5,B6,B7,B8,B9],
+		[C1,C2,C3,C4,C5,C6,C7,C8,C9],
+		[D1,D2,D3,D4,D5,D6,D7,D8,D9],
+		[E1,E2,E3,E4,E5,E6,E7,E8,E9],
+		[F1,F2,F3,F4,F5,F6,F7,F8,F9],
+		[G1,G2,G3,G4,G5,G6,G7,G8,G9],
+		[H1,H2,H3,H4,H5,H6,H7,H8,H9],
+		[I1,I2,I3,I4,I5,I6,I7,I8,I9]
+		],
+    sudoku(Rows),
+	thermo([A3,A4,A5]),
+	thermo([B2,C2,D2]),
+	thermo([B3,C3,D3]),
+	thermo([B4,C4,D4]),
+	thermo([B5,C5,D5]),
+	thermo([B7,C7,D7]),
+	thermo([B8,C8,D8]),
+	thermo([B9,C9,D9]),
+	thermo([E3,E4,E5]),
+	thermo([F1,G1,H1]),
+	thermo([F3,G3,H3]),
+	thermo([F4,G4,H4]),
+	thermo([F6,G6,H6]),
+	thermo([F7,G7,H7]),
+	thermo([F8,G8,H8]),
+	thermo([F9,G9,H9]),
+	thermo([I3,I4,I5]),
+	thermo([I8,I7,I6]).
+
+sudoku(Rows) :-
+	append(Rows, Vs), Vs ins 1..9,
+	maplist(all_distinct, Rows),
+	transpose(Rows, Columns),
+	maplist(all_distinct, Columns),
+	[As,Bs,Cs,Ds,Es,Fs,Gs,Hs,Is] = Rows,
+	blocks(As, Bs, Cs),
+	blocks(Ds, Es, Fs),
+	blocks(Gs, Hs, Is).
+
+blocks([], [], []).
+blocks([N1,N2,N3|Ns1], [N4,N5,N6|Ns2], [N7,N8,N9|Ns3]) :-
+    all_distinct([N1,N2,N3,N4,N5,N6,N7,N8,N9]),
+    blocks(Ns1, Ns2, Ns3).
+
+smaller(L,Sn,L) :- Sn #&amp;lt; L.
+thermo([L|Ls]) :- foldl(smaller,Ls,L,_).
+
+:- time((puzzle(Rows), maplist(labeling([ff]), Rows))),
+	maplist(portray_clause, Rows).
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The solve took 0.141 seconds on my laptop.&lt;/p&gt;
+
+&lt;h2 id=&quot;other-constraints&quot;&gt;Other Constraints&lt;/h2&gt;
+
+&lt;p&gt;To show off the power of Prolog a little more, I’ll finish with the implementation of two more constraints.&lt;/p&gt;
+
+&lt;p&gt;Summing constraints are equally straight forward to handle. There are in fact multiple variations of summing constraints, including summing along arrows and summing along diagonals (little killer clues). The code will usually be the same:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;add(X,Y,S):- S #= X+Y.
+sum(Xs,S):- foldl(add,Xs,0,S).
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The predicate sum relates a list of integers – order does not matter – to its sum &lt;em&gt;S&lt;/em&gt;. When we implement a Sudoku puzzle, the &lt;em&gt;S&lt;/em&gt; will usually be another variable in the case of arrow clues and in the case of little killer clues, it will usually be a given digit.&lt;/p&gt;
+
+&lt;p&gt;Disjoint groups are a further fascinating constraint. It is &lt;a href=&quot;https://www.funwithpuzzles.com/2014/08/disjoint-groups-sudoku-fun-with-sudoku.html&quot;&gt;defined as follows&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;cells with the same position in 3x3 boxes contains number from 1 to 9 i.e no number can repeat in the same position in 3x3 boxes.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I wrote a working implementation for the disjoint group constraint and I post it here for completeness, but it is not very elegant.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;disjoint(Rows) :-
+	by3(Rows,First-[],Second-[],Third-[]),
+	maplist(distinct_sets,[First,Second,Third]).
+
+distinct_sets(Rows) :- row_sets(Rows,FSet,SSet,TSet),
+                       maplist(all_distinct,[FSet,SSet,TSet]).
+
+row_sets([],[],[],[]).
+row_sets([H|Rows],L1,L2,L3) :- by3(H,L1-A,L2-B,L3-C),
+                               row_sets(Rows,A,B,C).
+
+by3([],A-A,B-B,C-C).
+by3([N1,N2,N3|R],[N1|F]-A,[N2|S]-B,[N3|T]-C) :- by3(R,F-A,S-B,T-C).
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In a nutshell, the predicate disjoint groups every third row (A, D, G) and every third+1 row (B, E, H), and every third+2 row (C, F, I) together and then applies the same grouping within rows to create the disjoint sets. If you have a better implementation of the disjoint group constraint, then email me. And if you think you understand how it works and want to implement a solve yourself, give &lt;a href=&quot;https://app.crackingthecryptic.com/sudoku/LNqP9d8tdj&quot;&gt;this puzzle&lt;/a&gt; a try. I would love to see a good Prolog solver for it.&lt;/p&gt;
+
+&lt;h2 id=&quot;update-22072021&quot;&gt;Update [22.07.2021]&lt;/h2&gt;
+&lt;p&gt;I’ve been sent this clever implementation of the disjoint group constraint by Janne U. using a DCG:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;disjoint_groups2(Rows) :-
+	phrase(blockrows(Rows), Blocks),
+	transpose(Blocks, BlocksT),
+	maplist(all_distinct, BlocksT).
+
+blockrows([]) --&amp;gt; [].
+blockrows([[],[],[]|R]) --&amp;gt; blockrows(R).
+blockrows([[N1,N2,N3|Ns1], [N4,N5,N6|Ns2], [N7,N8,N9|Ns3]|R]) --&amp;gt;
+	[[N1,N2,N3,N4,N5,N6,N7,N8,N9]],
+	blockrows([Ns1,Ns2,Ns3|R]).
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;footnote&quot;&gt;Footnote&lt;/h3&gt;
+
+&lt;p&gt;[0] I consistently use here the predicates from the CLPFD library, rather than the vanilla mathematical predicates available in Prolog.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 02 Jul 2021 22:30:13 +0100</pubDate>
+        <link>https://dstrohmaier.com/sudoku-prolog/</link>
+        <guid isPermaLink="true">https://dstrohmaier.com/sudoku-prolog/</guid>
+        
+        
+        <category>posts</category>
+        
+      </item>
+      
+    
+     
+      <item>
+        <title>Notes on Standing and Occasion Meaning</title>
+        <description>&lt;p&gt;Lexical semantics investigates the meaning of words, but one might distinguish multiple levels of meaning for a single word. For example, the word “semantics” might have a very broad and a very narrow meaning at the same time, depending on how much contextual information we take into account. The relative dependence on contextual information created lexical levels of meaning. In this post, I will share a few thoughts on the simplest distinction of lexical levels of meaning, that is the distinction between standing and occasion meaning of a word. The main insight will be that the distinction faces a problem with regard to homonyms and that current NLP approaches can be interpreted as implementing a specific solution to this problem.&lt;/p&gt;
+
+&lt;h2 id=&quot;standing-and-occasion-meaning&quot;&gt;Standing and Occasion Meaning&lt;/h2&gt;
+
+&lt;p&gt;Standing meaning is the meaning of a word in general, while occasion meaning is word meaning for a specific occasion. By drawing this line, we split word meaning on the one side into a generic core without contextual dependence, and on the other into a specification that depends on the linguistic context. To give an example, “student” might broadly denote learners, while in a specific context the denotation of the word might be narrowed down to the registered participants of a class. The one is the standing and the other is the occasion meaning.&lt;/p&gt;
+
+&lt;p&gt;The distinction between standing and occasion meaning has a long history, going back at least to the late 19th century work of the linguist Hermann Paul. Paul distinguished between &lt;em&gt;usueller&lt;/em&gt; and &lt;em&gt;okkasioneller Bedeutung&lt;/em&gt; (usual/standing and occasional meaning) (see Geeraerts 2010: 14-16).[0] It is perhaps the most frequent way of distinguishing levels of meaning for a word.&lt;/p&gt;
+
+&lt;p&gt;Faced with this distinction, we might wonder what exactly instantiates two types of meaning? So far, I have generically written about the meaning of a &lt;em&gt;word&lt;/em&gt;, but we can be more specific. Either the word type or the word tokens could instantiate the two levels of meaning. A relatively intuitive response is to attribute the standing meaning to word types and the occasion meaning to word tokens, as Recanati (2012) does. After all, the standing meaning and the word type are both more abstract and generic, while the occasion meaning and the word token are more concrete and specific. But this response is not without problems, because it commits us to word types having one specific meaning in the absence of any context. In the case of homonyms, such as “bank” the standing meaning becomes unclear.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-problem-of-homonyms&quot;&gt;The Problem of Homonyms&lt;/h2&gt;
+
+&lt;p&gt;What is the standing meaning of “bank”? There is arguably not one standing meaning for this string which covers all uses. Prima facie, “bank” in the sense of financial institute does not share a meaning with “bank” in the sense of edge of a watercourse. In such cases, we have multiple options:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Assign the word types a single disjunctive meaning.&lt;/li&gt;
+  &lt;li&gt;Distinguish two or more standing meanings for the word type.&lt;/li&gt;
+  &lt;li&gt;Distinguish two or more homonymous word types each with their own standing meaning.&lt;/li&gt;
+  &lt;li&gt;Deny the existence of a standing meaning and only postulate occasion meaning for the word type in question.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The first option sticks with word types having a single standing meaning and just renders it disjunct. We would think of “bank” as meaning &lt;em&gt;financial-institute-or-edge-of-watercourse&lt;/em&gt;. But when words develop many meanings, then this standing meaning will become unwieldy and increasingly empty. “Bank” can also refer to buildings housing financial institutes and to databanks, and to piggy banks, etc. The resulting disjunct will be incredibly broad.&lt;/p&gt;
+
+&lt;p&gt;On the second option we just accept that a word type, that is one abstract word string, can have multiple standing meanings and the context will then pick out one of them for further specification. In response, one might ask whether “bank” also has the standing meaning of the German “Bank” which means &lt;em&gt;bench&lt;/em&gt;. If we individuate words purely as strings that instantiate meaning, it would seem to be the case, but that might be at odds with an understanding of words that makes them specific to languages.&lt;/p&gt;
+
+&lt;p&gt;Recanati chooses the third option and individuates word types in terms of their standing meaning, but I don’t find it an obvious choice. Individuating word types in terms of standing meaning creates the challenge of changes in word type meaning over time. We might want to say that a word type has undergone (standing) meaning change, but this assertion would become incorrect if word types are individuated in terms of their meaning. Their meaning would become an individuating characteristic, requiring us to postulate a new word whenever we detect a different standing meaning. While hat does not rule out the third option, it makes it less appealing.&lt;/p&gt;
+
+&lt;p&gt;The fourth option abandons the distinction between standing and occasion meaning, at least for words types that are homonyms. This move throws into doubt the whole project of having general levels of word meaning. After all, the standing and occasion meaning distinction was supposed to be the simplest possible differentiation between levels.&lt;/p&gt;
+
+&lt;p&gt;The fifth solution would be to diverge from Recanati even further and assign both standing and occasion meaning to word tokens rather than word types. It seems a bit odd, however, to claim that words have a meaning only relative to a specific use.&lt;/p&gt;
+
+&lt;p&gt;I’ll not argue at length for one of these options here – my favourite is the second option, but the differences can be quite subtle – instead I’ll end this post by considering the problem from the perspective of contemporary NLP.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-few-remarks-from-nlp&quot;&gt;A Few Remarks from NLP&lt;/h2&gt;
+
+&lt;p&gt;Some neural architectures, prominently transformer architectures, represent lexical meaning at multiple points. Specifically, they represent meaning at an initial embedding layer and at later points of encoding. As a result, non-contextualised and multiple sets of contextualised word representations can be extracted from e.g. BERT models (Devlin et al. 2019).[1] We could then go on to identify the non-contextualised embeddings with the standing meaning and the final contextualised embeddings with the standing meaning. This interpretation is sketched in Emerson (2020).&lt;/p&gt;
+
+&lt;p&gt;Of these models, we can then ask how they deal with the problem of homonyms. BERT and similar approaches effectively implement the first option and assign a disjunct standing meaning. The initial embedding for “bank” does not differ for the two homonyms. That could be changed, of course. We could preprocess the data with a coarse-grained word sense disambiguation (WSD) system and create different initial embeddings based on the results (cf. Trask et al. 2015).&lt;/p&gt;
+
+&lt;p&gt;If you have a preference for either the second option, as I do, or Recanati’s option of individuating word types in terms of standing meanings, then you would not be satisfied of equating the initial embeddings with standing meanings. The introduction of coarse-grained WSD would fit these approaches much better.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;footnotes&quot;&gt;Footnotes&lt;/h3&gt;
+
+&lt;p&gt;[0] Another important source for this distinction is Quine (2013), who distinguished occasion from standing sentences. But Quine’s approach is much more behaviourist.&lt;/p&gt;
+
+&lt;p&gt;[1] I neglect here that BERT uses sub-tokenization.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
+
+&lt;p&gt;Devlin, J., Chang, M.-W., Lee, K., &amp;amp; Toutanova, K. (2019). BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. ArXiv:1810.04805 [Cs]. &lt;a href=&quot;http://arxiv.org/abs/1810.04805&quot;&gt;http://arxiv.org/abs/1810.04805&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Emerson, G. (2020). What are the Goals of Distributional Semantics? &lt;em&gt;Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics&lt;/em&gt;, 7436–7453. &lt;a href=&quot;https://doi.org/10.18653/v1/2020.acl-main.663&quot;&gt;https://doi.org/10.18653/v1/2020.acl-main.663&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Geeraerts, D. (2010). &lt;em&gt;Theories of Lexical Semantics&lt;/em&gt;. Oxford University Press.&lt;/p&gt;
+
+&lt;p&gt;Recanati, F. (2012). Compositionality, Flexibility, And Context Dependence. In &lt;em&gt;The Oxford Handbook of Compositionality&lt;/em&gt; (pp. 175–191). Oxford University Press. &lt;a href=&quot;https://doi.org/10.1093/oxfordhb/9780199541072.013.0008&quot;&gt;https://doi.org/10.1093/oxfordhb/9780199541072.013.0008&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Trask, A., Michalak, P., &amp;amp; Liu, J. (2015). sense2vec—A Fast and Accurate Method for Word Sense Disambiguation In Neural Word Embeddings. ArXiv:1511.06388 [Cs]. &lt;a href=&quot;http://arxiv.org/abs/1511.06388&quot;&gt;http://arxiv.org/abs/1511.06388&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Quine, W. V. O. (2013[1960]). &lt;em&gt;Word and Object&lt;/em&gt; (new edition). MIT Press.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 03 Feb 2021 15:37:13 +0000</pubDate>
+        <link>https://dstrohmaier.com/standing-meaning-polysemy/</link>
+        <guid isPermaLink="true">https://dstrohmaier.com/standing-meaning-polysemy/</guid>
+        
+        
+        <category>posts</category>
+        
+      </item>
+      
+    
+     
+      <item>
+        <title>Follow Up: Why Learn Prolog in 2021?</title>
+        <description>&lt;p&gt;My &lt;a href=&quot;http://dstrohmaier.com/why-learn-prolog-in-2021/&quot;&gt;recent blog post&lt;/a&gt; arguing why one should lean Prolog in 2021 made its way to the front page of Hacker News (HN), where it started a &lt;a href=&quot;https://news.ycombinator.com/item?id=25652369&quot;&gt;discussion&lt;/a&gt; with more than 100 comments. I’m glad to see that some saw value in my post and I want to respond to a few comments from this discussion. Given the number of comments, I won’t write an exhaustive response but instead focus on a few themes I care about and try to fill some gaps I left in my original post. This post will be more eclectic and discuss:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;How to evaluate the time investment into Prolog&lt;/li&gt;
+  &lt;li&gt;Where the unfulfilled potential of Prolog might lie&lt;/li&gt;
+  &lt;li&gt;Why I focussed on Prolog rather than another logic programming language&lt;/li&gt;
+  &lt;li&gt;The aesthetic and epistemic reasons for learning Prolog&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I consider this post a contribution to an ongoing debate, not its conclusion, and I hope it will be understood in such a way.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-to-evaluate-the-time-investment&quot;&gt;How to Evaluate the Time Investment&lt;/h2&gt;
+
+&lt;p&gt;I framed my blog post as providing reasons to learn Prolog for university students. The question I sought to provide them with reasons to invest their time specifically in Prolog. Why should they spend the time on Prolog than other opportunities?&lt;/p&gt;
+
+&lt;p&gt;I believe that the opportunity costs are especially worth considering for students of computer science, because these costs can be larger than in other disciplines. If a CS student learns a skill that is in high demand on the market – and that is not the case for Prolog at this point – they might increase their future salary.&lt;/p&gt;
+
+&lt;p&gt;A student would not be well advised to invest much time into Prolog if they primarily sought to increase their future salary while avoiding risk. There are better &lt;em&gt;risk-averse&lt;/em&gt; time investment opportunities, such as learning more about neural network technologies. Of course, this assumes a student who are motivated by risk-secure monetary outcomes and would be able to act on this motivation.[0] Instead students&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;might be motivated by other aims more strongly than by the additional income, or&lt;/li&gt;
+  &lt;li&gt;might be willing to take a riskier bet to raise their income, or&lt;/li&gt;
+  &lt;li&gt;might find themselves unable to resist watching funny Youtube clips for the sake of earning money but able to resist them for the sake of learning Prolog.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;More needs to be said about the case of students willing to take risky bets. My last post subtly suggested that Prolog might lead to an increased income, if at some future date Prolog releases an unfulfilled potential. Learning Prolog is a risky investment, but on the assumption of unfulfilled potential it is an investment with a potentially large pay-off.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-is-this-unfulfilled-potential&quot;&gt;What Is This Unfulfilled Potential?&lt;/h2&gt;
+
+&lt;p&gt;In response to my claim that Prolog has unfulfilled potential, HN user &lt;em&gt;mths&lt;/em&gt; wrote&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Is there any reason to believe the paradigm will somehow come into its own in the future? The way this question was addressed by the article was way too wishy-washy for my taste. 
+I freely admit that I did not provide all that many details on this issue, because I feared the challenge of the predicting the future direction of Prolog and the embarrassment if I my specific predictions turn out to be mistaken. The comments, however, made me realise that I need to&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;One area where many Prolog aficionados tend to see unfulfilled potential is constraint logic programming. Programming with constraints is powerful and has been explored relatively little. Constraint programming is also an area with relatively clear applications. It isn’t only helpful for solving Sudokus or logic puzzles – although that is true as well[1] – but e.g. also for various engineering tasks.&lt;/p&gt;
+
+&lt;p&gt;There are other contenders in the space of constraint programming, but Prolog’s design allows us to integrate constraint logic programming seamlessly into larger projects. As The Power of Prolog &lt;a href=&quot;https://www.metalevel.at/prolog/optimization&quot;&gt;website&lt;/a&gt; puts it, constraints “blend in especially seamlessly into _logic programming languages like Prolog due to their relational nature and built-in search and backtracking mechanisms”.&lt;/p&gt;
+
+&lt;p&gt;Another area where I believe Prolog has unfulfilled potential is the task of fully interpretable automated reasoning. Fully interpretable reasoning requires the ability to follow step by step the inferences processes, including the evidential basis, in a way that is comprehensible to the human cognitive architecture. While much work has pried open the black box of neural networks, I don’t see this level of interpretability reachable without much revision of our neural architectures. Admittedly, or many applications, this lack of full interpretability is acceptable and in some domains it might even be unavoidable. In some domains, however, we might expect such a level of interpretability. The legal domain is a case in point. For at least some parts of legal decision processes which might strip people of their most basic freedoms, we ought to do our best to provide a fully interpretable inference process. In these domains, Prolog or Prolog-like languages have unfulfilled potential.&lt;/p&gt;
+
+&lt;p&gt;In addition to these two specific areas, let me offer a highly abstract reason why one should expect Prolog to have unfulfilled potential. I assume that Prolog is the main example of the logic programming paradigm, which in turn I assume to be one of the three major programming paradigms: imperative, functional, and logic. If those assumptions are granted – and there are plausible reasons to object to them – the question arises why the logic programming paradigm should be the only out of the three paradigms which does not find major areas of application. To my mind, it appears unlikely that there would be an entire approach to programming with a negligible domain of application. This argument is more of a hunch, but such hunches are the best guidance we have when it comes to hard-to-quantify unknowns, such as whether a technology has potential no one has even conceived of yet.&lt;/p&gt;
+
+&lt;h2 id=&quot;but-does-it-have-to-be-prolog&quot;&gt;But Does It Have to Be &lt;em&gt;Prolog&lt;/em&gt;?&lt;/h2&gt;
+
+&lt;p&gt;A few discussion participants saw merit in the logic programming paradigm, but felt less comfortable with Prolog in particular.&lt;/p&gt;
+
+&lt;p&gt;For example, HN user &lt;em&gt;qart&lt;/em&gt; asked:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;I wonder… is it still justified to learn Prolog now? Aren’t there better alternatives for logic programming in many other common programming languages? I mean http://minikanren.org/&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Another example of a logic programming language that popped up repeatedly in the discussion is &lt;a href=&quot;https://mercurylang.org/index.html&quot;&gt;Mercury&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I lack experience with both miniKanren and Mercury and so I won’t argue that they are better or worse realisations of the logic programming paradigm. Instead I want to suggest that one should prefer to learn Prolog, because there are more resources available for Prolog. Many of these resources were linked to in the HN thread itself.&lt;/p&gt;
+
+&lt;p&gt;Furthemore, given the presumed audience of university students, the question is mostly moot. Usually, departments would offer only one course in logic programming or require learning Prolog before learning more about other logic programming languages. The choices are limited by the curriculum.&lt;/p&gt;
+
+&lt;p&gt;I’m open to the thought that the future of logic programming will not be exactly ISO-compliant Prolog. That being said, I’d be surprised if no key elements of Prolog would be available in that assumed future language, be it Horn-clauses, unification with backtracking, or Prolog-style constraint logic programming.&lt;/p&gt;
+
+&lt;h2 id=&quot;aesthetic-and-epistemic-reasons&quot;&gt;Aesthetic and Epistemic Reasons&lt;/h2&gt;
+
+&lt;p&gt;I don’t think one should fool oneself about learning Prolog and the lack of demand for Prolog skills on the job market, which was also a major topic on the HN thread. But I also made two other arguments, one appealing to the aesthetic and the other to the epistemic properties of Prolog. From the comments, I got the impression that these properties carried more weight with some discussion participants than with others. That is to be expected. What stood out to me, however, is that relatively few HN users questioned that Prolog has these properties.&lt;/p&gt;
+
+&lt;p&gt;Perhaps the closest to arguing against my claim that Prolog is intellectually beautiful and epistemically revelatory would be the comments criticising the language for living up to its own ambitions. For example, &lt;em&gt;infogulch&lt;/em&gt; complained that:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Prolog implementations are too heavily reliant on the stated order of predicate rules in order to make execution progress.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I have sympathy for such criticisms and in my post I admitted that “occasionally Prolog falls short of the programming-by-description-paradigm”. But much of the beauty derives from recognising the paradigm of which Prolog is the main example. Compare the experience to reading a novel in which the author has captured a completely new way of conceiving an aspect of reality, but some chapters fail to reflect this original conception. While one might argue that the novel is uneven, the new conception of reality within its pages is certainly a reason to read it. It seems to me that criticisms such as the one by &lt;em&gt;infogulch&lt;/em&gt; are analogous.&lt;/p&gt;
+
+&lt;p&gt;In addition, Prolog is still being improved with regard to the aforementioned shortcomings. Prolog develops continue to work on bringing the language more in line with the ideas that render it beautiful and epistemically revelatory.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;My former post was intended as the best case I can make for Prolog within a blog post. I had an imagined audience, but I was writing the post to reflect on what might justify my own interaction with Prolog, including offering supervisions for a course. While my main aim was to offer a justification independently of its uptake by anyone else, I won’t deny that I derive great satisfaction from positive responses, such as &lt;em&gt;simongray&lt;/em&gt; writing&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;This inspired me. What’s the best book for modern prolog?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I am grateful for everyone who gave my blog post a chance.&lt;/p&gt;
+
+&lt;h3 id=&quot;footnotes&quot;&gt;Footnotes&lt;/h3&gt;
+
+&lt;p&gt;[0] I am also writing this in the context of a limited departmental curriculum, where students cannot just choose any course, but I won’t go into that here.&lt;/p&gt;
+
+&lt;p&gt;[1] See &lt;a href=&quot;https://www.metalevel.at/sudoku/&quot;&gt;https://www.metalevel.at/sudoku/&lt;/a&gt; and  &lt;a href=&quot;https://www.metalevel.at/prolog/puzzles&quot;&gt;https://www.metalevel.at/prolog/puzzles&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 07 Jan 2021 15:37:13 +0000</pubDate>
+        <link>https://dstrohmaier.com/follow-up-why-learn-prolog-in-2021/</link>
+        <guid isPermaLink="true">https://dstrohmaier.com/follow-up-why-learn-prolog-in-2021/</guid>
+        
+        
+        <category>posts</category>
+        
+      </item>
+      
+    
+     
+      <item>
+        <title>Why Learn Prolog in 2021?</title>
+        <description>&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;?- learn(prolog).
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Why should one learn Prolog in 2021? I should better have an answer to this question, because I will soon offer supervisions for a Prolog course. While I’m a personal admirer of this unusual programming language, students might rightfully demand a justification that goes beyond my preferences. Prolog certainly isn’t the most glamorous programming language to learn in 2021. Despite its lack of popularity, there are good reasons to learn Prolog and in the following, I’ll explore three of them.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-sheer-intellectual-beauty&quot;&gt;The Sheer Intellectual Beauty&lt;/h2&gt;
+
+&lt;p&gt;Perhaps my background in philosophy helps explain my fondness for Prolog. Not only is first-order predicate logic taught to virtually all philosophy students as a tool for thought, but it also forms the foundation of Prolog’s logic-programming paradigm. Philosophers aim for a logical description of the world and Prolog goes beyond this ambition by allowing us to manipulate reality via a logical description. We solve problems by writing Horn clauses, and a Horn-clause is a logical formula that simplifies resolution. Logical formulas are the tool of problem solving. Once grasped, the idea of logically describing a problem and the having the computer solve it is almost irresistible.&lt;/p&gt;
+
+&lt;p&gt;Of course, occasionally Prolog falls short of the programming-by-description-paradigm. There are cases where Prolog mixes logic and control instead of keeping them apart.[0] Nonetheless, logic programming, the paradigm of which Prolog is the primary example, comes with its own intellectual appeal. From the perspective of intellectual aesthetics, good Prolog code is a sublime experience (&lt;em&gt;erhabene Erfahrung&lt;/em&gt;).[1] Such Prolog code reveals the overwhelming power of logical description and the force of a capacity – the capacity to describe the world in logical terms and thereby solve problems – that resides in all of us.&lt;/p&gt;
+
+&lt;p&gt;In sum, Prolog code has a timeless beauty to it – a claim that I believe is more commonly associated with the S-expressions of LISP – and is therefore worth learning. I am aware that an appeal to beauty has its limits, but the aesthetic properties of a programming language should not be entirely discounted. Our sense for intellectual beauty is an important tool for creation and it needs to be trained. If one understands what makes an approach beautiful, it becomes easier to create beautiful code and to resist the lure of beauty when it distracts from practical concerns. Learning Prolog is a way to tame the power of beautiful code.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;?- beautiful(prolog).
+true
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;a-different-perspective-on-classical-issues&quot;&gt;A Different Perspective on Classical Issues&lt;/h2&gt;
+
+&lt;p&gt;Recursion, list manipulations, and graph-hopping are standard topics of foundational computer science and Prolog addresses them with a twist.[2] Prolog offers a different perspective on classical issues of computer science, usually right away from the first lessons. As a result, Prolog has a relatively steep learning curve, but the different perspective can also be revelatory. One learns to describe classical problems in the format of Prolog Horn-clauses and thereby solve them, which can lead to a unique way of understanding them – especially, once one has learned to write &lt;em&gt;idiomatic&lt;/em&gt; Prolog.&lt;/p&gt;
+
+&lt;p&gt;Prolog is not only beautiful, but it also reveals another aspect of the core issues of computer science to which it is applied. Occasionally, the aspect Prolog reveals is also the aspect that needs to be seen for solving a problem. Some problems call for Prolog. Having learned Prolog will allow one to address them beautifully and efficiently. To be honest, at the moment such problems are too rare to justify learning Prolog. But I don’t believe that this has to remain so. As my last argument in favour of learning Prolog, I will suggest that it has unfulfilled potential.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;?- unique_perspective(prolog).
+true
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;unfulfilled-potential&quot;&gt;Unfulfilled Potential&lt;/h2&gt;
+
+&lt;p&gt;As a student of computer science, one can make a decent career by always following the hype, but to stand out one has to diverge from the well-trodden paths. Those willing to explore unpopular territory have a chance of being ahead of the crowd. In 2021, Prolog is such unpopular territory. In my field of NLP, one might instead opt to learn more about neural networks and especially the Transformer architectures such as BERT. Learning about these topics is certainly advisable for a career in NLP, but it won’t make one stand out.&lt;/p&gt;
+
+&lt;p&gt;Prolog is unpopular and, more importantly, I believe that it has not fulfilled its potential so far. The logic-programming paradigm with its separation between logic and control is powerful. Yet it does not find much use in current applications. This unpopularity despite power might deter a student from learning Prolog – perhaps logic-programming has faults which keep its from being successful – but it is also an opportunity. One can make the bet that more will come of Prolog or a language similar to it.[3] If the bet is successful, one will be ahead of the hype.&lt;/p&gt;
+
+&lt;p&gt;Such bets on unpopular options are risky. It is a high-reward bet because of the limited chances of success. That being said, I would advise making a few such bets in the course of one’s life. Even if nothing comes of them, they render life more interesting and help to show individual character. Perhaps one shouldn’t go all in on such a bet, but this consideration should justify the few hours of a Prolog course, when one gets academic credits in addition to being able to assess the unfulfilled potential of Prolog better.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;?- potential(prolog,Y), unfulfilled(Y).
+true
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Currently, Prolog does not belong to the most popular programming languages. Its logic programming paradigm makes it an outsider. Nonetheless, I’ve argued that there are good reasons to learn Prolog. The language is beautiful, it offers a different perspective on classic computer science issues, and it has unfulfilled potential. Whether you are motivated by aesthetic, academic, or career considerations, you have a reason to learn Prolog in 2021.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;learn(X) :- beautiful(X), unique_perspective(X), potential(X,Y), unfulfilled(Y).
+
+?- learn(prolog).
+true
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;UPDATE&lt;/em&gt; This blog post made its way to the frontpage of Hacker News where it received a sizeable number of &lt;a href=&quot;https://news.ycombinator.com/item?id=25652369&quot;&gt;comments&lt;/a&gt;. In response, I wrote a &lt;a href=&quot;http://dstrohmaier.com/follow-up-why-learn-prolog-in-2021/&quot;&gt;follow-up post&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;footnote&quot;&gt;Footnote&lt;/h3&gt;
+
+&lt;p&gt;[0] I’m referencing here Robert Kowalski’s formulation of Algorithm = Logic + Control.&lt;/p&gt;
+
+&lt;p&gt;[1] I hope Kantians can forgive me for treating the sublime (&lt;em&gt;das Erhabene&lt;/em&gt;) as a type of beauty, neglecting Kant’s distinction.&lt;/p&gt;
+
+&lt;p&gt;[2] For an example, have a look at the quicksort implementation on &lt;a href=&quot;https://www.metalevel.at/prolog/sorting&quot;&gt;The Power of Prolog&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;[3] I’m not &lt;a href=&quot;https://www.youtube.com/watch?v=kGQNeeRp4sM&quot;&gt;the only one who has hopes for Prolog’s future&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 05 Jan 2021 21:37:13 +0000</pubDate>
+        <link>https://dstrohmaier.com/why-learn-prolog-in-2021/</link>
+        <guid isPermaLink="true">https://dstrohmaier.com/why-learn-prolog-in-2021/</guid>
+        
+        
+        <category>posts</category>
+        
+      </item>
+      
+    
+     
+      <item>
+        <title>End of Year Post: 2020</title>
+        <description>&lt;p&gt;What has 2020 brought? In this post I want to offer a selective reflection on my research career and its developments in 2020. I will take a perspective that is at the same time deeply personal and highly abstract. From my personal heights, I’ll gesture at the turns I’ve taken this year, note a few outcomes, and point towards my future commitments.&lt;/p&gt;
+
+&lt;h2 id=&quot;reorientations-and-pivots&quot;&gt;Reorientations and Pivots&lt;/h2&gt;
+
+&lt;p&gt;My 2020 was characterised by multiple research reorientations and pivots. Many of these pivots I made privately, barely discussing them with my closest friends. These changes resulted from my assessment of my career trajectory and the various research fields into which I have tipped my toes. I don’t want to go into too much detail, but I intend to work less on social ontology and more on natural language processing (NLP). Generally, the path I chose is indicated by my most recent blog posts, which focus on the semantic dimensions of natural language, including lexical semantics. That choice, however, came after much trepidation and pivoting and in the last quarter of this year.&lt;/p&gt;
+
+&lt;p&gt;Why the need for a pivot? All too often academia ends up tying intelligent people to a misguided path of research. Various aspects of academic institutions, such as the need to develop a publication record in a narrow subfield, incentivise researchers to stick with their research projects even when emerging evidence weighs against it. While sometimes sticking to one path pays off in the long run – the researchers who stuck to neural networks during the various AI winters are a prime example of success – in many cases it misallocates human talent. Our human capacities are not maximising the scientific progress of humanity, or much else of value.&lt;/p&gt;
+
+&lt;p&gt;The possibility of wasting my limited capacities on fruitless research endeavours frightens me greatly. Hence, I have a history of abandoning research directions with which I have become disillusioned. A few years ago, before the final stages of my PhD, I was working in the history of philosophy and specifically on German Idealism, but by now that seems far removed from my research interests. While I can still derive joy from picking up a book by Hegel and perusing it, I cannot see myself dedicating my life to it. Hegel does not appear in my philosophy PhD thesis and after finishing my thesis, I completed an MPhil in advanced computer science, moving into NLP.&lt;/p&gt;
+
+&lt;p&gt;The opposite worry of wasting my capacities on fruitless endeavours is that my endless pivoting will not lead to any lasting scientific contributions either. Scientific progress relies on risky up-front investments and other than sheer luck, there is no way around that fact. Given the advanced state of most scientific fields, researchers have to delve deep into a field to contribute. Accordingly, I also fear the prospect of my research career flailing endlessly. That being said, I hope that my decisions in the later part of 2020 put me on a promising research path. Directly or indirectly, my future blog posts will reveal whether my hope is misplaced.&lt;/p&gt;
+
+&lt;h2 id=&quot;wrapping-up-projects&quot;&gt;Wrapping up Projects&lt;/h2&gt;
+
+&lt;p&gt;While I kept pivoting between different research interests of mine, I also wrapped up some projects. Academically, these wrapping up events realised themselves as publications. I have published in the &lt;em&gt;Canadian Journal of Philosophy&lt;/em&gt; and &lt;em&gt;Synthese&lt;/em&gt;, both of which are fairly prestigious philosophy journals. Another philosophy paper has been accepted for publication and should appear in the next few months. These three papers are exploratory stepping stones in my research career. Although some of their insights will inform my future inquiries, I will abandon much of them. It would be a great joy to me if someone else would pick up the abandoned pieces and developed them into more than I have been able to. If you have any interest in that, feel free to drop me an email.&lt;/p&gt;
+
+&lt;p&gt;Perhaps I should do a better job of advertising and selling these papers – and since I put considerable time and effort into them, I hope that they are of value – but in this post I am trying to reflect on the overall development of my academic career, and I doubt that these papers will be the most remarkable ones of my career. In fact, I would be rather disappointed in myself if they turned out to form the pinnacle of my research. My ambitions have not been realised yet.&lt;/p&gt;
+
+&lt;h2 id=&quot;forward-into-2021&quot;&gt;Forward into 2021&lt;/h2&gt;
+
+&lt;p&gt;I go into 2021 with a renewed sense of commitment to furthering the scientific progress of humanity within the bounds of my limited capacities and interests. Over the last 10 years, I learned, read, and wrote without excessive regard for disciplinary boundaries. Towards the end of my PhD, I started to question my research trajectories – not that I was ever certain about them – and I explored how I might live up to my commitment of furthering scientific progress. As a result, I expanded into computer science in 2018, but I avoided decisions about my career until they become more pressing over the course of this year. In 2021, I hope to build upon the restructured foundations of my research career and start living up to my commitment. Maybe I will read some more for it in the last few hours of this year.&lt;/p&gt;
+
+&lt;p&gt;For the scientific progress of humanity!&lt;/p&gt;
+</description>
+        <pubDate>Thu, 31 Dec 2020 21:00:13 +0000</pubDate>
+        <link>https://dstrohmaier.com/end-of-year/</link>
+        <guid isPermaLink="true">https://dstrohmaier.com/end-of-year/</guid>
+        
+        
+        <category>posts</category>
+        
+      </item>
+      
+    
+     
+      <item>
+        <title>Simulating Basic Logic with Tensors</title>
+        <description>&lt;p&gt;Can we simulate basic logic operations, i.e. the operations of first-order predicate logic, using tensors? In his 2013 paper “Towards a Formal Distributional Semantics: Simulating Logical Calculi with Tensors”, Edward Grefenstette made some suggestions for such simulation.  The paper’s motivation was to take a step towards combining distributional with formal semantics. I’ve explored this paper in a Jupyter Notebook, which I put on &lt;a href=&quot;https://github.com/dstrohmaier/logic_with_tensors/blob/master/logical_calculi_tensors.ipynb&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;At the moment, the github notebook viewer breaks some of the LaTex formulas, but you can see it in the Jupyter notebook viewer &lt;a href=&quot;https://nbviewer.jupyter.org/github/dstrohmaier/logic_with_tensors/blob/master/logical_calculi_tensors.ipynb&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 18 Dec 2020 13:00:13 +0000</pubDate>
+        <link>https://dstrohmaier.com/logical-calculi-tensors/</link>
+        <guid isPermaLink="true">https://dstrohmaier.com/logical-calculi-tensors/</guid>
+        
+        
+        <category>posts</category>
+        
+      </item>
+      
+    
+     
+      <item>
+        <title>Exploring Basic Distributional Representations</title>
+        <description>&lt;p&gt;I’ve recently been reading up on distributional representations, that is representation of meaning that are based on count vectors. They were the exciting technology before neural networks and the embeddings networks create changed the field of NLP. Nowadays we do not count token occurrences, but let Word2Vec or BERT models create representations.&lt;/p&gt;
+
+&lt;p&gt;While they have decidedly fallen out of favour, distributional representations are clever pieces of technology and I wanted to get some more experiences with them. So I’ve put together a Jupyter Notebook that explores key aspects of that technology:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Creating a count matrix&lt;/li&gt;
+  &lt;li&gt;Calculating Pointwise Mutual Information&lt;/li&gt;
+  &lt;li&gt;Calculating similarity scores&lt;/li&gt;
+  &lt;li&gt;Reducing the dimensionality of the representations&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You can see the &lt;a href=&quot;https://github.com/dstrohmaier/distributional_representations/blob/master/count_matrix.ipynb&quot;&gt;notebook on github&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Of course, my notebook is merely an introduction to some of the most basic techniques. For example, I do not explore incorporating syntactic information. Still, I hope it shows that these by now largely neglected techniques are fascinating application of statistical NLP.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 28 Nov 2020 19:50:13 +0000</pubDate>
+        <link>https://dstrohmaier.com/distributional-representations/</link>
+        <guid isPermaLink="true">https://dstrohmaier.com/distributional-representations/</guid>
+        
+        
+        <category>posts</category>
+        
+      </item>
+      
+    
+     
+      <item>
+        <title>Conceptual Grain</title>
+        <description>&lt;p&gt;In this blog post I share some preliminary musings on conceptual grain – how fine-grained concepts such as DOG and MAMMAL are – which have arisen from my work in NLP and specifically word sense disambiguation. The upshot is that we can develop multiple metrics of conceptual grain and that we have to address the question of what we want these metrics to do for us.&lt;/p&gt;
+
+&lt;p&gt;The classic task of word sense disambiguation (WSD) seeks to assign senses to word tokens in contexts. When I give you a tip, I might give you either advice or money for your service. A WSD system should assign the correct sense, but assigning a sense to “tip” relies on a repository of senses from which a WSD system can draw.&lt;/p&gt;
+
+&lt;p&gt;WordNet is the dominant sense repository in automatic word sense disambiguation (cf. Fellbaum 1998), but its shortcomings have been known for a long time. One of these shortcomings is an exceedingly fine grain (cf. Ide &amp;amp; Wilks 2007; Navigli 2009). The concepts are too finely distinguished for current technology to perform well and arguably even for human annotators. WordNet offers 33 senses for the token “head”, so there is a good chance that some of them get confused some of the time.&lt;/p&gt;
+
+&lt;p&gt;Despite the common complaint, the notion of grain on which it turns has remained rather unspecific. On the simplest interpretation, the grain of a sense repository such as WordNet is just the number of senses in it. There are just too many senses in WordNet! While fewer sense labels certainly would make it easier to create a classifier for WordNet, we might also look for a notion of grain with a little more theoretical heft. If we have our concepts organised with semantic relations, can we then describe grain in terms of such a linguistically founded organisation of concepts?&lt;/p&gt;
+
+&lt;p&gt;Consider the concepts[0] of DOG and MAMMAL. You might propose that since dogs are a kind of mammal the concept is more fine-grained. In more linguistic terms, the hyponomy hierarchy of concepts provides a partial ordering of grain. A hyponym (DOG) is more fine-grained than its hypernym (MAMMAL).[1] Or to be a bit more formal, assume we have a tree of hyponyms and hypernyms, i.e. a taxonomy tree[2], then the depth at which a concept can be found in this tree could be considered its grain. Hence, we can define an order of grain using a function depth(), i.e. grain(DOG) ≥ grain(MAMMAL) if and only if depth(DOG) ≥ depth(MAMMAL).&lt;/p&gt;
+
+&lt;p&gt;But there are other ways to specify the notion of grain. Consider again the example of “head” and its 33 senses. Prima facie, the problem here is not that the 33 senses are deep down in the hyponomy tree. The problem is that there are just too many senses that are &lt;em&gt;closely&lt;/em&gt; related. Once again, we can approximate the intuition with features of the taxonomy tree. Specifically, the branching factor of nodes in the tree provide an indication of how many closely related concepts there are.[3] In other words, it would hold that grain(DOG) ≥ grain(MAMMAL) if and only if hyper-branching-factor(DOG) ≥ hyper-branching-factor (MAMMAL), where hyper-branching-factor() returns the branching factor for the closest hypernym.[4] The assumption is that if the senses of “head” are really too close, they will be child nodes of densely populated hypernym nodes in the taxonomy tree.&lt;/p&gt;
+
+&lt;p&gt;So far, I considered the taxonomic tree to be constant and then pointed at features of it – depth and branching factor – to suggest metrics of conceptual grain. Instead one could postulate an ordering of increasingly detailed taxonomic trees. Assume you create a taxonomic ontology and you add batches of nodes to it in a natural way. Then the stages of your taxonomic tree will each have a certain grain. At the beginning you will have a very coarse-grained taxonomy and with each step it will be finer-grained. You can now have a function introduction-to-tree() which returns the number of the stage at which a certain concept was introduced. Then, grain(DOG) ≥ grain(MAMMAL) if and only if introduction-to-tree(DOG) ≥ introduction-to-tree(MAMMAL).&lt;/p&gt;
+
+&lt;p&gt;Admittedly, this measure has a problem, namely the need for an ordering of node batches in a “natural way” of adding them. Much of the subtleties of conceptual grain are hiding there. It won’t do to just record the steps in which nodes where added to WordNet or any other ontology, since chance and history will not follow such a natural order. A concept might be added later to the tree, for many reasons that would not support an inference about its grain – maybe people were too focused on some other topic domain and forget about the more common and coarser-grained concept.&lt;/p&gt;
+
+&lt;p&gt;All of these metrics have their positive and negative sides, depending on what we want to use them for. The use cases provide criteria for evaluation. One of the original reason for introducing a notion of grain was to allow us to complain about WordNet as being too fine-grained for word sense disambiguation. It has too many fine-grained concepts or it has concepts with too high an introduction-to-tree factor for our classifiers. Hence, I propose this first criterion:[5]&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Conceptual grain correlates with difficulty in addressing WSD as a classification task.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;In addition to this NLP-driven criterion, we can also use some linguistic intuitions about grain – in both senses of linguistic – to evaluate the metrics. Such criteria serve the purpose of ensuring that the metric can support linguistic theorizing.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;More fine-grained concepts should be (pragmatically?) exchangeable in more linguistic contexts than coarser concepts.&lt;/li&gt;
+  &lt;li&gt;The grain of a concept should correlate with the length of a na&amp;amp;#xEFve definition we might give for it.
+Further criteria could be proposed to ensure the integration of the metric in other disciplines, e.g. cognitive science. From the question of what is grain, we are driven the to the issue of what we the notion and its metrics to do for us.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;footnotes&quot;&gt;Footnotes&lt;/h3&gt;
+&lt;p&gt;[0] I use “sense” and “concept” interchangeably in this post.&lt;/p&gt;
+
+&lt;p&gt;[1] I assume that the hyponomy relation holds between concepts, not words. Otherwise I am not sure how to handle polysemy.&lt;/p&gt;
+
+&lt;p&gt;[2] Maybe concepts connected by hyponomy edges form a directed graph and not a tree, but let’s not get bogged down in that for now.&lt;/p&gt;
+
+&lt;p&gt;[3] This measure ignores the proximity between hypernyms and hyponyms, but the next one arguably captures it.&lt;/p&gt;
+
+&lt;p&gt;[4] A generalization would be to take the average branching factor of set of hyponyms.&lt;/p&gt;
+
+&lt;p&gt;[5] A 0th implicit criterion was that a metric of conceptual grain should provide at least a partial order over our concepts.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Fellbaum, C. (Ed.). (1998). WordNet: An Electronic Lexical Database. MIT Press.&lt;/li&gt;
+  &lt;li&gt;Ide, N., &amp;amp; Wilks, Y. (2007). Making Sense About Sense. In E. Agirre &amp;amp; P. Edmonds (Eds.), Word Sense Disambiguation: Algorithms and Applications (pp. 47–73). Springer Netherlands. https://doi.org/10.1007/978-1-4020-4809-8_3&lt;/li&gt;
+  &lt;li&gt;Navigli, R. (2009). Word Sense Disambiguation: A Survey. ACM Computing Surveys, 41(2), 1–69. https://doi.org/10.1145/1459352.1459355&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 16 Nov 2020 19:47:13 +0000</pubDate>
+        <link>https://dstrohmaier.com/grain/</link>
+        <guid isPermaLink="true">https://dstrohmaier.com/grain/</guid>
+        
+        
+        <category>posts</category>
+        
+      </item>
+      
+    
+     
+      <item>
+        <title>New Paper (CJP): Social-Computation-Supporting Kinds</title>
+        <description>&lt;p&gt;The &lt;em&gt;Canadian Journal of Philosophy&lt;/em&gt; has published &lt;a href=&quot;http://dx.doi.org/10.1017/can.2020.33&quot;&gt;my paper&lt;/a&gt; on what I call “Social-Computation-Supporting Kinds”. This paper is a first attempt to re-describe the role of computation in social ontology. I argue – in move I would self-servingly love to call “bold” –  that there is a kind of social kinds which is distinguished by supporting social computations, that is groups implementing computational processes.&lt;/p&gt;
+
+&lt;p&gt;I want to stress that it is a first attempt and will leave many questions open. It’s value lies, hopefully, in doing something different in the social kinds debate and sketching the value this new approach will have. I expect to publish more on this approach.&lt;/p&gt;
+
+&lt;p&gt;The paper is once again published Open Access, thanks to the University of Cambridge.&lt;/p&gt;
+
+&lt;p&gt;I also presented the gist of the paper at the recent online &lt;em&gt;Social Ontology&lt;/em&gt; conference. My video presentation from this conference is &lt;a href=&quot;https://so2020.isosonline.org/conference/social-computation-supporting-kinds/&quot;&gt;still available&lt;/a&gt; for those who don’t want to read the paper.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 11 Aug 2020 20:47:13 +0100</pubDate>
+        <link>https://dstrohmaier.com/New-Paper-on-Social-Kinds-and-Computation/</link>
+        <guid isPermaLink="true">https://dstrohmaier.com/New-Paper-on-Social-Kinds-and-Computation/</guid>
+        
+        
+        <category>posts</category>
+        
+      </item>
+      
+    
+     
+      <item>
+        <title>Presentation at the 2020 Social Ontology Conference</title>
+        <description>&lt;p&gt;I am presenting at the 2020 Social Ontology Conference and because it is virtual, you can all watch it online. The &lt;a href=&quot;https://so2020.isosonline.org/&quot;&gt;conference website&lt;/a&gt; provides videos of all talks.&lt;/p&gt;
+
+&lt;p&gt;In my &lt;a href=&quot;https://so2020.isosonline.org/conference/social-computation-supporting-kinds/&quot;&gt;talk&lt;/a&gt;, I discuss the notion of social-computation-supporting kinds. A longer paper exploring the idea will hopefully be published soon. The main advantage of the video is the excellent pixel art.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/pixelated_me.png&quot; alt=&quot;Picture of Myself&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;There will also be a Q&amp;amp;A session, but they haven’t been scheduled yet.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 07 Jul 2020 11:57:13 +0100</pubDate>
+        <link>https://dstrohmaier.com/social_ontology2020/</link>
+        <guid isPermaLink="true">https://dstrohmaier.com/social_ontology2020/</guid>
+        
+        
+        <category>posts</category>
+        
+      </item>
+      
+    
+     
+      <item>
+        <title>More Social Ontology Highlights</title>
+        <description>&lt;p&gt;I’ve recently posted a short list of &lt;a href=&quot;http://dstrohmaier.com/philosophy/2019/12/23/Best-of-Social-Ontology-2019.html&quot;&gt;social ontology highlights from 2019&lt;/a&gt;, but &lt;a href=&quot;http://philosophy.indiana.edu/people/ludwig.shtml&quot;&gt;Kirk Ludwig&lt;/a&gt; sent me a much more extensive list. I present it here in rearranged form.&lt;/p&gt;
+
+&lt;h2 id=&quot;publications&quot;&gt;Publications&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Tony Lawson: &lt;a href=&quot;https://www.csog.econ.cam.ac.uk/Publications/Publications&quot;&gt;The Nature of Social Reality: Issues in Social Ontology (Economics as Social Theory)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Angela Condello, Maurizio Ferraris, John Rogers Searle: &lt;a href=&quot;https://www.routledge.com/Money-Social-Ontology-and-Law-1st-Edition/Condello-Ferraris-Rogers-Searle/p/book/9780367191115&quot;&gt;Money, Social Ontology and Law&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Trish Reay, Tammar B. Zilber, Ann Langley, and Haridimos Tsoukas (eds.): &lt;a href=&quot;https://global.oup.com/academic/product/institutions-and-organizations-9780198843818&quot;&gt;Institutions and Organizations. A Process View&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Holly Lawford-Smith: &lt;a href=&quot;https://global.oup.com/academic/product/not-in-their-name-9780198833666&quot;&gt;Not In Their Name. Are Citizens Culpable For Their States’ Actions?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Luka Burazin, Kenneth Einar Himma, and Corrado Roversi (eds.): &lt;a href=&quot;https://global.oup.com/academic/product/law-as-an-artifact-9780198821977&quot;&gt;Law as an Artifact&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;J. Adam Carter, Andy Clark, Jesper Kallestrup, S. Orestis Palermos, and Duncan Pritchard (eds.): &lt;a href=&quot;https://global.oup.com/academic/product/socially-extended-epistemology-9780198801764&quot;&gt;Socially Extended Epistemology&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;sep-revisions&quot;&gt;SEP Revisions&lt;/h2&gt;
+&lt;p&gt;The following three articles in the SEP received substantial revisions:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://plato.stanford.edu/entries/social-institutions/&quot;&gt;Social Institutions&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://plato.stanford.edu/entries/social-construction-naturalistic/&quot;&gt;Naturalistic Approaches to Social Construction&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://plato.stanford.edu/entries/epistemology-social/&quot;&gt;Social Epistemology&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;events&quot;&gt;Events&lt;/h2&gt;
+&lt;p&gt;On top of Kirk’s list was the &lt;a href=&quot;https://events.tuni.fi/socialontology2019/&quot;&gt;Social Ontology/ENSO conference in Tampere&lt;/a&gt;, which I had already on my list. Otherwise there were three workshops/conferences at Vienna on:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://groupagency.univie.ac.at/fileadmin/user_upload/p_groupagency/Program_Conference_Social_Agency.pdf&quot;&gt;Social Agency, Group Agency &amp;amp; Relational Normativity&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://groupagency.univie.ac.at/events/workshops-and-conferences/workshop-group-agency-and-collective-responsibility/&quot;&gt;Group Agency and Collective Responsibility&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://groupagency.univie.ac.at/events/workshops-and-conferences/workshop-shared-agency-rationality-normativity/&quot;&gt;Shared Agency, Rationality, Normativity &lt;/a&gt; (with Michael Bratman and David Velleman)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There were two events in Milan:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Adelaide de Lastic “The Political Dimension of an Enterprise’s Collective Agency”, Thursday 28 March 2019&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.dipafilo.unimi.it/ecm/home/aggiornamenti-e-archivi/tutte-le-notizie/content/28-novembre-2019-italo-testa-a-pragmatist-take-on-social-ontology-habits-social-practices-statuses.0000.UNIMIDIRE-81494&quot;&gt;A Pragmatist take on Social Ontology: Habits, Social Practices, Statuses&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Other events:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;The &lt;a href=&quot;https://www.apaonline.org/event/2019pacific&quot;&gt;2019 Pacific APA meeting had a symposium&lt;/a&gt; on Kirk’s second book, &lt;a href=&quot;https://global.oup.com/academic/product/from-plural-to-institutional-agency-9780198789994&quot;&gt;From Plural to Institutional Agency: Collective Action 2&lt;/a&gt;. (With Maria Jankovic and Carol Rovane as commentators)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://socialontologyglasgow.wordpress.com/events/&quot;&gt;Workshop on Social Ontology, Normativity, and Philosophy of Law&lt;/a&gt;, Glasgow University Law School, May 30-31&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://enposs.eu/past-enposs-2/&quot;&gt;European Network for Philosophy of the Social Sciences (ENPOSS)&lt;/a&gt; in Athens&lt;/li&gt;
+  &lt;li&gt;The &lt;a href=&quot;https://ppesociety.org/the-2019-ppe-society-meeting/&quot;&gt;PPE Society meeting in spring 2019&lt;/a&gt; also featured some social ontology papers&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;near-future&quot;&gt;Near Future&lt;/h2&gt;
+&lt;p&gt;Kirk also had some forthcoming publications on his list:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Anika Fiebich’s edited book &lt;a href=&quot;https://www.springer.com/gp/book/9783030297824&quot;&gt;Minimal Cooperation and Shared Agency&lt;/a&gt; has slid into 2020:&lt;/li&gt;
+  &lt;li&gt;An issue of &lt;em&gt;Language and Communication&lt;/em&gt; is coming out on group speech acts but the papers are already &lt;a href=&quot;https://www.sciencedirect.com/journal/language-and-communication/special-issue/10K75XZFFJ3&quot;&gt;available online&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Saba Bazargan-Forward, Deborah Tollefsen (eds.): &lt;a href=&quot;https://www.routledge.com/The-Routledge-Handbook-of-Collective-Responsibility-1st-Edition/Bazargan-Forward-Tollefsen/p/book/9781138092242&quot;&gt;The Routledge Handbook of Collective Responsibility&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That is quite a list and I have to admit that I was not aware of much that Kirk found. I hope others can benefit from it as well.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 04 Jan 2020 13:57:13 +0000</pubDate>
+        <link>https://dstrohmaier.com/More-Social-Ontology-Highlights/</link>
+        <guid isPermaLink="true">https://dstrohmaier.com/More-Social-Ontology-Highlights/</guid>
+        
+        
+        <category>posts</category>
+        
+      </item>
+      
+    
+     
+      <item>
+        <title>Best of Social Ontology 2019</title>
+        <description>&lt;p&gt;Social ontology, by which I mean a subfield of contemporary analytic philosophy, is a comparatively small enterprise so far. That makes gathering a best-of-2019 list difficult. There just aren’t that many great papers coming out each year, or other notable events. Here are five highlights I could find. Feel free to send me an email and suggest other contributions to the field. I might update this entry later.&lt;/p&gt;
+
+&lt;p&gt;Brian Epstein’s paper &lt;a href=&quot;https://philpapers.org/rec/EPSWAS-2&quot;&gt;“What are social groups? Their metaphysics and how to classify them”&lt;/a&gt; has been available as forthcoming for a while, but the official publication date has been 2019, which hopefully justifies including it in this list.[0]&lt;/p&gt;
+
+&lt;p&gt;The International Social Ontology Society has started a &lt;a href=&quot;https://www.youtube.com/channel/UCoHANz5VREBjb_TBoWx0a8A&quot;&gt;Youtube channel&lt;/a&gt; this year and published keynotes from last years conference.&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://isosonline.org/SO2019&quot;&gt;Social Ontology conference in Tampere&lt;/a&gt;, organised by the European Network of Social Ontology. I believe the keynotes have been recorded, so there is hope that they will appear on ISOS Youtube channel at some point.&lt;/p&gt;
+
+&lt;p&gt;Finally, there has been a monist issue on the topic of &lt;a href=&quot;https://academic.oup.com/monist/issue/102/2&quot;&gt;&lt;em&gt;Collective Responsibility and Social Ontology&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;BONUS: Arto Laitinen has told me that a book symposium on Ásta’s &lt;em&gt;Categories We Live By&lt;/em&gt; will soon appear in the &lt;a href=&quot;https://www.degruyter.com/view/j/jso&quot;&gt;Journal of Social Ontology&lt;/a&gt; (and dated as being from 2019).&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;&lt;em&gt;Footnotes&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;[0] Two other publications on the ontology of groups deserve honourable mentions, even though they have appeared in 2018 (as forthcoming without a date yet in the first case). The first is Katherine Ritchie’s &lt;a href=&quot;https://philpapers.org/rec/RITSSA-4&quot;&gt;“Social Structures and the Ontology of Social Groups”&lt;/a&gt; and the second is Gabriel Uzquiano’s &lt;a href=&quot;https://philpapers.org/rec/UZQGTA&quot;&gt;“Groups: Toward a Theory of Plural Embodiment”&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 23 Dec 2019 18:57:13 +0000</pubDate>
+        <link>https://dstrohmaier.com/Best-of-Social-Ontology-2019/</link>
+        <guid isPermaLink="true">https://dstrohmaier.com/Best-of-Social-Ontology-2019/</guid>
+        
+        
+        <category>posts</category>
+        
+      </item>
+      
+    
+     
+      <item>
+        <title>A Different Map of the Tractatus</title>
+        <description>&lt;p&gt;Over the years there have been a number of visualisations of Wittgenstein’s Tractatus Logico-Philosophicus. Most of them have made use of the tree structure Wittgenstein imposed on his text. With today’s web-technologies, &lt;a href=&quot;https://homepage.univie.ac.at/noichlm94/posts/tractatus/&quot;&gt;these&lt;/a&gt; &lt;a href=&quot;https://pbellon.github.io/tractatus-tree/&quot;&gt;representations&lt;/a&gt; of the text can be excellent. In this post, however, I present a map of the Tractatus unlike any of these previous experiments.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/visualisation_tractatus.gif&quot; alt=&quot;3D GIF of Tractatus statements&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The picture shows me playing with an interactive representation of all statements in the Tractatus, each represented by an embeddings. Embeddings are vector-representations of meaning. Usually they are created on the level of tokens, but there are ways of aggregating them to higher levels. I took the relatively easy path of averaging the embeddings for all the tokens in the statements.[0] The result should be a map of how strongly the statements are semantically related.[1] The closer two vectors are, the closer the statements are in their meaning, at least that is the idea.&lt;/p&gt;
+
+&lt;p&gt;There are a variety of ways to create embeddings, typically making use of artifical neural networks. The Word2vec library made embeddings popular, but I wanted to explore something more cutting-edge for this visualisation. So I used a pretrained-BERT model to create the vectors. BERT is based on the now fashionable transformer networks (see &lt;a href=&quot;http://nlp.seas.harvard.edu/2018/04/03/attention.html&quot;&gt;here for a technical explanation&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;The embeddings are just vectors, to make them visually accessible I use the online &lt;a href=&quot;http://projector.tensorflow.org/&quot;&gt;projector tool&lt;/a&gt;. For this purpose, the hundreds of dimension of the embeddings are reduced to three. Information included in the embeddings is lost in this process. Hence, what you see is only an approximation of what the embeddings capture.&lt;/p&gt;
+
+&lt;p&gt;In contrast to a visualiation using the tree structure created by Wittgenstein, this approach can reveal something we haven’t been aware of. It can suggest connections no one has noticed before. I am not sure it does, but that it has the potential is exhilarating.&lt;/p&gt;
+
+&lt;p&gt;The code is available on &lt;a href=&quot;https://github.com/dstrohmaier/tractatus_embeddings/&quot;&gt;github&lt;/a&gt;, including the embeddings in the TSV format needed for the projector tool.[2] Just go on &lt;a href=&quot;http://projector.tensorflow.org/&quot;&gt;the website&lt;/a&gt;, upload the two TSV-files and you can explore the tractatus in 3D.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;[0] It is actually a bit trickier than that, because I use information from multiple layers in the neural network to create the token-embeddings.&lt;/p&gt;
+
+&lt;p&gt;[1] While embeddings capture some aspect of the semantic content of a token, they do not represent it entirely faithfully. As so much in machine learning, they are best seen as an approximation that works for certain purposes.&lt;/p&gt;
+
+&lt;p&gt;[2] I avoided putting the text of the Tractatus online, since I am not sure what the copyright situation is. If you want it, email me.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 02 Sep 2019 18:57:13 +0100</pubDate>
+        <link>https://dstrohmaier.com/A-Different-Map-of-the-Tractatus/</link>
+        <guid isPermaLink="true">https://dstrohmaier.com/A-Different-Map-of-the-Tractatus/</guid>
+        
+        
+        <category>posts</category>
+        
+      </item>
+      
+    
+     
+      <item>
+        <title>Upcoming Talk (August 2019)</title>
+        <description>&lt;p&gt;For the fourth year in a row, I will present a paper at a &lt;a href=&quot;https://isosonline.org/SO2019&quot;&gt;social ontology&lt;/a&gt; conference this Summer. After the last one in Boston, I thought it would be time to do something more ambitious. While my previous papers went well enough and led to two publications, they made relatively narrow arguments. This year in Tampere my claims will be much bolder. I do not want to give too much away, but I will propose a sweeping change to how we explain the social and what makes it special from a metaphysical perspective. What makes social interesting should be fundamentally reconceived.&lt;/p&gt;
+
+&lt;p&gt;You should not miss this momentous event. If you do, you can email me at davidstrohmaier92@gmail.com to get an early draft of my paper.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 01 Aug 2019 16:57:13 +0100</pubDate>
+        <link>https://dstrohmaier.com/Upcoming-Talk-August-2019/</link>
+        <guid isPermaLink="true">https://dstrohmaier.com/Upcoming-Talk-August-2019/</guid>
+        
+        
+        <category>posts</category>
+        
+      </item>
+      
+    
+     
+      <item>
+        <title>Parsing Hegel</title>
+        <description>&lt;p&gt;In another life I read a lot of Hegel, now a mere side-interest of mine. Despite the assurances of my former supervisor Bob Stern to the contrary, Georg Wilhelm Friedrich Hegel’s work is infamously opaque. Making sense of his &lt;em&gt;Phenomenology of Spirit&lt;/em&gt; poses a considerable challenge, and those who claim to understand him often end up with rather different readings.&lt;/p&gt;
+
+&lt;p&gt;In my current life, I am finishing up an MPhil in Advanced Computer Science. My project is in the area of computational semantics where we seek to make sense of expressions in natural language by automatically producing formal representations of their meaning. For this purpose, I am using the Boxer-parser, which uses Discourse Representation Theory (DRT).[0] DRT offers a fancy formalism for capturing action-sentences using a neo-Davidsonian event semantics. One benefit of this theory is that it allows us to represent the meaning in neat little boxes, hence the namer of the parser. The boxes specify a number of variables at the top and then contain conditions in the form of predicates below.&lt;/p&gt;
+
+&lt;p&gt;If computational semantics enables us to make sense of natural language, then why not use it to make Hegel approachable? Why not run Boxer on the &lt;em&gt;Phenomenology&lt;/em&gt;? I can think of very good reasons to resist the idea for the whole book, but not a single one of them kept me from giving it a try with a few sentences. So I just went ahead and adapted a tiny sliver of what I have learned during my MPhil to turn the first sentence of the &lt;em&gt;Phenomenology&lt;/em&gt; into a formal representation.&lt;/p&gt;
+
+&lt;p&gt;The challenge should not be underestimated. The first two sentences read as follows:[1]&lt;/p&gt;
+
+&lt;p&gt;“It is customary to preface a work with an explanation of the author’s aim, why he wrote the book, and the relationship in which he believes it to stand to other earlier or contemporary treatises on the same subject. In the case of a philosophical work, however, such an explanation seems not only superfluous but, in view of the nature of the subject-matter, even inappropriate and misleading. “&lt;/p&gt;
+
+&lt;p&gt;This is not exactly “The dog chases the car”, an example much more adapted to the powers of Boxer. But I have to admit that Boxer surprised me. It managed to produce a representation of the first two sentences:[2]&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/dstrohmaier/parsinghegel/master/data/box_first_sent.svg?sanitize=true&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Despite the intuitive character of the boxes, it is not exactly easy to make sense of the jumble. Boxer seems to have produced less than complete parses, hence the repetition of certain elements (e.g. “contemporary treatise”), but I am honestly impressed that I got anything at all. In fact, Boxer did not present a parse when offered the third sentence:&lt;/p&gt;
+
+&lt;p&gt;“For whatever might appropriately be said about philosophy in a preface - say a historical statement of the main drift and the point of view, the general content and results, a string of random assertions and assurances about truth - none of this can be accepted as the way in which to expound philosophical truth. “&lt;/p&gt;
+
+&lt;p&gt;Failing on such Germanic verbosity is nothing of which Boxer has to be ashamed. It ends, however, the hopes of rendering Hegel intelligible with the current technology.[3] If you generously fund me for four to five years, I will try to produce such representations for the whole of the &lt;em&gt;Phenomenology&lt;/em&gt;. The decision whether that is a worthy investment of your money is up to you.&lt;/p&gt;
+
+&lt;p&gt;You can find the code I used in a &lt;a href=&quot;https://github.com/dstrohmaier/parsinghegel&quot;&gt;public github repository&lt;/a&gt;, but you need to install the C&amp;amp;C parser as well as Boxer for it to work, which is a challenge in its own right.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;[0] Kamp, Hans, and Uwe Reyle. &lt;em&gt;From Discourse to Logic: Introduction to Modeltheoretic Semantics of Natural Language, Formal Logic and Discourse Representation Theory&lt;/em&gt;. Studies in Linguistics and Philosophy 42. Dordrecht: Springer-Science+Business Media, B.V, 1993.&lt;/p&gt;
+
+&lt;p&gt;[1] I am using the Miller translation.&lt;/p&gt;
+
+&lt;p&gt;[2] The parse neglects a few niceties such as representing the word-senses was WordNet synset and the like, but that is not the problem.&lt;/p&gt;
+
+&lt;p&gt;[3] As a sidenote, let me suggest that Hegel’s &lt;em&gt;Phenomenology&lt;/em&gt; in fact works better with the neo-Davidsonian approach of Boxer than other philosophy texts, because it tries to describes the actions and experiences of spirit. What it describes is closer to action than what we find in most philosophy books.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 23 May 2019 14:57:13 +0100</pubDate>
+        <link>https://dstrohmaier.com/parsing-hegel/</link>
+        <guid isPermaLink="true">https://dstrohmaier.com/parsing-hegel/</guid>
+        
+        
+        <category>posts</category>
+        
+      </item>
+      
+    
+     
+      <item>
+        <title>Two New Publications</title>
+        <description>&lt;p&gt;Two of my publications are finally out. Both of them are related to my PhD research into social ontology and the both investigate groups. &lt;a href=&quot;https://philpapers.org/rec/STRGMA-2&quot;&gt;The first&lt;/a&gt; one discusses group membership and argues that reducing it to mereological parthood plus further conditions is a viable option. The paper has an unusual history. Originally, I wrote another paper that argued the opposite conclusion, that is I tried to establish that all mereological accounts of groups fail. However, Katherine Hawley published a paper in the debate in 2018 and after reading it I decided that she was right, that we cannot take mereological accounts of the map at this point. So instead of publishing my first paper, I wrote a new one, filling a significant gap in the mereological account. You can find out everything in this crisp little piece.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://philpapers.org/rec/STRTTO-16&quot;&gt;My second paper&lt;/a&gt; undertakes a more ambitious project. It defends the conclusion that current interpretivist accounts of group agency fail and have to fail while functionalist accounts have a better shot. Like the first one, this second paper draws on the ontology of groups. Coinciding groups, that is groups which share all their members at all times, pose a special problem to interpretivist accounts, or so I argue.&lt;/p&gt;
+
+&lt;p&gt;I am proud to say that both papers have been published open access. As long as you have internet access, you can read them.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 16 Apr 2019 16:57:13 +0100</pubDate>
+        <link>https://dstrohmaier.com/two-new/</link>
+        <guid isPermaLink="true">https://dstrohmaier.com/two-new/</guid>
+        
+        
+        <category>posts</category>
+        
+      </item>
+      
+    
+  </channel>
+</rss>

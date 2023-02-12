@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Exploring Basic Distributional Representations &raquo; David Strohmaier</title>
+  <meta name="description" content="I’ve recently been reading up on distributional representations, that is representation of meaning that are based on count vectors. They were the exciting te...">
+
+  <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+  <link rel="canonical" href="https://dstrohmaier.com/distributional-representations/">
+  <link rel="alternate" type="application/rss+xml" title="David Strohmaier" href="https://dstrohmaier.com/feed.xml">
+
+  <!-- Icon stuff -->
+  <link rel="shortcut icon" href="https://dstrohmaier.com/assets/images/favicon.ico">
+
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</head>
+
+
+  <body>
+      <div class="container">
+          <div class="column left"></div>
+          <div class="column middle">
+              <div class="header">
+                  <div class="nav">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/posts">Blog</a></li>
+        <li><a href="/publications">Publications</a></li>
+        <li><a href="/cv">CV</a></li>
+        <li><a href="/lists">Reading Lists</a></li>
+    </ul>
+</div>
+
+              </div >
+              <article>
+
+  <header>
+    <h1>Exploring Basic Distributional Representations</h1>
+    <p class="byline">
+      <span>By David Strohmaier</span>
+      <time>&middot; Nov 28, 2020</time>
+    </p>
+  </header>
+
+  <p>I’ve recently been reading up on distributional representations, that is representation of meaning that are based on count vectors. They were the exciting technology before neural networks and the embeddings networks create changed the field of NLP. Nowadays we do not count token occurrences, but let Word2Vec or BERT models create representations.</p>
+
+<p>While they have decidedly fallen out of favour, distributional representations are clever pieces of technology and I wanted to get some more experiences with them. So I’ve put together a Jupyter Notebook that explores key aspects of that technology:</p>
+<ul>
+  <li>Creating a count matrix</li>
+  <li>Calculating Pointwise Mutual Information</li>
+  <li>Calculating similarity scores</li>
+  <li>Reducing the dimensionality of the representations</li>
+</ul>
+
+<p>You can see the <a href="https://github.com/dstrohmaier/distributional_representations/blob/master/count_matrix.ipynb">notebook on github</a></p>
+
+<p>Of course, my notebook is merely an introduction to some of the most basic techniques. For example, I do not explore incorporating syntactic information. Still, I hope it shows that these by now largely neglected techniques are fascinating application of statistical NLP.</p>
+
+
+  
+  
+  
+
+  <table width="100%" border="0">
+    <tb>
+      <tr>
+        
+          <td><b>Previous</b></td>
+        
+        
+          <td align="right"><b>Next</b></td>
+        
+      </tr>
+      <tr>
+        
+          <td><a href="/grain/">Conceptual Grain</a></td>
+        
+        
+          <td align="right"><a href="/logical-calculi-tensors/">Simulating Basic Logic with...</a></td>
+        
+      </tr>
+    </tb>
+  </table>
+
+</article>
+ <footer>
+
+  <table width="100%" border="0">
+      <tr>
+          <td>
+              Find me on:
+              <a href="https://sigmoid.social/@davidstrohmaier">
+                  <em>Mastodon</em>
+              </a>  &middot;
+            <a href="https://www.linkedin.com/in/david-strohmaier-688893109">
+                <em>Linkedin</em>
+            </a> &middot;
+            <a href="mailto:david.strohmaier@cl.cam.ac.uk">
+                <em>david.strohmaier@cl.cam.ac.uk</em>
+            </a>  &middot;
+            <a href="/feed.xml">
+                <em>RSS</em>
+            </a>
+          </td>
+      </tr>
+  </table>
+
+</footer>
+
+          </div>
+          <div class="column right"><div class="nav">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/posts">Blog</a></li>
+        <li><a href="/publications">Publications</a></li>
+        <li><a href="/cv">CV</a></li>
+        <li><a href="/lists">Reading Lists</a></li>
+    </ul>
+</div>
+</div>
+      </div>
+  </body>
+
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Proposals &raquo; David Strohmaier</title>
+  <meta name="description" content="This is the website and blog of David Strohmaier.">
+
+  <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+  <link rel="canonical" href="https://dstrohmaier.com/mphil_proposals/">
+  <link rel="alternate" type="application/rss+xml" title="David Strohmaier" href="https://dstrohmaier.com/feed.xml">
+
+  <!-- Icon stuff -->
+  <link rel="shortcut icon" href="https://dstrohmaier.com/assets/images/favicon.ico">
+
+  
+</head>
+
+
+  <body>
+      <div class="container">
+          <div class="column left"></div>
+          <div class="column middle">
+              <div class="header">
+                  <div class="nav">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/posts">Blog</a></li>
+        <li><a href="/publications">Publications</a></li>
+        <li><a href="/cv">CV</a></li>
+        <li><a href="/lists">Reading Lists</a></li>
+    </ul>
+</div>
+
+              </div >
+              <article>
+
+  <header>
+    <h1>Proposals</h1>
+  </header>
+
+  <h1 id="mphil-projects">MPhil Projects</h1>
+
+<p>These are proposals for MPhil project with the NLIP group. If you are an MPhil student in the ACS at Cambridge and you are interested in any of these projects, send me an email!</p>
+
+<h2 id="project-0-multi-task-learning-for-word-sense-disambiguation">Project 0: Multi-Task Learning for Word Sense Disambiguation</h2>
+<p><strong>Proposer:</strong> David Strohmaier</p>
+
+<p><strong>Supervisors:</strong> David Strohmaier and Paula Buttery</p>
+
+<p>Words are often ambiguous. For many applications, for example, to explain a text to a language learner, we would like to automatically disambiguate them with representations of word meaning. These word meanings should be interpretable, in the best case also for language learners. To select interpretable meaning representations, NLP researchers make use of sense repositories, such as dictionaries and topic labels. Many such repositories have been created, but researchers have not settled on a single “correct” repository. In fact, there are good reasons to think that there is no such uniquely correct repository.</p>
+
+<p>To overcome the challenge of selecting between sense repositories, you will be combining these repositories in a multi-task learning setup. You will fine-tune a BERT-based classification system to predict the correct meaning of a word based on its context for multiple repositories. You are free to explore different neural architectural choices (within time constraints).</p>
+
+<h3 id="required-resources">Required Resources:</h3>
+<ul>
+  <li>To finetune a BERT system, access to a GPU will be required.</li>
+</ul>
+
+<h3 id="relevant-literature">Relevant Literature</h3>
+<ul>
+  <li>Crawshaw, M. (2020). <a href="http://arxiv.org/abs/2009.09796">Multi-Task Learning with Deep Neural Networks: A Survey.</a> ArXiv:2009.09796 [Cs, Stat].</li>
+  <li>Iacobacci, I., Pilehvar, M. T., &amp; Navigli, R. (2016). <a href="https://doi.org/10.18653/v1/P16-1085">Embeddings for Word Sense Disambiguation: An Evaluation Study.</a> Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), 897–907.</li>
+  <li>Izquierdo, R., Suarez, A., &amp; Rigau, G. (2015). <a href="https://doi.org/10.1613/jair.4727">Word vs. Class-Based Word Sense Disambiguation.</a> Journal of Artificial Intelligence Research, 54, 83–122.</li>
+  <li>Klein, D., Toutanova, K., Ilhan, H. T., Kamvar, S. D., &amp; Manning, C. D. (2002). <a href="https://doi.org/10.3115/1118675.1118686">Combining heterogeneous classifiers for word-sense disambiguation.</a> Proceedings of the ACL-02 Workshop on Word Sense Disambiguation Recent Successes and Future Directions -, 8, 74–80.</li>
+  <li>Lacerra, C., Bevilacqua, M., Pasini, T., &amp; Navigli, R. (2020). CSI: A Coarse Sense Inventory for 85% Word Sense Disambiguation. Proc. of AAAI.</li>
+  <li>Navigli, R. (2012). <a href="https://doi.org/10.1007/978-3-642-27660-6_10">A Quick Tour of Word Sense Disambiguation, Induction and Related Approaches.</a> In M. Bieliková, G. Friedrich, G. Gottlob, S. Katzenbeisser, &amp; G. Turán (Eds.), SOFSEM 2012: Theory and Practice of Computer Science (pp. 115–129). Springer.</li>
+  <li>Ruder, S. (2017). <a href="http://arxiv.org/abs/1706.05098">An Overview of Multi-Task Learning in Deep Neural Networks.</a> ArXiv:1706.05098 [Cs, Stat].</li>
+  <li>Vial, L., Lecouteux, B., &amp; Schwab, D. (2019). Sense Vocabulary Compression through the Semantic Knowledge of WordNet for Neural Word Sense Disambiguation. ArXiv.</li>
+</ul>
+
+<hr />
+
+<h2 id="project-1-diachronic-lexical-complexity-prediction">Project 1: Diachronic Lexical Complexity Prediction</h2>
+<p><strong>Proposer:</strong> David Strohmaier</p>
+
+<p><strong>Supervisors:</strong> David Strohmaier and Paula Buttery</p>
+
+<p>In education technology we often need to predict the complexity of a word token. Currently, the task of lexical complexity prediction is often approached with pre-trained language models, such as BERT. In this project, you will build such a lexical complexity prediction model and adapt it to a different application: prediction the diachronic lexical complexity in learner data.</p>
+
+<p>Over the course of acquiring a new language, the grasp of learners on new concepts increases. It stands to reason, that a learners early uses of a content word might be less complex than their later uses, corresponding to the learners progress. Using your own lexical complexity prediction system, you will be able to track their development and evaluate this hypothesis. Generally, applying complexity prediction to diachronic learner data opens multiple application-oriented directions of research, which you can explore.</p>
+
+<h3 id="required-resources-1">Required Resources:</h3>
+<ul>
+  <li>Access to ALTA-internal data</li>
+  <li>To finetune a BERT system, access to a GPU will be required.</li>
+</ul>
+
+<h3 id="relevant-literature-1">Relevant Literature</h3>
+<ul>
+  <li>Shardlow, M., Evans, R., Paetzold, G. H., &amp; Zampieri, M. (2021). <a href="https://doi.org/10.18653/v1/2021.semeval-1.1">SemEval-2021 Task 1: Lexical Complexity Prediction.</a> Proceedings of the 15th International Workshop on Semantic Evaluation (SemEval-2021), 1–16.</li>
+  <li>Yuan, Z., Tyen, G., &amp; Strohmaier, D. (2021). <a href="https://doi.org/10.18653/v1/2021.semeval-1.74">Cambridge at SemEval-2021 Task 1: An Ensemble of Feature-Based and Neural Models for Lexical Complexity Prediction.</a> Proceedings of the 15th International Workshop on Semantic Evaluation (SemEval-2021), 590–597.</li>
+</ul>
+
+<hr />
+
+<h2 id="project-2-probing-language-models-for-learner-semantics">Project 2: Probing Language Models for Learner Semantics</h2>
+<p><strong>Proposer:</strong> David Strohmaier</p>
+
+<p><strong>Supervisors:</strong> David Strohmaier and Paula Buttery</p>
+
+<p>In recent years massive language models that are difficult to interpret have become widespread in NLP. To understand their inner workings, we need to probe them with various techniques. This research project will develop your probing skills on an application-oriented task: Probing for the difference between native speaker and language learner data.</p>
+
+<p>Learner data includes many mistakes, such as spelling errors and grammatical infelicities. How does this affect the processing of the lexical semantic knowledge within the language model? To answer this question, you will use state-of-the-art probing techniques and apply them to BERT (or one of its derivatives). The results will help us to assess the use of such language models in educational technologies.</p>
+
+<h3 id="required-resources-2">Required Resources:</h3>
+<ul>
+  <li>Access to ALTA-internal data</li>
+  <li>To finetune a BERT system, access to a GPU will be required.</li>
+</ul>
+
+<h3 id="relevant-literature-2">Relevant Literature</h3>
+<ul>
+  <li>Derby, S., Miller, P., &amp; Devereux, B. (2021). <a href="https://doi.org/10.18653/v1/2021.cmcl-1.25">Representation and Pre-Activation of Lexical-Semantic Knowledge in Neural Language Models</a>. Proceedings of the Workshop on Cognitive Modeling and Computational Linguistics, 211–221.</li>
+  <li>Devlin, J., Chang, M.-W., Lee, K., &amp; Toutanova, K. (2019). <a href="http://arxiv.org/abs/1810.04805">BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</a>. ArXiv:1810.04805 [Cs]. 
+Mickus, T., Paperno, D., Constant, M., &amp; van Deemter, K. (n.d.). What do you mean, BERT? Assessing BERT as a Distributional Semantics Model. 12.</li>
+  <li>Ravichander, A., Belinkov, Y., &amp; Hovy, E. (2021). <a href="https://aclanthology.org/2021.eacl-main.295">Probing the Probing Paradigm: Does Probing Accuracy Entail Task Relevance?</a> Proceedings of the 16th Conference of the European Chapter of the Association for Computational Linguistics: Main Volume, 3363–3377.</li>
+  <li>Rogers, A., Kovaleva, O., &amp; Rumshisky, A. (2020). <a href="https://doi.org/10.1162/tacl_a_00349">A Primer in BERTology: What We Know About How BERT Works.</a> Transactions of the Association for Computational Linguistics, 8, 842–866.</li>
+  <li>Vulić, I., Ponti, E. M., Litschko, R., Glavaš, G., &amp; Korhonen, A. (2020). <a href="https://doi.org/10.18653/v1/2020.emnlp-main.586">Probing Pretrained Language Models for Lexical Semantics.</a> Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP), 7222–7240.</li>
+</ul>
+
+<hr />
+
+<h2 id="project-3-annotating-dictionary-definitions-with-complexity-levels">Project 3: Annotating Dictionary Definitions with Complexity Levels</h2>
+<p><strong>Proposer:</strong> David Strohmaier</p>
+
+<p><strong>Supervisors:</strong> David Strohmaier and Paula Buttery</p>
+
+<p>A dictionary that provides complexity levels (typically CEFR-levels) is useful for many tasks in NLP, e.g. readability assessment and text simplification. This project will attempt the automatic annotation of the Cambridge Advanced Learners Dictionary with CEFR-levels based on existing partial annotation. For example, the definition for “tip” as a small amount of money given to someone who provided a service should be annotated with the CEFR-level B1.</p>
+
+<p>CEFR-level annotation can be conceived of as a classification task with six labels. Neural networks and especially the contemporary transformer-architecture, such as BERT, are suitable for classification tasks of this type. A preliminary BERT-classifier can be made available to the student. There are, however, special challenges to overcome for the automatic complexity annotation of dictionaries. Dictionary entries have their own format that diverges from natural occurring text corpora. Exploiting this format while using a standard architecture is a key part of this project.</p>
+
+<p>In addition, different loss functions can be explored for annotating definition with CEFR-levels. The loss function should make use of the fact that picking the label B2 instead of B1 is closer to correct than if C2 had been picked.</p>
+
+<h3 id="required-resources-3">Required Resources:</h3>
+<ul>
+  <li>Access to CALD</li>
+  <li>To finetune a BERT system, access to a GPU will be required.</li>
+</ul>
+
+<h3 id="relevant-literature-3">Relevant Literature</h3>
+<ul>
+  <li>Shardlow, M., Evans, R., Paetzold, G. H., &amp; Zampieri, M. (2021). <a href="https://doi.org/10.18653/v1/2021.semeval-1.1">SemEval-2021 Task 1: Lexical Complexity Prediction.</a> Proceedings of the 15th International Workshop on Semantic Evaluation (SemEval-2021), 1–16.</li>
+  <li>Yuan, Z., Tyen, G., &amp; Strohmaier, D. (2021). <a href="https://doi.org/10.18653/v1/2021.semeval-1.74">Cambridge at SemEval-2021 Task 1: An Ensemble of Feature-Based and Neural Models for Lexical Complexity Prediction.</a> Proceedings of the 15th International Workshop on Semantic Evaluation (SemEval-2021), 590–597.</li>
+</ul>
+
+
+</article>
+ <footer>
+
+  <table width="100%" border="0">
+      <tr>
+          <td>
+              Find me on:
+              <a href="https://sigmoid.social/@davidstrohmaier">
+                  <em>Mastodon</em>
+              </a>  &middot;
+            <a href="https://www.linkedin.com/in/david-strohmaier-688893109">
+                <em>Linkedin</em>
+            </a> &middot;
+            <a href="mailto:david.strohmaier@cl.cam.ac.uk">
+                <em>david.strohmaier@cl.cam.ac.uk</em>
+            </a>  &middot;
+            <a href="/feed.xml">
+                <em>RSS</em>
+            </a>
+          </td>
+      </tr>
+  </table>
+
+</footer>
+
+          </div>
+          <div class="column right"><div class="nav">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/posts">Blog</a></li>
+        <li><a href="/publications">Publications</a></li>
+        <li><a href="/cv">CV</a></li>
+        <li><a href="/lists">Reading Lists</a></li>
+    </ul>
+</div>
+</div>
+      </div>
+  </body>
+
+</html>

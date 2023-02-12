@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>A Different Map of the Tractatus &raquo; David Strohmaier</title>
+  <meta name="description" content="Over the years there have been a number of visualisations of Wittgenstein’s Tractatus Logico-Philosophicus. Most of them have made use of the tree structure ...">
+
+  <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+  <link rel="canonical" href="https://dstrohmaier.com/A-Different-Map-of-the-Tractatus/">
+  <link rel="alternate" type="application/rss+xml" title="David Strohmaier" href="https://dstrohmaier.com/feed.xml">
+
+  <!-- Icon stuff -->
+  <link rel="shortcut icon" href="https://dstrohmaier.com/assets/images/favicon.ico">
+
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</head>
+
+
+  <body>
+      <div class="container">
+          <div class="column left"></div>
+          <div class="column middle">
+              <div class="header">
+                  <div class="nav">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/posts">Blog</a></li>
+        <li><a href="/publications">Publications</a></li>
+        <li><a href="/cv">CV</a></li>
+        <li><a href="/lists">Reading Lists</a></li>
+    </ul>
+</div>
+
+              </div >
+              <article>
+
+  <header>
+    <h1>A Different Map of the Tractatus</h1>
+    <p class="byline">
+      <span>By David Strohmaier</span>
+      <time>&middot; Sep 2, 2019</time>
+    </p>
+  </header>
+
+  <p>Over the years there have been a number of visualisations of Wittgenstein’s Tractatus Logico-Philosophicus. Most of them have made use of the tree structure Wittgenstein imposed on his text. With today’s web-technologies, <a href="https://homepage.univie.ac.at/noichlm94/posts/tractatus/">these</a> <a href="https://pbellon.github.io/tractatus-tree/">representations</a> of the text can be excellent. In this post, however, I present a map of the Tractatus unlike any of these previous experiments.</p>
+
+<p><img src="/assets/images/visualisation_tractatus.gif" alt="3D GIF of Tractatus statements" /></p>
+
+<p>The picture shows me playing with an interactive representation of all statements in the Tractatus, each represented by an embeddings. Embeddings are vector-representations of meaning. Usually they are created on the level of tokens, but there are ways of aggregating them to higher levels. I took the relatively easy path of averaging the embeddings for all the tokens in the statements.[0] The result should be a map of how strongly the statements are semantically related.[1] The closer two vectors are, the closer the statements are in their meaning, at least that is the idea.</p>
+
+<p>There are a variety of ways to create embeddings, typically making use of artifical neural networks. The Word2vec library made embeddings popular, but I wanted to explore something more cutting-edge for this visualisation. So I used a pretrained-BERT model to create the vectors. BERT is based on the now fashionable transformer networks (see <a href="http://nlp.seas.harvard.edu/2018/04/03/attention.html">here for a technical explanation</a>).</p>
+
+<p>The embeddings are just vectors, to make them visually accessible I use the online <a href="http://projector.tensorflow.org/">projector tool</a>. For this purpose, the hundreds of dimension of the embeddings are reduced to three. Information included in the embeddings is lost in this process. Hence, what you see is only an approximation of what the embeddings capture.</p>
+
+<p>In contrast to a visualiation using the tree structure created by Wittgenstein, this approach can reveal something we haven’t been aware of. It can suggest connections no one has noticed before. I am not sure it does, but that it has the potential is exhilarating.</p>
+
+<p>The code is available on <a href="https://github.com/dstrohmaier/tractatus_embeddings/">github</a>, including the embeddings in the TSV format needed for the projector tool.[2] Just go on <a href="http://projector.tensorflow.org/">the website</a>, upload the two TSV-files and you can explore the tractatus in 3D.</p>
+
+<hr />
+<p>[0] It is actually a bit trickier than that, because I use information from multiple layers in the neural network to create the token-embeddings.</p>
+
+<p>[1] While embeddings capture some aspect of the semantic content of a token, they do not represent it entirely faithfully. As so much in machine learning, they are best seen as an approximation that works for certain purposes.</p>
+
+<p>[2] I avoided putting the text of the Tractatus online, since I am not sure what the copyright situation is. If you want it, email me.</p>
+
+
+  
+  
+  
+
+  <table width="100%" border="0">
+    <tb>
+      <tr>
+        
+          <td><b>Previous</b></td>
+        
+        
+          <td align="right"><b>Next</b></td>
+        
+      </tr>
+      <tr>
+        
+          <td><a href="/Upcoming-Talk-August-2019/">Upcoming Talk (August 2019)</a></td>
+        
+        
+          <td align="right"><a href="/Best-of-Social-Ontology-2019/">Best of Social Ontology 2019</a></td>
+        
+      </tr>
+    </tb>
+  </table>
+
+</article>
+ <footer>
+
+  <table width="100%" border="0">
+      <tr>
+          <td>
+              Find me on:
+              <a href="https://sigmoid.social/@davidstrohmaier">
+                  <em>Mastodon</em>
+              </a>  &middot;
+            <a href="https://www.linkedin.com/in/david-strohmaier-688893109">
+                <em>Linkedin</em>
+            </a> &middot;
+            <a href="mailto:david.strohmaier@cl.cam.ac.uk">
+                <em>david.strohmaier@cl.cam.ac.uk</em>
+            </a>  &middot;
+            <a href="/feed.xml">
+                <em>RSS</em>
+            </a>
+          </td>
+      </tr>
+  </table>
+
+</footer>
+
+          </div>
+          <div class="column right"><div class="nav">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/posts">Blog</a></li>
+        <li><a href="/publications">Publications</a></li>
+        <li><a href="/cv">CV</a></li>
+        <li><a href="/lists">Reading Lists</a></li>
+    </ul>
+</div>
+</div>
+      </div>
+  </body>
+
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>10 Years of word2vec: Motivations and Success &raquo; David Strohmaier</title>
+  <meta name="description" content="Once in a while, a publication resets the literature. There is a clear before and after them, as researchers cite the new publications, while neglecting the ...">
+
+  <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+  <link rel="canonical" href="https://dstrohmaier.com/10-years-of-word2vec/">
+  <link rel="alternate" type="application/rss+xml" title="David Strohmaier" href="https://dstrohmaier.com/feed.xml">
+
+  <!-- Icon stuff -->
+  <link rel="shortcut icon" href="https://dstrohmaier.com/assets/images/favicon.ico">
+
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</head>
+
+
+  <body>
+      <div class="container">
+          <div class="column left"></div>
+          <div class="column middle">
+              <div class="header">
+                  <div class="nav">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/posts">Blog</a></li>
+        <li><a href="/publications">Publications</a></li>
+        <li><a href="/cv">CV</a></li>
+        <li><a href="/lists">Reading Lists</a></li>
+    </ul>
+</div>
+
+              </div >
+              <article>
+
+  <header>
+    <h1>10 Years of word2vec: Motivations and Success</h1>
+    <p class="byline">
+      <span>By David Strohmaier</span>
+      <time>&middot; Feb 10, 2023</time>
+    </p>
+  </header>
+
+  <p>Once in a while, a publication resets the literature. There is a clear before and after them, as researchers cite the new publications, while neglecting the earlier literature upon which they built. The <em>word2vec</em> papers by Mikolov et al., which have been published about a decade ago in 2013, are an instance of this.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup> As can happen with such papers, the original motivations became overshadowed by later applications.</p>
+
+<p>In this post I will lay out those motivations were, how the embedding literature built upon them, and what made word2vec such an outstanding success.</p>
+
+<p>I will not go into the details of the word2vec algorithms, since numerous blog posts have been written on this topic already. If you need a refresher, the following might be worth a look:</p>
+<ul>
+  <li><a href="http://mccormickml.com/2016/04/27/word2vec-resources/">Word2Vec Resources</a> (by Chris McCormick)</li>
+  <li><a href="https://p.migdal.pl/2017/01/06/king-man-woman-queen-why.html/">king - man + woman is queen; but why?</a> (by Piotr Migdał)</li>
+  <li><a href="https://jalammar.github.io/illustrated-word2vec/">The Illustrated word2vec</a> (by Jay Alammar)</li>
+</ul>
+
+<h2 id="why-word2vec">Why word2vec</h2>
+
+<p>Mikolov et al. motivated the word2vec algorithms as fulfilling the following goals:</p>
+<ol>
+  <li>Motivation: Go beyond representing words as atomic units.</li>
+  <li>Motivation: Introduce a way to measure similarity.</li>
+</ol>
+
+<p>The first motivation was strongly associated with the idea of representation learning (cf. Bengio et al. 2013). Back then, the representations were often used by non-neural systems. We used word2vec embeddings with an SVM for sentiment classification during my MPhil studies. But with the progress of neural NLP, Seq2Seq models such as Transformers have become the standard. The representations inside those models are primarily used to explain their behaviour, and rarely taken as the primary object of research.</p>
+
+<p>The second motivation had its source in the linguistic notion of a semantic space, which had been explored by computational linguists and NLP researchers for years prior to word2vec (see Erk 2012). These models had been largely motivated by theories of lexical meaning and attempted to implement them.</p>
+
+<h2 id="analogies-and-lexical-semantic-properties">Analogies and Lexical Semantic Properties</h2>
+
+<p>Famously, word2vec was able to solve analogy problems, at least some of them.</p>
+
+<p>For example, starting with the embeddings for CAR and DRIVER, one can calculate that for PLANE the analogous concept to DRIVER is that of PILOT. All one had to do was to subtract the vector of CAR from the vector for DRIVE and add the result to the vector of PLANE. The next closest vector would, if it worked, be that for PILOT, i.e.</p>
+
+<p>\[ \vec{v}_{plane} + ( \vec{v}_{driver} - \vec{v}_{car} ) \approx \vec{v}_{pilot} \]</p>
+
+<p>We can think of these analogies as capturing as relations, e.g. there is a relation that holds both between CAR and DRIVER as well as PILOT and PLANE.</p>
+
+<p>The embeddings appeared to capture such relations in an intuitively interpretable way. In response, researchers sought to explain how these results came about (e.g. Levy &amp; Goldberg 2014; Arora 2019; Hashimoto 2016), and then improve the linguistic quality of embeddings. Researchers engaged in that second endeavour argued that representing words as simple vectors failed to encode various lexical semantic properties, for example:</p>
+
+<ul>
+  <li>Polysemy: A single vectors does not appear to exhibit the variety of senses a word might carry.</li>
+  <li>Vagueness: OLD is a vague concept, and OCTOGENARIAN is not, or at least to a much smaller extent. A vector does not carry a specification of the vagueness in an obvious manner.</li>
+  <li>Taxonomical hierarchies: All dogs are mammals, but the vectors are not exhibiting such inclusion relationships.</li>
+</ul>
+
+<p>The claim here is not that embeddings can never be used to detect polysemy or vagueness, e.g. by feeding them into a neural classifier, but that the vectors do not reflect such semantic properties in a straightforward way, similar to the way in which they captured analogies. Highly sophisticated approaches have been proposed, but the resulting models are often hard to train (for a survey and discussion see Emerson 2020).</p>
+
+<h2 id="two-perspectives-on-embeddings">Two Perspectives on Embeddings</h2>
+
+<p>In its focus on encoding semantic properties, parts of the embedding literature have deviated from the priority ranking of Mikolov et al. While Mikolov et al. referred to “meaningful regularities”, what mattered in the first instance was the downstream application. Vectors were not expected to reflect all regularities of word meanings.</p>
+
+<p>Reconsidering Mikolov et al.’s original motivation as well as the literature it spawned, both a perspective emphasising downstream application and one focused on encoding semantic properties can be discerned. I will give one argument for each of the two views:</p>
+
+<p>My argument for the first perspective is that word meanings as cognitive objects in human language users do not exist independently of other practical purposes. Both the word processing in human brains and the vectors we are concerned with have their role within larger computational processes (cf. Gauthier &amp; Ivanova 2018). Encoding linguistic properties, such as taxonomical hierarchy, for their own sake would therefore not reflect human language cognition.</p>
+
+<p>To support the second view, one can argue that human word meanings are general purpose, and that they achieve this status <em>because</em> they exhibit the semantic properties in question, e.g. taxonomical hierarchy or logical entailment. Accordingly, working towards encoding such properties brings us closer to improvements on many downstream tasks.</p>
+
+<p>A problem with the argument for the second view is that the embeddings created to encode semantic properties have found little use so far. For example, region embeddings, that should be able to capture taxonomical hierarchies have not found a purpose in more application-oriented systems yet. By comparison, word2vec embeddings and contextualised embeddings based on ELMo (Peters et al. 2018) and BERT (Devlin et al. 2019) did so very quickly.</p>
+
+<p>A key takeaway is that word2vec was able to reset the literature 10 years ago, because it made progress both in capturing linguistic regularities <em>and</em> in supporting downstream applications. With the exception of contextualised embeddings, such success has not been forthcoming since, despite many attempts. Whoever will find another way to make such combined progress, has a good chance of changing NLP history.</p>
+
+<!-- Following word2vec the general, although not only approach, to creating embeddings has been to use distributional information, i.e. how likely is a word to occur in the context of another. That, however, is certainly not a task which only required information about word meaning. Syntactic regularities obviously play a role. The reverse also holds, not all aspects of word meaning might be well captured by distributional information. -->
+
+<details><summary>References</summary>
+<ul>
+  <li>
+    <p>Arora, S., Li, Y., Liang, Y., Ma, T., &amp; Risteski, A. (2019). <a href="https://doi.org/10.48550/arXiv.1502.03520">A Latent Variable Model Approach to PMI-based Word Embeddings (arXiv:1502.03520; Version 4).</a></p>
+  </li>
+  <li>
+    <p>Bengio, Y., Courville, A. C., &amp; Vincent, P. (2013). <a href="https://doi.org/10.1109/TPAMI.2013.50">Representation learning: A review and new perspectives.</a> IEEE Trans. Pattern Anal. Mach. Intell., 35(8), 1798–1828.</p>
+  </li>
+  <li>
+    <p>Devlin, J., Chang, M.-W., Lee, K., &amp; Toutanova, K. (2019). <a href="http://arxiv.org/abs/1810.04805">BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding.</a> ArXiv:1810.04805.</p>
+  </li>
+  <li>
+    <p>Emerson, G. (2020). <a href="https://doi.org/10.18653/v1/2020.acl-main.663">What are the Goals of Distributional Semantics?</a> Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics, 7436–7453.</p>
+  </li>
+  <li>
+    <p>Erk, K. (2012). <a href="https://doi.org/10.1002/lnco.362">Vector Space Models of Word Meaning and Phrase Meaning: A Survey.</a> Language and Linguistics Compass, 6(10), 635–653.</p>
+  </li>
+  <li>
+    <p>Gauthier, J., &amp; Ivanova, A. (2018). <a href="https://doi.org/10.48550/arXiv.1806.00591">Does the brain represent words? An evaluation of brain decoding studies of language understanding (arXiv:1806.00591).</a></p>
+  </li>
+  <li>
+    <p>Hashimoto, T. B., Alvarez-Melis, D., &amp; Jaakkola, T. S. (2016). <a href="https://doi.org/10.1162/tacl_a_00098">Word Embeddings as Metric Recovery in Semantic Spaces.</a> Transactions of the Association for Computational Linguistics, 4, 273–286.</p>
+  </li>
+  <li>
+    <p>Levy, O., &amp; Goldberg, Y. (2014). <a href="https://proceedings.neurips.cc/paper/2014/file/feab05aa91085b7a8012516bc3533958-Paper.pdf">Neural word embedding as implicit matrix factorization.</a> Proceedings of the 27th International Conference on Neural Information Processing Systems - Volume 2, 2177–2185.</p>
+  </li>
+  <li>
+    <p>Mikolov, T., Chen, K., Corrado, G., &amp; Dean, J. (2013a). <a href="http://arxiv.org/abs/1301.3781">Efficient Estimation of Word Representations in Vector Space.</a> ICLR Workshop.</p>
+  </li>
+  <li>
+    <p>Mikolov, T., Sutskever, I., Chen, K., Corrado, G., &amp; Dean, J. (2013b). <a href="http://dl.acm.org/citation.cfm?id=2999792.2999959">Distributed Representations of Words and Phrases and Their Compositionality.</a> Proceedings of the 26th International Conference on Neural Information Processing Systems - Volume 2, 3111–3119.</p>
+  </li>
+  <li>
+    <p>Mikolov, T., Yih, W., &amp; Zweig, G. (2013c). <a href="https://www.aclweb.org/anthology/N13-1090">Linguistic Regularities in Continuous Space Word Representations.</a> Proceedings of the 2013 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, 746–751.</p>
+  </li>
+  <li>
+    <p>Peters, M., Neumann, M., Iyyer, M., Gardner, M., Clark, C., Lee, K., &amp; Zettlemoyer, L. (2018). <a href="https://doi.org/10.18653/v1/N18-1202">Deep Contextualized Word Representations.</a> Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long Papers), 2227–2237.</p>
+  </li>
+</ul>
+
+</details>
+
+<h3 id="footnotes">Footnotes</h3>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>On Google scholar, <a href="https://scholar.google.com/citations?view_op=view_citation&amp;citation_for_view=oBu8kMMAAAAJ:CB2v5VPnA5kC">one of the word2vec papers</a> is cited more than 37000 publications, while <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;citation_for_view=mxiO4IkAAAAJ:9yKSN-GCB0IC">an important source</a> of that paper has a mere 1216 citations to its name. Similar disruptions in citation patterns have been used as <a href="https://www.nature.com/articles/s41586-022-05543-x">a measure of scientific progress</a>. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+
+  
+  
+  
+
+  <table width="100%" border="0">
+    <tb>
+      <tr>
+        
+          <td><b>Previous</b></td>
+        
+        
+      </tr>
+      <tr>
+        
+          <td><a href="/Zotero-BibLaTeX-Style/">Zotero BibLaTeX Style</a></td>
+        
+        
+      </tr>
+    </tb>
+  </table>
+
+</article>
+ <footer>
+
+  <table width="100%" border="0">
+      <tr>
+          <td>
+              Find me on:
+              <a href="https://sigmoid.social/@davidstrohmaier">
+                  <em>Mastodon</em>
+              </a>  &middot;
+            <a href="https://www.linkedin.com/in/david-strohmaier-688893109">
+                <em>Linkedin</em>
+            </a> &middot;
+            <a href="mailto:david.strohmaier@cl.cam.ac.uk">
+                <em>david.strohmaier@cl.cam.ac.uk</em>
+            </a>  &middot;
+            <a href="/feed.xml">
+                <em>RSS</em>
+            </a>
+          </td>
+      </tr>
+  </table>
+
+</footer>
+
+          </div>
+          <div class="column right"><div class="nav">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/posts">Blog</a></li>
+        <li><a href="/publications">Publications</a></li>
+        <li><a href="/cv">CV</a></li>
+        <li><a href="/lists">Reading Lists</a></li>
+    </ul>
+</div>
+</div>
+      </div>
+  </body>
+
+</html>
