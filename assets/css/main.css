@@ -30,7 +30,7 @@
   grid-area: 1 / 2 / 1 / 2;
   padding: 25px 5% 10px 5%;
   justify-self: stretch;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .container {
