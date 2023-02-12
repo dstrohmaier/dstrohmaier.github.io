@@ -61,8 +61,6 @@ A key takeaway is that word2vec was able to reset the literature 10 years ago, b
 <!-- Following word2vec the general, although not only approach, to creating embeddings has been to use distributional information, i.e. how likely is a word to occur in the context of another. That, however, is certainly not a task which only required information about word meaning. Syntactic regularities obviously play a role. The reverse also holds, not all aspects of word meaning might be well captured by distributional information. -->
 
 
-{% details References %}
-
 - Arora, S., Li, Y., Liang, Y., Ma, T., & Risteski, A. (2019). [A Latent Variable Model Approach to PMI-based Word Embeddings (arXiv:1502.03520; Version 4).](https://doi.org/10.48550/arXiv.1502.03520)
 
 - Bengio, Y., Courville, A. C., & Vincent, P. (2013). [Representation learning: A review and new perspectives.]( https://doi.org/10.1109/TPAMI.2013.50) IEEE Trans. Pattern Anal. Mach. Intell., 35(8), 1798–1828.
@@ -87,7 +85,6 @@ A key takeaway is that word2vec was able to reset the literature 10 years ago, b
 
 - Peters, M., Neumann, M., Iyyer, M., Gardner, M., Clark, C., Lee, K., & Zettlemoyer, L. (2018). [Deep Contextualized Word Representations.](https://doi.org/10.18653/v1/N18-1202) Proceedings of the 2018 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long Papers), 2227–2237.
 
-{% enddetails %}
 
 ### Footnotes
 

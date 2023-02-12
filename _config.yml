@@ -1,6 +1,5 @@
 permalink: /:title/
 
-
 title: David Strohmaier
 subtitle: Website and Blog
 description: >- # this means to ignore newlines until "baseurl:"
