@@ -39,4 +39,4 @@ For feedback, comments, and complaints, email me at  <a href="mailto:{{site.emai
 
 [^2]: This has, to my knowledge, not been established yet. It has been argued for, in some form, by cognitive scientists such as Fodor & Lepore (2002), but my more optimistic assessment of neural methods is hard to square with these arguments. According to my understanding, empirical evidence from the level of cognitive neuroscience is missing or weak (e.g. Pylkkänen 2020).
 
-[^3]: This claim does not concern whether dealing with compositionality in the absence of a new mechanism is possible, but which development path will be taken due to differences in feasibility.
+[^3]: This claim does not concern whether dealing with compositionality in the absence of a new mechanism is possible, but instead concerns which development path will be taken due to differences in feasibility.
