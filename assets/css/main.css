@@ -2,13 +2,20 @@
   /* box-sizing: border-box; */
 }
 
+:root {
+  --dark: #312757;
+  --light: #e1d9ff;
+  --link: #3d1fab;
+  --hover: #604da8;
+  --line: #b6aed6;
+}
 
 .header {
   display: none;
 }
 
 .left {
-  background-color: #003a67;
+  background-color: var(--dark);
   grid-area: 1 / 1 / 1 / 1;
 }
 
@@ -17,17 +24,35 @@
   text-orientation: mixed;
   position: sticky;
   top:0;
+  height: 100vh;
+  width: 100%;
+}
+
+.name-inner {
+  color: var(--light);
+  font-family: "Playfair Display";
+  font-weight: 700;
+  font-size: 7vh;
+  position: absolute;
+  right: 0;
+  height: 100vh;
+  text-align: center;
+}
+
+.line {
+  background-color: var(--line);
+  grid-area: 1 / 2 / 1 / 2;
 }
 
 .right {
-  background-color: #003a67;
-  grid-area: 1 / 3 / 1 / 3;
+  background-color: var(--dark);
+  grid-area: 1 / 4 / 1 / 4;
 }
 
 .middle {
   /* height:501px; */
   background-color: white;
-  grid-area: 1 / 2 / 1 / 2;
+  grid-area: 1 / 3 / 1 / 3;
   padding: 25px 5% 10px 5%;
   justify-self: stretch;
   overflow-y: auto;
@@ -35,13 +60,138 @@
 
 .container {
   display: grid;
-  grid-template-columns: 1fr min(80%, 900px) 1fr;
+  grid-template-columns: 1fr 30px min(80%, 800px) 1fr;
   grid-template-rows: auto;
-  grid-template-areas: "right middle left";
   justify-content: center;
   min-height: 100vh;
 }
 
+
+@font-face {
+  font-family: 'playfair_display';
+  src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-Regular.woff2') format('woff2'),
+       url('/assets/fonts/Playfair_Display/PlayfairDisplay-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-Regular.woff2') format('woff2'),
+         url('/assets/fonts/Playfair_Display/PlayfairDisplay-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-SemiBold.woff2') format('woff2'),
+         url('/assets/fonts/Playfair_Display/PlayfairDisplay-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-SemiBoldItalic.woff2') format('woff2'),
+         url('/assets/fonts/Playfair_Display/PlayfairDisplay-SemiBoldItalic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-Black.woff2') format('woff2'),
+         url('/assets/fonts/Playfair_Display/PlayfairDisplay-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-BlackItalic.woff2') format('woff2'),
+         url('/assets/fonts/Playfair_Display/PlayfairDisplay-BlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-Regular.woff2') format('woff2'),
+         url('/assets/fonts/Playfair_Display/PlayfairDisplay-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-MediumItalic.woff2') format('woff2'),
+         url('/assets/fonts/Playfair_Display/PlayfairDisplay-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-ExtraBold.woff2') format('woff2'),
+         url('/assets/fonts/Playfair_Display/PlayfairDisplay-ExtraBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-Italic.woff2') format('woff2'),
+         url('/assets/fonts/Playfair_Display/PlayfairDisplay-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-ExtraBoldItalic.woff2') format('woff2'),
+         url('/assets/fonts/Playfair_Display/PlayfairDisplay-ExtraBoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-Medium.woff2') format('woff2'),
+         url('/assets/fonts/Playfair_Display/PlayfairDisplay-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-Bold.woff2') format('woff2'),
+         url('/assets/fonts/Playfair_Display/PlayfairDisplay-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-BoldItalic.woff2') format('woff2'),
+         url('/assets/fonts/Playfair_Display/PlayfairDisplay-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
 
 @font-face {
   font-family: 'open_sansregular';
@@ -81,15 +231,14 @@ a {
 }
 
 a:link {
-  color: #986c00;
+  color: var(--link);
 }
-/* visited link */
 a:visited {
-    color: #51510a;
+  color: var(--link);
 }
 /* mouse over link */
 a:hover {
-  color: #cda301;
+  color: var(--hover);
 }
 
 p {
@@ -101,6 +250,7 @@ p {
 .nav {
   position: sticky;
   top:0;
+  padding: 10px;
   /* left: 0; */
   /* position: absolute; */
 }
@@ -117,23 +267,19 @@ p {
 .nav li a {
   text-align: left;
   padding: 16px;
-  min-width: 100px;
   display: inline-block;
   text-decoration: none;
   color: #fff;
-  letter-spacing: 2px;
+  letter-spacing: 5px;
   text-transform: uppercase;
   position: relative;
   padding: 10px;
 }
 
 .nav li a:hover {
-  color: #A8A800;
+  background: linear-gradient(to top, #ffffff33 50%, transparent 50%);
 }
 
-.nav li a:hover::after {
-  width: 80%;
-}
 
 .byline {
   font-style: italic;
@@ -183,12 +329,14 @@ ol, ul {
 
 h1 {
   font-size: 2.5em;
-  text-align: center;
   padding: 10px 10px 10px 10px;
 }
 
 h1, h2, h3, h4 {
+  color: var(--dark);
+  font-family: "Playfair Display";
   text-align: center;
+  font-weight: bold;
 }
 
 img {
@@ -224,8 +372,23 @@ details {
 }
 
 
+@media (max-width:1100px) {
+  .left {
+    display: none;
+  }
+  .line {
+    display: none;
+  }
+  .container {
+    grid-template-columns: 0fr 0 min(80%, 800px) 1fr;
+  }
+}
+
 @media (max-width:800px) {
   .left {
+    display: none;
+  }
+  .line {
     display: none;
   }
   .right {
@@ -238,10 +401,10 @@ details {
     padding: 15px;
   }
   .container {
-    grid-template-columns: 0fr 100% 0fr;
+    grid-template-columns: 0fr 0 100% 0fr;
   }
   .nav {
-    background-color: #003a67;
+    background-color: var(--dark);
     padding: 0;
   }
   .nav li a {
