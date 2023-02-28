@@ -20,8 +20,13 @@
 }
 
 .name {
-  writing-mode: sideways-lr;
-  text-orientation: mixed;
+  /* writing-mode: sideways-lr; */
+  /* text-orientation: mixed; */
+  transform:rotate(7deg);
+  -ms-transform:rotate(90deg); /* IE 9 */
+  -moz-transform:rotate(90deg); /* Firefox */
+  -webkit-transform:rotate(90deg); /* Safari and Chrome */
+  -o-transform:rotate(90deg); /* Opera */
   position: sticky;
   top:0;
   height: 100vh;
