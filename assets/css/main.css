@@ -22,11 +22,6 @@
 .name {
   /* writing-mode: sideways-lr; */
   /* text-orientation: mixed; */
-  transform:rotate(7deg);
-  -ms-transform:rotate(90deg); /* IE 9 */
-  -moz-transform:rotate(90deg); /* Firefox */
-  -webkit-transform:rotate(90deg); /* Safari and Chrome */
-  -o-transform:rotate(90deg); /* Opera */
   position: sticky;
   top:0;
   height: 100vh;
@@ -38,10 +33,16 @@
   font-family: "Playfair Display";
   font-weight: 700;
   font-size: 7vh;
+  font-style: italic;
   position: absolute;
   right: 0;
-  height: 100vh;
+  width: 100vh;
   text-align: center;
+  transform:translate(50vh, 45vh) rotate(-90deg);
+  -ms-transform:translate(50vh, 45vh) rotate(-90deg); /* IE 9 */
+  -moz-transform:translate(50vh, 45vh) rotate(-90deg); /* Firefox */
+  -webkit-transform:translate(45vh, 45vh) rotate(-90deg); /* Safari and Chrome */
+  -o-transform:translate(50vh, 45vh) rotate(-90deg); /* Opera */
 }
 
 .line {
@@ -291,6 +292,7 @@ p {
   font-size: 90%;
   color: #666666;
   text-align: center;
+  margin: -2em 0 4em 0;
 }
 
 blockquote.attr {
@@ -334,7 +336,6 @@ ol, ul {
 
 h1 {
   font-size: 2.5em;
-  padding: 10px 10px 10px 10px;
 }
 
 h1, h2, h3, h4 {
@@ -342,6 +343,7 @@ h1, h2, h3, h4 {
   font-family: "Playfair Display";
   text-align: center;
   font-weight: bold;
+  padding: 2em 0.5em 0.5em 0.5em;
 }
 
 img {
