@@ -5,7 +5,7 @@ date:   2023-02-28 12:38:00 +0000
 category: posts
 ---
 
-Transformer LLMs, such as [ChatGPT]((https://openai.com/blog/chatgpt/), [BERT](https://arxiv.org/abs/1810.04805), and [Bard](https://blog.google/technology/ai/bard-google-ai-search-updates/), have sufficiently impressed the public that some have described them as AI minds. But is this ascription of a mind justifiable?[^1]
+Transformer LLMs, such as [ChatGPT](https://openai.com/blog/chatgpt/), [BERT](https://arxiv.org/abs/1810.04805), and [Bard](https://blog.google/technology/ai/bard-google-ai-search-updates/), have sufficiently impressed the public that some have described them as AI minds. But is this ascription of a mind justifiable?[^1]
 
 _Betteridge's law of headlines_ states:
 
