@@ -5,7 +5,7 @@ date:   2023-03-13 15:08:00 +0000
 category: posts
 ---
 
-A common criticism of Transformer models, such as [ChatGPT](https://openai.com/blog/chatgpt/), [BERT](https://arxiv.org/abs/1810.04805), and [Bard](https://blog.google/technology/ai/bard-google-ai-search-updates/), is that they only learn surface statistics. According to this criticism, the predictions by transformers are superficial, because they do not represent the underlying state. In the case of language, the models would only capture general co-occurrence, on which transformer LLMS are typically trained, but neither the underlying hierarchical nature of language nor anything about the states in the world.
+A common criticism of Transformer models, such as [ChatGPT](https://openai.com/blog/chatgpt/), [BERT](https://arxiv.org/abs/1810.04805), and [Bard](https://blog.google/technology/ai/bard-google-ai-search-updates/), is that they only learn surface statistics. According to this criticism, the predictions by transformers are superficial, because they do not represent the underlying state. In the case of language, the models would only capture general co-occurrence, on which transformer LLMS are typically trained, but neither the underlying hierarchical nature of language nor anything about the states of the world.
 
 Evidence by now strongly suggests that this absolute criticism is wrong. In the following, I list the papers providing the evidence:
 
@@ -21,7 +21,7 @@ The paper by Li et al. is especially convincing, since they test the role of the
 
 ## Hierarchical Syntax
 
-The states of Transformer language model reflect syntax, including a hierarchical structure which is not obvious from the surface of language strings:
+The states of Transformer language models reflect syntax, including a hierarchical structure which is not obvious from the surface of language strings:
 - Lin et al. 2019
 - Tenney et al. 2019
 - Rogers et al. 2020: 843-844
