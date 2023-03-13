@@ -21,7 +21,7 @@ The paper by Li et al. is especially convincing, since they test the role of the
 
 ## Hierarchical Syntax
 
-Transformer language model states reflect syntax, including a hierarchical structure which is not obvious from the surface of language strings:
+The states of Transformer language model reflect syntax, including a hierarchical structure which is not obvious from the surface of language strings:
 - Lin et al. 2019
 - Tenney et al. 2019
 - Rogers et al. 2020: 843-844
