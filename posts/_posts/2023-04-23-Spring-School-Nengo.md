@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Groningen Cognitive Modeling Spring School"
-date:   2023-04-23 08:45:00 +0000
+date:   2023-04-23 07:45:00 +0000
 category: posts
 ---
 
