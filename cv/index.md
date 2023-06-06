@@ -23,7 +23,7 @@ Here is shortened text version of my CV, for a longer and better formatted PDF [
 - University of Göttingen: BA in Sociology. Grade: 1.3.
 
 ## Publications
-- Forthcoming  "Contrafactives and Learnability: An Experiment with Propositional Constants ". With: Simon Wimmer. In: Post-Proceedings of Logic and Engineering of Natural Language Semantics 19
+- Forthcoming – "Contrafactives and Learnability: An Experiment with Propositional Constants ". With: Simon Wimmer. In: Post-Proceedings of Logic and Engineering of Natural Language Semantics 19
 - 2022 – "Contrafactives and Learnability". Second author. With: Simon Wimmer. In: Amsterdam Colloquium 2022.
 - 2022 – "A Category Theory Framework for Sense Systems". Equal contribution. With: Gladys Tyen. In: GLOBALEX 2022 @ LREC.
 - 2021 – "Cambridge at SemEval-2021 Task 1: An Ensemble of Feature-Based and Neural Models for Lexical Complexity Prediction". Third author. With: Zheng Yuan, Gladys Tyen. In: SemEval-2021
