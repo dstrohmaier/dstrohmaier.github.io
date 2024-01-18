@@ -6,6 +6,12 @@ layout: "page"
 
 <p><img src="/assets/images/swans.jpg" alt="header of swans" height="220px" /></p>
 
+## Books
+
+* [Preference Change](http://doi.org/10.1017/9781009181860) (with Michael Messerli)
+
+## Papers and Proceedings
+
 * [Contrafactives and Learnability: An Experiment with Propositional Constants](https://philpapers.org/rec/STRCAL-7) (with Simon Wimmer)
 * [Contrafactives and Learnability](https://philpapers.org/rec/STRCAL-6) (with Simon Wimmer)
 * [Cambridge at SemEval-2021 Task 2: Neural WiC-Model with Data Augmentation and Exploration of Representation](https://aclanthology.org/volumes/2021.semeval-1/) (with Zheng Yuan)
