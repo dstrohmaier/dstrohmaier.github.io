@@ -19,9 +19,10 @@ newspaper](/assets/images/dog-reading-news.jpg)
 
 My suggestions pertain to criticism of the current abilities of AI,
 rather than criticism of their broader social consequences (supposed
-harm, replacement of human activities etc.). The list is neither
-complete, nor beyond dispute. Hopefully, it serves as a source of
-sharpening ideas. Here are my suggestions:
+harm, replacement of human activities etc.). The criticisms I have in
+mind are of the blog-post length and formality, not academic. The list
+is neither complete, nor beyond dispute. Hopefully, it serves as a
+source of sharpening ideas. Here are my suggestions:
 
 - In your criticism, be specific about the architecture, or the family of
   architectures. Not all neural network technologies are transformer
