@@ -24,6 +24,7 @@ Here is shortened text version of my CV, for a longer and better formatted PDF [
 
 ## Publications
 - 2024 – "Preference Change". With: Michael Messerli. Cambridge University Press.
+- 2024 – "Semantic Error Prediction: Estimating Word Production Complexity". With: Paula Buttery. In: NLP4CALL 2024
 - 2023 – "Contrafactives and Learnability: An Experiment with Propositional Constants ". With: Simon Wimmer. In: Post-Proceedings of Logic and Engineering of Natural Language Semantics 19
 - 2022 – "Contrafactives and Learnability". Second author. With: Simon Wimmer. In: Amsterdam Colloquium 2022.
 - 2022 – "A Category Theory Framework for Sense Systems". Equal contribution. With: Gladys Tyen. In: GLOBALEX 2022 @ LREC.

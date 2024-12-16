@@ -1,6 +1,6 @@
 ---
 title: Publications
-subtitle: a list of my publications
+subtitle: a list of selected publications
 layout: "page"
 ---
 
@@ -12,6 +12,7 @@ layout: "page"
 
 ## Papers and Proceedings
 
+* [Semantic Error Prediction: Estimating Word Production Complexity](https://philarchive.org/archive/STRSEP) (with Paula Buttery)
 * [Contrafactives and Learnability: An Experiment with Propositional Constants](https://philpapers.org/rec/STRCAL-7) (with Simon Wimmer)
 * [Contrafactives and Learnability](https://philpapers.org/rec/STRCAL-6) (with Simon Wimmer)
 * [Cambridge at SemEval-2021 Task 2: Neural WiC-Model with Data Augmentation and Exploration of Representation](https://aclanthology.org/volumes/2021.semeval-1/) (with Zheng Yuan)
