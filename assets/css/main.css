@@ -28,7 +28,7 @@
   /* height:501px; */
   background-color: white;
   grid-area: 1 / 2 / 1 / 2;
-  padding: 25px 10% 10px 10%;
+  padding: 25px 13% 10px 13%;
   justify-self: stretch;
   overflow-y: auto;
 }
