@@ -6,15 +6,16 @@ category: lists
 ---
 
 # Non-Fiction
-- Noam Chomsky: The Structure of Syntax
 - Max Stirner: Der Einzige und sein Eigentum
 - Robert Caro: The Power Broker
 - Saul Kripke: Naming and Necessity
 - C.S. Peirce: The Essential Peirce
+- Noam Chomsky: The Structure of Syntax
 - Ludwig Wittgenstein: Tractatus Logico-Philosophicus
 - Plato: Politeia
 
 # Fiction
+- Herman Melville: Moby Dick or, The Whale
 - Ursula K. Le Guin: The Dispossessed
 - J.R.R. Tolkien: The Lord of the Rings
 - Shakespeare: Coriolanus
