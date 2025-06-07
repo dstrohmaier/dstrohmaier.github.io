@@ -7,6 +7,8 @@ category: posts
 
 I'm currently reading Melissa Bowerman's (2018) "Ten Lectures on Language, Cognition, and Language Acquisition", and right at the start of the first lecture, she provides a fascinating remark on assumptions historically made about language learning. When we look into her remark and consider the larger consequences, we arrive at a warning about being too sure about one's assumptions.
 
+![A man hanging by one hand between train carriages](/assets/images/hanging-one-hand.jpg)
+
 According to Bowerman, when crosslinguistic research into language acquisition by children began, two claims from Chomsky were at the heart of it. For this post, I'm not interested in the second assumption (universal grammar). It is the first one that interests me. Bowerman formulates the first assumption as "children learn implicit rule systems" (p. 4).
 
 To clarify this assumption and its significance, Bowerman provides some more background and contrasts Chomsky's contribution with the earlier behaviourist research. The behaviourists had their own assumption (p. 4):
