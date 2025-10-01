@@ -23,6 +23,8 @@ Here is shortened text version of my CV, for a longer and better formatted PDF [
 - University of Göttingen: BA in Sociology. Grade: 1.3.
 
 ## Publications
+- 2025 – "DLU: Dictionary Look-Up Data and Prediction". First author. With Gladys Tyen, Hongyi Gu, Diane Nicholls, Zheng Yuan, and Paula Buttery. In: CoNLL 2025
+- 2025 – "Contrafactives, Learnability, and Production". First author. With Simon Wimmer. In: ELM3
 - 2024 – "Preference Change". With: Michael Messerli. Cambridge University Press.
 - 2024 – "Semantic Error Prediction: Estimating Word Production Complexity". With: Paula Buttery. In: NLP4CALL 2024
 - 2023 – "Contrafactives and Learnability: An Experiment with Propositional Constants ". With: Simon Wimmer. In: Post-Proceedings of Logic and Engineering of Natural Language Semantics 19

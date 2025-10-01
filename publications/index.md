@@ -12,6 +12,8 @@ layout: "page"
 
 ## Papers and Proceedings
 
+* [DLU: Dictionary Look-Up Data and Prediction](https://aclanthology.org/2025.conll-1.32/) (with Gladys Tyen, Hongyi Gu, Diane Nicholls, Zheng Yuan, and Paula Buttery)
+* [Contrafactives, Learnability, and Production](https://journals.linguisticsociety.org/proceedings/index.php/ELM/article/view/5810) (with Simon Wimmer)
 * [Semantic Error Prediction: Estimating Word Production Complexity](https://philarchive.org/archive/STRSEP) (with Paula Buttery)
 * [Contrafactives and Learnability: An Experiment with Propositional Constants](https://philpapers.org/rec/STRCAL-7) (with Simon Wimmer)
 * [Contrafactives and Learnability](https://philpapers.org/rec/STRCAL-6) (with Simon Wimmer)
