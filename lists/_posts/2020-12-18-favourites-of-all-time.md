@@ -6,13 +6,14 @@ category: lists
 ---
 
 # Non-Fiction
+- Plato: Politeia
 - Max Stirner: Der Einzige und sein Eigentum
 - Robert Caro: The Power Broker
 - Saul Kripke: Naming and Necessity
 - C.S. Peirce: The Essential Peirce
 - Noam Chomsky: The Structure of Syntax
-- Ludwig Wittgenstein: Tractatus Logico-Philosophicus
-- Plato: Politeia
+
+
 
 # Fiction
 - Herman Melville: Moby Dick or, The Whale
