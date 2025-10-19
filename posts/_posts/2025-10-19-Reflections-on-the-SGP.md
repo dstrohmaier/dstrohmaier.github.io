@@ -9,6 +9,8 @@ This post collects a set of notes on the Symbol Grounding Problem in the context
 
 You can find a [list of papers on the topic of symbol grounding on my page](/The-Symbol-Grounding-Problem/). My notes assume familiarity with the literature, but develop their own framing. I use the term "Grounding Problem" to encompass what others have, for example, called the ["Vector Grounding Problem"](https://arxiv.org/abs/2304.01481). The goal of my notes is to develop how the grounding problem poses challenges to both AI research and philosophy, as well as to describe how these field-specific challenges relate to each other.
 
+![19th century illustration of a diving machine](/assets/images/klingerts-diving-machine-1600.jpg)
+
 
 ## Notes
 
