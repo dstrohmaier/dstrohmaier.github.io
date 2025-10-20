@@ -22,6 +22,7 @@ In this list, I collect papers on the symbol grounding problem.
 
 - Bender, E. M., & Koller, A. (2020). [Climbing towards NLU: On Meaning, Form, and Understanding in the Age of Data](https://doi.org/10.18653/v1/2020.acl-main.463). Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics, 5185–5198.
 - Pavlick, E. (2023). [Symbols and Grounding in Large Language Models](https://doi.org/10.1098/rsta.2022.0041). Philosophical Transactions of the Royal Society A: Mathematical, Physical and Engineering Sciences, 381(2251).
+- Lyre, H. (2024). [`Understanding AI': Semantic Grounding in Large Language Models](https://doi.org/10.48550/arXiv.2402.10992). arXiv.
 - Dove, G. (2024). [Symbol Ungrounding: What the Successes (and Failures) of Large Language Models Reveal About Human Cognition](https://doi.org/10.1098/rstb.2023.0149). Philosophical Transactions of the Royal Society B: Biological Sciences, 379(1911).
 - Mandelkern, M., & Linzen, T. (2024). [Do Language Models’ Words Refer?](https://doi.org/10.1162/coli_a_00522) Computational Linguistics, 50(3), 1191–1200.
 - Grindrod, J. (2024). [Large Language Models and Linguistic Intentionality](https://doi.org/10.1007/s11229-024-04723-8). Synthese, 204(2), 71.
