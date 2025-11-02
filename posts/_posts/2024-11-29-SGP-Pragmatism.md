@@ -59,7 +59,7 @@ But what is a norm-governed practice? In the philosophical literature, we can fi
 
 Brandom's account is explicitly normative, the ability to commit is central to participating in this norm-governed practice of language use (Brandom 1994: 159). Without this ability, one might question whether the entity can in question can understand meaning. But can LLMs commit? It is hard to see how they could be capable of committing, if there is no way of holding them accountable and I am unconvinced that providing them input that chastises them for previous output should be considered holding them accountable. In fact, I would find it easier (albeit challenging) to ground an LLM with sensory information than to change it in such a way that it can be held accountable for its commitments. We end up with a grounding problem, albeit one that concerns the grounding in commitments.
 
-I assume that Gubelmann would endorse a weaker version of a normative theory of meaning. Based on my limited knowledge of Wittgenstein's late work and peeking into Gubelmann's 2023 paper on this issue, I have a vague idea of what this theory might look like. But Wittgenstein's account of rule-following comes into play, and the issues surrounding that are beyond a blog-post or EMNLP paper. Looking into the SEP entry [Rule-Following and Intentionality](https://plato.stanford.edu/entries/rule-following/) to get a sense of the debate.
+I assume that Gubelmann would endorse a weaker version of a normative theory of meaning. Based on my limited knowledge of Wittgenstein's late work and peeking into Gubelmann's 2023 paper on this issue, I have a vague idea of what this theory might look like. But Wittgenstein's account of rule-following comes into play, and the issues surrounding that are beyond a blog-post or EMNLP paper.[^4
 
 #### Claim 3: CTM Goes Hand-in-Hand with Various Theories
 
@@ -94,6 +94,7 @@ Given these variety of options, I think it might better to turn Gubelmann's main
 
 [^3]: Other readings can, of course, also be found. My point is that potential other problems closely related to SGP remain worthy of consideration, even if the narrow argument of the paper goes through.
 
+[^4]: I suggest taking a look into the SEP entry [Rule-Following and Intentionality](https://plato.stanford.edu/entries/rule-following/) to get a sense of the debate.
 
 <!--  LocalWords:  SGP CTM EMNLP Brandom Brandom's activations Glür
   LocalWords:  representationalist Pylyshyn normativity Gubelmann LoT
