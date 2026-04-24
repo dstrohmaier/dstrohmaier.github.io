@@ -48,6 +48,16 @@ The [seminar of the DIC (Doctorat en informatique cognitive) at the Université 
 
 There are many more excellent talks on the website!
 
+
+## UPDATE (24.04.2026): More on Transformer Architecture/Self-Attention
+
+Over the course of the masterclass, it became that additional materials on the transformer architecture and the self-attention mechanism are helpful.
+
+- Perhaps the best introduction are the lessons on neural networks by 3Blue1Brown, including [a video on attention](https://www.3blue1brown.com/lessons/attention).
+- [The Illustrated Transformer blog post](https://jalammar.github.io/illustrated-transformer/) by Jay Alammar is a classic.
+- Brendan Bycroft has created [a more comprehensive and comparative visualisation](https://bbycroft.net/llm) of transformer models.
+
+
 ---
 
 Note: I used an LLM to copy-edit this post.
