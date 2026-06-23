@@ -119,7 +119,7 @@ body {
   font-size: 1.05rem;
   line-height: 1.65;
   color: var(--text);
-  background-color: var(--dark);
+  background-color: white;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -143,37 +143,43 @@ li {
 }
 
 /* ==========================================================================
-   Layout (3-column grid: line | content | dark nav rail)
+   Layout (top nav bar + 2-column body: left sidebar | content)
    ========================================================================== */
+
+:root {
+  --topbar-height: 3.25rem;
+  --sidebar-width: 240px;
+  --content-width: 760px;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--dark);
+}
 
 .container {
   display: grid;
-  grid-template-columns: 30px min(80%, 1200px) 1fr;
-  grid-template-rows: auto;
+  grid-template-columns: var(--sidebar-width) minmax(0, var(--content-width));
   justify-content: center;
-  min-height: 100vh;
+  gap: 2.5rem;
+  min-height: calc(100vh - var(--topbar-height));
+  padding: 0 1.5rem;
 }
 
-.line {
-  background-color: var(--line);
-  grid-area: 1 / 1 / 1 / 1;
+.sidebar {
+  padding-top: 2.5rem;
 }
 
-.right {
-  background-color: var(--dark);
-  grid-area: 1 / 3 / 1 / 3;
+.sidebar-inner {
+  position: sticky;
+  top: calc(var(--topbar-height) + 1.5rem);
 }
 
 .middle {
-  background-color: white;
-  grid-area: 1 / 2 / 1 / 2;
-  padding: 25px 18% 7em 18%;
-  justify-self: stretch;
-  overflow-y: auto;
-}
-
-.header {
-  display: none;
+  padding: 25px 0 7em 0;
+  min-width: 0;
 }
 
 /* ==========================================================================
@@ -244,32 +250,34 @@ h3 { font-size: 1.45rem; }
 h4 { font-size: 1.15rem; }
 
 /* ==========================================================================
-   Navigation (dark right rail + collapsed mobile header)
+   Navigation (horizontal top bar)
    ========================================================================== */
 
 .nav {
-  position: sticky;
-  top: 0;
-  padding: 10px;
+  max-width: calc(var(--sidebar-width) + var(--content-width) + 2.5rem);
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
 .nav ul {
   list-style: none;
   margin: 0;
-  padding: 5% 0 0 5%;
-  overflow: hidden;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem;
+  min-height: var(--topbar-height);
 }
 
 .nav li a {
   display: inline-block;
-  text-align: left;
   text-decoration: none;
   color: #fff;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  font-size: 0.8rem;
-  position: relative;
-  padding: 10px 12px;
+  font-size: 0.78rem;
+  padding: 8px 14px;
   border-radius: var(--radius);
   transition: background-color 0.18s ease, color 0.18s ease;
 }
@@ -282,6 +290,109 @@ h4 { font-size: 1.15rem; }
 .nav li a:focus-visible {
   outline: 2px solid var(--light);
   outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Left sidebar (identity block + table of contents)
+   ========================================================================== */
+
+.identity {
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.identity-name {
+  display: block;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--dark);
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+.identity-role {
+  margin: 0.2rem 0 0.8rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-align: left;
+}
+
+.identity-blurb {
+  margin: 0 0 1rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--muted);
+  text-align: left;
+  hyphens: none;
+}
+
+.identity-blurb a {
+  color: var(--link);
+}
+
+.identity-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.9rem;
+  font-size: 0.8rem;
+}
+
+.identity-links a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.identity-links a:hover {
+  color: var(--link);
+}
+
+/* Table of contents */
+.toc-title {
+  margin: 0 0 0.6rem;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--muted);
+  text-align: left;
+}
+
+.toc ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  line-height: 1.35;
+  border-left: 2px solid var(--border);
+}
+
+.toc li {
+  margin: 0;
+}
+
+.toc li a {
+  display: block;
+  padding: 0.3rem 0 0.3rem 0.85rem;
+  margin-left: -2px;
+  border-left: 2px solid transparent;
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.toc li.toc-h3 a {
+  padding-left: 1.7rem;
+  font-size: 0.8rem;
+}
+
+.toc li a:hover {
+  color: var(--link);
+}
+
+.toc li a.active {
+  color: var(--link);
+  border-left-color: var(--link);
+  font-weight: bold;
 }
 
 /* ==========================================================================
@@ -345,11 +456,22 @@ h4 { font-size: 1.15rem; }
 .footer-links {
   display: inline-flex;
   flex-wrap: wrap;
-  gap: 0.4rem 1rem;
+  gap: 0.4rem 0.9rem;
+  font-size: 0.8rem;
+}
+
+/* Match the sidebar social links: muted, no italic, no underline. */
+.footer-links a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: var(--link);
 }
 
 .footer-links a em {
-  font-style: italic;
+  font-style: normal;
 }
 
 /* ==========================================================================
@@ -476,46 +598,34 @@ details[open] summary::before {
    Responsive
    ========================================================================== */
 
-@media (max-width: 1200px) {
-  .line {
-    display: none;
-  }
+/* Narrower viewports: shrink the gap and let the content column flex. */
+@media (max-width: 1100px) {
   .container {
-    grid-template-columns: 0 min(80%, 800px) 1fr;
+    grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+    gap: 2rem;
   }
 }
 
-@media (max-width: 1000px) {
-  .line {
-    display: none;
-  }
-  .right {
-    display: none;
-  }
-  .header {
-    display: block;
-  }
-  .middle {
-    padding: 15px;
-  }
+/* Below this, drop to a single column and hide the sidebar entirely (the top bar
+   already provides primary navigation; identity/social live in the footer). */
+@media (max-width: 850px) {
   .container {
-    grid-template-columns: 0 100% 0fr;
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0 1.25rem;
   }
-  .nav {
-    background-color: var(--dark);
-    padding: 0 1% 2.2em 1%;
+  .sidebar {
+    display: none;
   }
+}
+
+/* Small screens: tighten the top nav bar. */
+@media (max-width: 600px) {
   .nav ul {
-    display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 0.25rem;
-    padding: 0.5rem 0;
   }
   .nav li a {
-    display: block;
-    text-align: center;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     font-size: 0.7rem;
     padding: 8px 10px;
   }
