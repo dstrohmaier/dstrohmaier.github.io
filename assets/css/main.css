@@ -167,7 +167,7 @@ li {
 .middle {
   background-color: white;
   grid-area: 1 / 2 / 1 / 2;
-  padding: 25px 13% 7em 13%;
+  padding: 25px 18% 7em 18%;
   justify-self: stretch;
   overflow-y: auto;
 }
