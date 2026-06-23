@@ -46,7 +46,7 @@ layout: default
   </script>
 
   <table width="100%" border="0">
-    <tb>
+    <tbody>
       <tr>
         {% if prev_post %}
           <td><b>Previous</b></td>
@@ -63,7 +63,7 @@ layout: default
           <td align="right"><a href="{{ next_post.url }}">{{ next_post.title | strip_html | truncate: 30}}</a></td>
         {% endif %}
       </tr>
-    </tb>
+    </tbody>
   </table>
 
 </article>
