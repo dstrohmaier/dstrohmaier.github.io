@@ -45,25 +45,21 @@ layout: default
           async>
   </script>
 
-  <table width="100%" border="0">
-    <tbody>
-      <tr>
-        {% if prev_post %}
-          <td><b>Previous</b></td>
-        {% endif %}
-        {% if next_post %}
-          <td align="right"><b>Next</b></td>
-        {% endif %}
-      </tr>
-      <tr>
-        {% if prev_post %}
-          <td><a href="{{ prev_post.url }}">{{ prev_post.title | strip_html | truncate: 30}}</a></td>
-        {% endif %}
-        {% if next_post %}
-          <td align="right"><a href="{{ next_post.url }}">{{ next_post.title | strip_html | truncate: 30}}</a></td>
-        {% endif %}
-      </tr>
-    </tbody>
-  </table>
+  {% if prev_post or next_post %}
+  <nav class="post-nav">
+    {% if prev_post %}
+      <a class="prev" href="{{ prev_post.url }}">
+        <span class="label">Previous</span>
+        <span>{{ prev_post.title | strip_html | truncate: 40 }}</span>
+      </a>
+    {% endif %}
+    {% if next_post %}
+      <a class="next" href="{{ next_post.url }}">
+        <span class="label">Next</span>
+        <span>{{ next_post.title | strip_html | truncate: 40 }}</span>
+      </a>
+    {% endif %}
+  </nav>
+  {% endif %}
 
 </article>

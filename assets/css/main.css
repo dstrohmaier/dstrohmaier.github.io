@@ -1,17 +1,157 @@
-* {
-  /* box-sizing: border-box; */
-}
+/* ==========================================================================
+   Design tokens
+   ========================================================================== */
 
 :root {
+  /* Purple palette (kept from the original theme) */
   --dark: #312757;
   --light: #e1d9ff;
   --link: #3d1fab;
   --hover: #604da8;
   --line: #b6aed6;
+
+  /* Neutrals */
+  --text: #1c1a2e;          /* body text: soft near-black */
+  --muted: #6b6680;         /* bylines, captions, secondary text */
+  --surface: #f3f1fa;       /* subtle tinted background for blocks */
+  --border: #d8d3ec;        /* hairline borders */
+
+  /* Layout / rhythm */
+  --measure: 68ch;          /* comfortable max line length for prose */
+  --radius: 8px;
+  --space: 1rem;
 }
 
-.header {
-  display: none;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: var(--light);
+  color: var(--dark);
+}
+
+/* ==========================================================================
+   Fonts (self-hosted)
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-Regular.woff2') format('woff2'),
+       url('/assets/fonts/Playfair_Display/PlayfairDisplay-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-Italic.woff2') format('woff2'),
+       url('/assets/fonts/Playfair_Display/PlayfairDisplay-Italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-SemiBold.woff2') format('woff2'),
+       url('/assets/fonts/Playfair_Display/PlayfairDisplay-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-Bold.woff2') format('woff2'),
+       url('/assets/fonts/Playfair_Display/PlayfairDisplay-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'open_sansregular';
+  src: url('/assets/fonts/OpenSans-Regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'open_sansregular';
+  src: url('/assets/fonts/OpenSans-Bold-webfont.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'open_sansregular';
+  src: url('/assets/fonts/OpenSans-Italic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'open_sansregular';
+  src: url('/assets/fonts/OpenSans-BoldItalic-webfont.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+body {
+  margin: 0;
+  font-family: "open_sansregular", sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--text);
+  background-color: var(--dark);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+p {
+  line-height: 1.65;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+ol, ul {
+  line-height: 1.6;
+  /* Keep nested-list indentation modest so deep lists stay inside the box. */
+  padding-left: 1.6em;
+}
+
+li {
+  overflow-wrap: break-word;
+}
+
+/* ==========================================================================
+   Layout (3-column grid: line | content | dark nav rail)
+   ========================================================================== */
+
+.container {
+  display: grid;
+  grid-template-columns: 30px min(80%, 1200px) 1fr;
+  grid-template-rows: auto;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 .line {
@@ -25,7 +165,6 @@
 }
 
 .middle {
-  /* height:501px; */
   background-color: white;
   grid-area: 1 / 2 / 1 / 2;
   padding: 25px 13% 7em 13%;
@@ -33,236 +172,189 @@
   overflow-y: auto;
 }
 
-.container {
-  display: grid;
-  grid-template-columns: 30px min(80%, 1200px) 1fr;
-  grid-template-rows: auto;
-  justify-content: center;
-  min-height: 100vh;
+.header {
+  display: none;
 }
 
-
-@font-face {
-  font-family: 'playfair_display';
-  src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-Regular.woff2') format('woff2'),
-       url('/assets/fonts/Playfair_Display/PlayfairDisplay-Regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-    font-family: 'Playfair Display';
-    src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-Regular.woff2') format('woff2'),
-         url('/assets/fonts/Playfair_Display/PlayfairDisplay-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Playfair Display';
-    src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-SemiBold.woff2') format('woff2'),
-         url('/assets/fonts/Playfair_Display/PlayfairDisplay-SemiBold.woff') format('woff');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Playfair Display';
-    src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-SemiBoldItalic.woff2') format('woff2'),
-         url('/assets/fonts/Playfair_Display/PlayfairDisplay-SemiBoldItalic.woff') format('woff');
-    font-weight: 600;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Playfair Display';
-    src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-Black.woff2') format('woff2'),
-         url('/assets/fonts/Playfair_Display/PlayfairDisplay-Black.woff') format('woff');
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Playfair Display';
-    src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-BlackItalic.woff2') format('woff2'),
-         url('/assets/fonts/Playfair_Display/PlayfairDisplay-BlackItalic.woff') format('woff');
-    font-weight: 900;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Playfair Display';
-    src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-Regular.woff2') format('woff2'),
-         url('/assets/fonts/Playfair_Display/PlayfairDisplay-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Playfair Display';
-    src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-MediumItalic.woff2') format('woff2'),
-         url('/assets/fonts/Playfair_Display/PlayfairDisplay-MediumItalic.woff') format('woff');
-    font-weight: 500;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Playfair Display';
-    src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-ExtraBold.woff2') format('woff2'),
-         url('/assets/fonts/Playfair_Display/PlayfairDisplay-ExtraBold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Playfair Display';
-    src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-Italic.woff2') format('woff2'),
-         url('/assets/fonts/Playfair_Display/PlayfairDisplay-Italic.woff') format('woff');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Playfair Display';
-    src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-ExtraBoldItalic.woff2') format('woff2'),
-         url('/assets/fonts/Playfair_Display/PlayfairDisplay-ExtraBoldItalic.woff') format('woff');
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Playfair Display';
-    src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-Medium.woff2') format('woff2'),
-         url('/assets/fonts/Playfair_Display/PlayfairDisplay-Medium.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Playfair Display';
-    src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-Bold.woff2') format('woff2'),
-         url('/assets/fonts/Playfair_Display/PlayfairDisplay-Bold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Playfair Display';
-    src: url('/assets/fonts/Playfair_Display/PlayfairDisplay-BoldItalic.woff2') format('woff2'),
-         url('/assets/fonts/Playfair_Display/PlayfairDisplay-BoldItalic.woff') format('woff');
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-  font-family: 'open_sansregular';
-  src: url('/assets/fonts/OpenSans-Regular-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'open_sansregular';
-  src: url('/assets/fonts/OpenSans-Bold-webfont.woff') format('woff');
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'open_sansregular';
-  src: url('/assets/fonts/OpenSans-Italic-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'open_sansregular';
-  src: url('/assets/fonts/OpenSans-BoldItalic-webfont.woff') format('woff');
-  font-weight: bold;
-  font-style: italic;
-}
-
-body {
-  margin: 0;
-  font-family: "open_sansregular", sans-serif;
-  background-color: var(--dark);
-}
+/* ==========================================================================
+   Links
+   ========================================================================== */
 
 a {
-    text-decoration: none;
+  color: var(--link);
+  text-decoration: none;
+  transition: color 0.15s ease;
+  /* Long URLs / unbroken strings must not break out of the content box. */
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
-a:link {
-  color: var(--link);
-}
 a:visited {
   color: var(--link);
 }
-/* mouse over link */
+
 a:hover {
   color: var(--hover);
 }
 
-p {
-    line-height: 1.4;
-    text-align: justify;
-    text-justify: inter-word;
+a:focus-visible {
+  outline: 2px solid var(--hover);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
+
+/* In-prose links get a subtle underline so they are discoverable. */
+.middle p a,
+.middle li a,
+article p a,
+article li a {
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.middle p a:hover,
+.middle li a:hover,
+article p a:hover,
+article li a:hover {
+  text-decoration-color: currentColor;
+}
+
+/* ==========================================================================
+   Headings
+   ========================================================================== */
+
+h1, h2, h3, h4 {
+  color: var(--dark);
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 1.8em 0 0.6em;
+}
+
+h1 {
+  font-size: 2.6rem;
+  text-align: center;
+  margin-top: 0.6em;
+}
+
+h2 { font-size: 1.9rem; }
+h3 { font-size: 1.45rem; }
+h4 { font-size: 1.15rem; }
+
+/* ==========================================================================
+   Navigation (dark right rail + collapsed mobile header)
+   ========================================================================== */
 
 .nav {
   position: sticky;
-  top:0;
+  top: 0;
   padding: 10px;
-  /* left: 0; */
-  /* position: absolute; */
 }
 
 .nav ul {
   list-style: none;
   margin: 0;
-  padding: 5% 0px 0px 5%;
+  padding: 5% 0 0 5%;
   overflow: hidden;
-  /* background-color: #333333; */
 }
 
-
 .nav li a {
-  text-align: left;
   display: inline-block;
+  text-align: left;
   text-decoration: none;
   color: #fff;
-  letter-spacing: 5px;
+  letter-spacing: 3px;
   text-transform: uppercase;
+  font-size: 0.8rem;
   position: relative;
-  padding: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  transition: background-color 0.18s ease, color 0.18s ease;
 }
 
 .nav li a:hover {
-  background: linear-gradient(to top, #ffffff33 50%, transparent 50%);
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--light);
 }
 
+.nav li a:focus-visible {
+  outline: 2px solid var(--light);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Post elements
+   ========================================================================== */
 
 .byline {
   font-style: italic;
-  font-size: 90%;
-  color: #666666;
+  font-size: 0.9rem;
+  color: var(--muted);
   text-align: center;
-  margin: -2em 0 4em 0;
+  margin: -1em 0 3.5em 0;
 }
+
+/* Prev/next post navigation */
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 4rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.post-nav a {
+  display: flex;
+  flex-direction: column;
+  max-width: 45%;
+  text-decoration: none;
+}
+
+.post-nav .next {
+  text-align: right;
+  margin-left: auto;
+}
+
+.post-nav .label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   Site footer
+   ========================================================================== */
+
+.site-footer {
+  margin-top: 4rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.footer-label {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.footer-links {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+}
+
+.footer-links a em {
+  font-style: italic;
+}
+
+/* ==========================================================================
+   Quotes
+   ========================================================================== */
 
 blockquote.attr {
   font-style: normal;
@@ -270,10 +362,11 @@ blockquote.attr {
 
 blockquote p {
   font-style: italic;
-  padding: 15px;
-  background-color: #eee;
-  border-left: 5px solid #bbb;
-  max-width: 700px;
+  padding: 1rem 1.25rem;
+  background-color: var(--surface);
+  border-left: 4px solid var(--line);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  max-width: var(--measure);
 }
 
 blockquote p::before {
@@ -284,83 +377,106 @@ blockquote p::after {
   content: '\201D';
 }
 
+/* ==========================================================================
+   Code
+   ========================================================================== */
+
 code {
-  display:inline-block;
-  margin-top: 1%;
-  margin-bottom: 1%;
-  margin-right: 7%;
-  margin-left: 7%;
-  line-height: 1.6;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+}
+
+pre {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  line-height: 1.5;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.875rem;
 }
 
 code.footer {
   display: inline;
-  margin-left: 1%;
+  background: none;
+  border: none;
+  padding: 0;
 }
 
-ol, ul {
-  line-height: 1.6;
-}
-
-
-h1 {
-  font-size: 2.5em;
-}
-
-h1, h2, h3, h4 {
-  color: var(--dark);
-  font-family: "Playfair Display";
-  text-align: center;
-  font-weight: bold;
-  padding: 2em 0.5em 0.5em 0.5em;
-}
+/* ==========================================================================
+   Media
+   ========================================================================== */
 
 img {
-    display: block;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: auto;
-    margin-right: auto;
-    max-height: 450px;
-    max-width: 90%;
+  display: block;
+  margin: 1.5rem auto;
+  max-height: 450px;
+  max-width: 90%;
+  border-radius: var(--radius);
 }
 
 figure {
-float: center;
-width: 95%;
-text-align: center;
-font-style: italic;
-font-size: smaller;
-text-indent: 0;
-border: thin silver solid;
-margin: 0.5em;
-padding: 0.5em;
+  width: 95%;
+  margin: 1.5rem auto;
+  text-align: center;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-indent: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.75rem;
 }
 
+figcaption {
+  margin-top: 0.5rem;
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   Details / summary disclosure
+   ========================================================================== */
 
 details {
-  summary {
-    &::before {
-      font-size: 1.2em;
-      content: "\f152";
-      float: left;
-      margin-right: 0.4em;
-    }
-    &::-webkit-details-marker {
-      display: none;
-    }
-    margin-bottom: 0.8em;
-  }
-  &.open, &[open] {
-    summary::before {
-      content: "\f150";
-    }
-  }
-  color: grey;
+  color: var(--muted);
 }
 
+details summary {
+  margin-bottom: 0.8em;
+  cursor: pointer;
+}
 
-@media (max-width:1200px) {
+details summary::before {
+  font-size: 1.2em;
+  content: "\f152";
+  float: left;
+  margin-right: 0.4em;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details.open summary::before,
+details[open] summary::before {
+  content: "\f150";
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 1200px) {
   .line {
     display: none;
   }
@@ -369,7 +485,7 @@ details {
   }
 }
 
-@media (max-width:1000px) {
+@media (max-width: 1000px) {
   .line {
     display: none;
   }
@@ -377,7 +493,7 @@ details {
     display: none;
   }
   .header {
-  display: block;
+    display: block;
   }
   .middle {
     padding: 15px;
@@ -387,14 +503,20 @@ details {
   }
   .nav {
     background-color: var(--dark);
-    /* padding: 0; */
-    padding: 0px 1% 2.2em 1%;
-    }
+    padding: 0 1% 2.2em 1%;
+  }
+  .nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 0.5rem 0;
+  }
   .nav li a {
     display: block;
     text-align: center;
-    float: left;
-    min-width: 20px;
-    font-size: 75%;
+    letter-spacing: 2px;
+    font-size: 0.7rem;
+    padding: 8px 10px;
   }
 }

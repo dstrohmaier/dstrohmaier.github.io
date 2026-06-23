@@ -1,29 +1,11 @@
-<footer>
-
-  <table width="100%" border="0">
-      <tr>
-          <td>
-              Find me on:
-              <a href="{{ site.social.mastodon_url }}">
-                  <em>Mastodon</em>
-              </a>  &middot;
-              <a href="{{ site.social.bluesky_url }}">
-                  <em>Bluesky</em>
-              </a>  &middot;
-            <a href="{{ site.social.linkedin_url }}">
-                <em>Linkedin</em>
-            </a> &middot;
-            <a href="{{ site.social.github_url }}">
-                <em>GitHub</em>
-            </a> &middot;
-            <a href="mailto:{{ site.email }}">
-                <em>{{ site.email }}</em>
-            </a>  &middot;
-            <a href="/feed.xml">
-                <em>RSS</em>
-            </a>
-          </td>
-      </tr>
-  </table>
-
+<footer class="site-footer">
+  <span class="footer-label">Find me on:</span>
+  <nav class="footer-links">
+    <a href="{{ site.social.mastodon_url }}"><em>Mastodon</em></a>
+    <a href="{{ site.social.bluesky_url }}"><em>Bluesky</em></a>
+    <a href="{{ site.social.linkedin_url }}"><em>Linkedin</em></a>
+    <a href="{{ site.social.github_url }}"><em>GitHub</em></a>
+    <a href="mailto:{{ site.email }}"><em>{{ site.email }}</em></a>
+    <a href="/feed.xml"><em>RSS</em></a>
+  </nav>
 </footer>
