@@ -29,7 +29,7 @@ For the Thermo constraint, I've chosen the great "Spoons" puzzle by the well-kno
 	smaller(L,Sn,L) :- Sn #< L.
 	thermo([L|Ls]) :- foldl(smaller,Ls,L,_).
 
-The thermo predicate defined in these lines, checks whether a list of integers increases monotonically from left to right.[0]
+The thermo predicate defined in these lines, checks whether a list of integers increases monotonically from left to right.[^0]
 
 My complete solution, based on the previous solvers metioned above, looks as follows:
 
@@ -142,4 +142,4 @@ I've been sent this clever implementation of the disjoint group constraint by Ja
 ---
 ### Footnote
 
-[0] I consistently use here the predicates from the CLPFD library, rather than the vanilla mathematical predicates available in Prolog.
+[^0]: I consistently use here the predicates from the CLPFD library, rather than the vanilla mathematical predicates available in Prolog.

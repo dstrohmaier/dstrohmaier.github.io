@@ -24,14 +24,14 @@ The main conclusions are:
 * eye-tracking (ET),
 * and electroencephalography (EEG) data.
 
-The top-line result is that even controlling for performance as a language model, i.e. being able to predict word tokens, Transformer models tend to do better, specifically on the SPR and EEG datasets.[0] Something about the architecture other than its ability to capture statistical information about word distributions appears to make it especially well-suited for predicting brain performance.
+The top-line result is that even controlling for performance as a language model, i.e. being able to predict word tokens, Transformer models tend to do better, specifically on the SPR and EEG datasets.[^0] Something about the architecture other than its ability to capture statistical information about word distributions appears to make it especially well-suited for predicting brain performance.
 
 The authors show themselves surprised by the superior performance of the Transformer-architecture, because they "considered the Transformer's unlimited memory and access to past inputs implausible given current theories on[sic] human language processing". (p. 18). While the author are not giving up this view and therefore remain more sceptical than the authors of other papers I'll mention, they consider the possibility that Transformers capture something about human language cognition. Specifically, they entertain that the attention-mechanism resembles cue-based retrieval, but since they do not provide much details on this hypothesis and I do not feel confident evaluating it.
 
 
 ## Brains and Algorithms Partially Converge in Natural Language Processing
 
-[Caucheteux and King (2021)](https://doi.org/10.1038/s42003-022-03036-1) look at Transformer models and ask how the performance of such models on a word prediction task[1] and predicting brain measurement relate. The key findings are:
+[Caucheteux and King (2021)](https://doi.org/10.1038/s42003-022-03036-1) look at Transformer models and ask how the performance of such models on a word prediction task[^1] and predicting brain measurement relate. The key findings are:
 1. Performance on predicting words strongly correlates with predicting brain scores.
 2. The relationship breaks down at the upper end of next-word prediction performance, that is the best models the authors have trained for word prediction do somewhat worse predicting brain scores. This suggests that Transformer models start to overfit to the word-prediction task to the detriment of being able to predict brain measurements.
 
@@ -48,9 +48,9 @@ This paper by [Schrimpf et al. (2021)](https://doi.org/10.1073/pnas.2105646118) 
 
 The authors replicate the finding that performance on next-word prediction predicts performance on predicting brain measurements. Importantly, the authors compare the next-word prediction task with tasks from the GLUE benchmark and find that these do not predict brain scores.
 
-The paper also test whether the model architecture matters by computing brain scores for models with random weights.[2] The authors show that even under such conditions some models achieved noteworthy correlation. The Transformer architecture alone seems to do some of the work.
+The paper also test whether the model architecture matters by computing brain scores for models with random weights.[^2] The authors show that even under such conditions some models achieved noteworthy correlation. The Transformer architecture alone seems to do some of the work.
 
-The paper is perhaps the most optimistic one when it comes to ability to Transformers to predict brain data. On some datasets, the authors come to the conclusion that Transformer models reach noise ceiling, i.e. that the model does as good as possible. One dataset, however, remains very challenging: The Blank 2014 dataset consists of fMRI measurement where the stimuli are auditorily presented stories. Both the larger narrative context of stories and the auditory transmission stand out.[3]
+The paper is perhaps the most optimistic one when it comes to ability to Transformers to predict brain data. On some datasets, the authors come to the conclusion that Transformer models reach noise ceiling, i.e. that the model does as good as possible. One dataset, however, remains very challenging: The Blank 2014 dataset consists of fMRI measurement where the stimuli are auditorily presented stories. Both the larger narrative context of stories and the auditory transmission stand out.[^3]
 
 The authors on this paper suggest a convergence between neural model in NLP and cognitive science, since (next-)word prediction is a key task in NLP and predictive processing holds increasing sway in cognitive science. While the authors comparison with the GLUE tasks is suggestive in this regard, I am not yet sold that we see a proper convergence. The tasks humans did might be biased towards the next-word prediction (with perhaps the exception of Blank (2014), where the models did worst). Furthermore, I would not be surprised if the data from the GLUE benchmark are not as reliable as those for next-word prediction since they rely on challenging annotation by experts, hence the network might start to model noise to a great extend.
 
@@ -66,13 +66,13 @@ I've already listed above the conclusions I've drawn from this emerging literatu
 ---
 ### Footnotes
 
-[0] I don't understand why this literature is so averse to publishing tables. Graphs are good, but being able to check against a table of data provides a way to test whether one has truly understood what is going on.
+[^0]: I don't understand why this literature is so averse to publishing tables. Graphs are good, but being able to check against a table of data provides a way to test whether one has truly understood what is going on.
 
-[1] From the paper, it is not entirely clear to me whether the next word or a randomly masked word has to be predicted.
+[^1]: From the paper, it is not entirely clear to me whether the next word or a randomly masked word has to be predicted.
 
-[2] There is still a linear model trained on top of the randomly initialised models.
+[^2]: There is still a linear model trained on top of the randomly initialised models.
 
-[3] The Futrell 2018 dataset used by the authors is also story-based and the Transformer-model does better at predicting it, but it consists of self-paced reading data instead of brain measurements.
+[^3]: The Futrell 2018 dataset used by the authors is also story-based and the Transformer-model does better at predicting it, but it consists of self-paced reading data instead of brain measurements.
 
 ---
 ### References

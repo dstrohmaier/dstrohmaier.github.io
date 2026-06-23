@@ -20,7 +20,7 @@ I framed my blog post as providing reasons to learn Prolog for university studen
 
 I believe that the opportunity costs are especially worth considering for students of computer science, because these costs can be larger than in other disciplines. If a CS student learns a skill that is in high demand on the market -- and that is not the case for Prolog at this point -- they might increase their future salary. 
 
-A student would not be well advised to invest much time into Prolog if they primarily sought to increase their future salary while avoiding risk. There are better _risk-averse_ time investment opportunities, such as learning more about neural network technologies. Of course, this assumes a student who are motivated by risk-secure monetary outcomes and would be able to act on this motivation.[0] Instead students 
+A student would not be well advised to invest much time into Prolog if they primarily sought to increase their future salary while avoiding risk. There are better _risk-averse_ time investment opportunities, such as learning more about neural network technologies. Of course, this assumes a student who are motivated by risk-secure monetary outcomes and would be able to act on this motivation.[^0] Instead students 
 1. might be motivated by other aims more strongly than by the additional income, or
 2. might be willing to take a riskier bet to raise their income, or
 3. might find themselves unable to resist watching funny Youtube clips for the sake of earning money but able to resist them for the sake of learning Prolog.
@@ -34,7 +34,7 @@ In response to my claim that Prolog has unfulfilled potential, HN user _mths_ wr
 > Is there any reason to believe the paradigm will somehow come into its own in the future? The way this question was addressed by the article was way too wishy-washy for my taste. 
 I freely admit that I did not provide all that many details on this issue, because I feared the challenge of the predicting the future direction of Prolog and the embarrassment if I my specific predictions turn out to be mistaken. The comments, however, made me realise that I need to  
 
-One area where many Prolog aficionados tend to see unfulfilled potential is constraint logic programming. Programming with constraints is powerful and has been explored relatively little. Constraint programming is also an area with relatively clear applications. It isn't only helpful for solving Sudokus or logic puzzles -- although that is true as well[1] -- but e.g. also for various engineering tasks.
+One area where many Prolog aficionados tend to see unfulfilled potential is constraint logic programming. Programming with constraints is powerful and has been explored relatively little. Constraint programming is also an area with relatively clear applications. It isn't only helpful for solving Sudokus or logic puzzles -- although that is true as well[^1] -- but e.g. also for various engineering tasks.
 
 There are other contenders in the space of constraint programming, but Prolog's design allows us to integrate constraint logic programming seamlessly into larger projects. As The Power of Prolog [website](https://www.metalevel.at/prolog/optimization) puts it, constraints "blend in especially seamlessly into _logic programming languages like Prolog due to their relational nature and built-in search and backtracking mechanisms". 
 
@@ -81,6 +81,6 @@ I am grateful for everyone who gave my blog post a chance.
 
 ### Footnotes
 
-[0] I am also writing this in the context of a limited departmental curriculum, where students cannot just choose any course, but I won't go into that here.
+[^0]: I am also writing this in the context of a limited departmental curriculum, where students cannot just choose any course, but I won't go into that here.
 
-[1] See [https://www.metalevel.at/sudoku/](https://www.metalevel.at/sudoku/) and  [https://www.metalevel.at/prolog/puzzles](https://www.metalevel.at/prolog/puzzles).
+[^1]: See [https://www.metalevel.at/sudoku/](https://www.metalevel.at/sudoku/) and  [https://www.metalevel.at/prolog/puzzles](https://www.metalevel.at/prolog/puzzles).

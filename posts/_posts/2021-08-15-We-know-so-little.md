@@ -13,7 +13,7 @@ A part of me would like Saba's arguments to succeed. While I mostly work with ne
 <img src="/assets/images/fatality.jpg" alt="Picture of a man measuring words" height="500"/>
 
 
-In this post, I won't try to cover all arguments from _The Gradient_ essay. For example, I won't cover what Saba says on intensions, other than to frankly admit being puzzled by his claim that ML is all about extension. I'll leave those argument to others. Instead, I'll argue that we just don't know enough about how language fundamentally works to adjudicate whether ML can solve NLU.[0] To make this argument, I pick out one of Saba's claims about language and argue that the situation is more complicated. The claim I will take offense with is the following:
+In this post, I won't try to cover all arguments from _The Gradient_ essay. For example, I won't cover what Saba says on intensions, other than to frankly admit being puzzled by his claim that ML is all about extension. I'll leave those argument to others. Instead, I'll argue that we just don't know enough about how language fundamentally works to adjudicate whether ML can solve NLU.[^0] To make this argument, I pick out one of Saba's claims about language and argue that the situation is more complicated. The claim I will take offense with is the following:
 	
 > [...] language understanding does not admit any degrees of freedom. A full understanding of an utterance or a question requires understanding the one and only one thought that a speaker is trying to convey. 
 
@@ -31,9 +31,9 @@ As Saba states, understanding the exact thought of the question requires interpr
 
 Contrary to Saba, the difference I cannot decide is semantically significant. It might be that a former BBC freelancer meeting the description belongs to the network, but no employee BBC reporter does. Whether my question is to be answered affirmatively depends on a difference in phrasal meaning that 
 1) I do not know how to resolve,
-2) I do not know whether I intended to resolve it all when I uttered the sentence.[1]
+2) I do not know whether I intended to resolve it all when I uttered the sentence.[^1]
 
-It seems that there is not one determinate content I sought to express.[2] There are at least two propositions that seem to fit my intention. But you might disagree and suggest that I intended to express one specific determinate proposition, I just don't any longer know or never knew which one. In other words, instead of denying the determinacy of intended thought, you deny the epistemic access to the determinate intended thought. This suggestion seeks to rescue Saba's argument with an epistemic move.
+It seems that there is not one determinate content I sought to express.[^2] There are at least two propositions that seem to fit my intention. But you might disagree and suggest that I intended to express one specific determinate proposition, I just don't any longer know or never knew which one. In other words, instead of denying the determinacy of intended thought, you deny the epistemic access to the determinate intended thought. This suggestion seeks to rescue Saba's argument with an epistemic move.
 
 I don't know whether the epistemic move itself can be pulled off -- do I really lack this introspection? -- but I am confident that, in any case, it won't achieve the argumentative goal. It cannot rescue Saba's argument, because if I don't have access to my determinate thoughts, you certainly don't either. Even if one of the two interpretations is the truly correct one, you at best have approximately correct access to it. Yet, you have NLU, you understand natural language as well as any other human. You would have NLU without access to the one true thought, human-level NLU rather than super-human-level NLU. If Saba's arguments only showed that ML can lead to no better NLU than human-level NLU, then those working on ML-based NLU won't be all that worried.
 
@@ -47,8 +47,8 @@ We know too little about the foundations of language.
 ---
 ### Footnotes
 
-[0] In my argument, I'm applying relatively high standards of knowledge. - Different standards for knowledge? See David Lewis' [paper _Elusive Knowledge_](https://philpapers.org/rec/LEWEK) - By denying that we have knowledge about how language fundamentally works, I am not denying that we have theories about it and I am not even ruling out that one of these theories is largely correct. I am, instead, suggesting that no theory of language and our understanding of it reaches the level of certainty Saba presumes.
+[^0]: In my argument, I'm applying relatively high standards of knowledge. - Different standards for knowledge? See David Lewis' [paper _Elusive Knowledge_](https://philpapers.org/rec/LEWEK) - By denying that we have knowledge about how language fundamentally works, I am not denying that we have theories about it and I am not even ruling out that one of these theories is largely correct. I am, instead, suggesting that no theory of language and our understanding of it reaches the level of certainty Saba presumes.
 
-[1] This state of affairs differs from the missing text phenomenon, the fact that we do not express the fullness of our thoughts in utterances, that Saba happily acknowledges and makes argumentative use of. In my example, I'm not just leaving part of my thought unsaid because the part can be derived from my fragmentary statement together with common knowledge. Otherwise, I would myself be able to recover the left out part.
+[^1]: This state of affairs differs from the missing text phenomenon, the fact that we do not express the fullness of our thoughts in utterances, that Saba happily acknowledges and makes argumentative use of. In my example, I'm not just leaving part of my thought unsaid because the part can be derived from my fragmentary statement together with common knowledge. Otherwise, I would myself be able to recover the left out part.
 
-[2] That claim resembles, of course, [Quine's indeterminacy of translation](https://plato.stanford.edu/entries/quine/#IndeTran). That being said, I am not sure what to make of Quine's position, because I am not sharing his behaviourist assumptions and I do not know whether his position can be defended without them. 
+[^2]: That claim resembles, of course, [Quine's indeterminacy of translation](https://plato.stanford.edu/entries/quine/#IndeTran). That being said, I am not sure what to make of Quine's position, because I am not sharing his behaviourist assumptions and I do not know whether his position can be defended without them. 

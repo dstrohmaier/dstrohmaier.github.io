@@ -25,9 +25,9 @@ Research into lexical acquisition in human agents and NLP models remains promisi
 
 ## Why Writing Such Reflections Infrequently Is a Good Idea
 
-As already mentioned, I have written [another post like this back in 2020](/end-of-year/), but then I skipped 2021. Instead I started 2021 with a [post on Prolog](/why-learn-prolog-in-2021/), which has probably been my most successful blog post so far, in terms of engagement but also in what I was able to learn from the results. Generalising from my limited blogging experience, writing about first-order interests, such as a neglected programming language, has proven more productive and more in line with my own goals than obscure ruminations about my research path.
+As already mentioned, I have written [another post like this back in 2020](/end-of-year/), but then I skipped 2021. Instead I started 2021 with a [post on Prolog](/why-learn-prolog-in-2021/), which has probably been my most successful blog post so far in terms of engagement but also in what I was able to learn from the results. Generalising from my limited blogging experience, writing about first-order interests, such as a neglected programming language, has proven more productive and more in line with my own goals than obscure ruminations about my research path.
 
-Second- and higher-order thoughts, such as the reflections in the present post, serve to correct our first-order pursuits or increase their efficiency,[0] but they can become their own pursuit that distort our behaviour. If I intend to live my life as a researcher, then not for the sake of writing about this life. I live it for the sake of the epistemic progress brought about by this research. Any post like the present one should be no more than the rare exception. Special events, such as the passing of year, provide a limited occasion to engage in such exceptional behaviour. This post fills that role for this year, and now it is done.
+Second- and higher-order thoughts, such as the reflections in the present post, serve to correct our first-order pursuits or increase their efficiency,[^0] but they can become their own pursuit that distort our behaviour. If I intend to live my life as a researcher, then not for the sake of writing about this life. I live it for the sake of the epistemic progress brought about by this research. Any post like the present one should be no more than the rare exception. Special events, such as the passing of year, provide a limited occasion to engage in such exceptional behaviour. This post fills that role for this year, and now it is done.
 
 Onward, for scientific progress!
 
@@ -35,4 +35,4 @@ Onward, for scientific progress!
 
 ### Footnotes
 
-[0] What is they justification for this assertion of purpose? Ah, there is the rub. That is a philosophical question, I'll leave for another day.
+[^0]: What is they justification for this assertion of purpose? Ah, there is the rub. That is a philosophical question I'll leave for another day.

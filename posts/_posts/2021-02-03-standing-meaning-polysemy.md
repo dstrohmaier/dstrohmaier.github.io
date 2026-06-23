@@ -12,7 +12,7 @@ Lexical semantics investigates the meaning of words, but one might distinguish m
 
 Standing meaning is the meaning of a word in general, while occasion meaning is word meaning for a specific occasion. By drawing this line, we split word meaning on the one side into a generic core without contextual dependence, and on the other into a specification that depends on the linguistic context. To give an example, "student" might broadly denote learners, while in a specific context the denotation of the word might be narrowed down to the registered participants of a class. The one is the standing and the other is the occasion meaning.
 
-The distinction between standing and occasion meaning has a long history, going back at least to the late 19th century work of the linguist Hermann Paul. Paul distinguished between _usueller_ and _okkasioneller Bedeutung_ (usual/standing and occasional meaning) (see Geeraerts 2010: 14-16).[0] It is perhaps the most frequent way of distinguishing levels of meaning for a word.
+The distinction between standing and occasion meaning has a long history, going back at least to the late 19th century work of the linguist Hermann Paul. Paul distinguished between _usueller_ and _okkasioneller Bedeutung_ (usual/standing and occasional meaning) (see Geeraerts 2010: 14-16).[^0] It is perhaps the most frequent way of distinguishing levels of meaning for a word.
 
 Faced with this distinction, we might wonder what exactly instantiates two types of meaning? So far, I have generically written about the meaning of a _word_, but we can be more specific. Either the word type or the word tokens could instantiate the two levels of meaning. A relatively intuitive response is to attribute the standing meaning to word types and the occasion meaning to word tokens, as Recanati (2012) does. After all, the standing meaning and the word type are both more abstract and generic, while the occasion meaning and the word token are more concrete and specific. But this response is not without problems, because it commits us to word types having one specific meaning in the absence of any context. In the case of homonyms, such as "bank" the standing meaning becomes unclear.
 
@@ -39,7 +39,7 @@ I'll not argue at length for one of these options here -- my favourite is the se
 
 ## A Few Remarks from NLP
 
-Some neural architectures, prominently transformer architectures, represent lexical meaning at multiple points. Specifically, they represent meaning at an initial embedding layer and at later points of encoding. As a result, non-contextualised and multiple sets of contextualised word representations can be extracted from e.g. BERT models (Devlin et al. 2019).[1] We could then go on to identify the non-contextualised embeddings with the standing meaning and the final contextualised embeddings with the standing meaning. This interpretation is sketched in Emerson (2020).
+Some neural architectures, prominently transformer architectures, represent lexical meaning at multiple points. Specifically, they represent meaning at an initial embedding layer and at later points of encoding. As a result, non-contextualised and multiple sets of contextualised word representations can be extracted from e.g. BERT models (Devlin et al. 2019).[^1] We could then go on to identify the non-contextualised embeddings with the standing meaning and the final contextualised embeddings with the standing meaning. This interpretation is sketched in Emerson (2020).
 
 Of these models, we can then ask how they deal with the problem of homonyms. BERT and similar approaches effectively implement the first option and assign a disjunct standing meaning. The initial embedding for "bank" does not differ for the two homonyms. That could be changed, of course. We could preprocess the data with a coarse-grained word sense disambiguation (WSD) system and create different initial embeddings based on the results (cf. Trask et al. 2015). 
 
@@ -49,9 +49,9 @@ If you have a preference for either the second option, as I do, or Recanati's op
 ---
 ### Footnotes
 
-[0] Another important source for this distinction is Quine (2013), who distinguished occasion from standing sentences. But Quine's approach is much more behaviourist.
+[^0]: Another important source for this distinction is Quine (2013), who distinguished occasion from standing sentences. But Quine's approach is much more behaviourist.
 
-[1] I neglect here that BERT uses sub-tokenization. 
+[^1]: I neglect here that BERT uses sub-tokenization. 
 
 
 ---
