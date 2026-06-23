@@ -47,14 +47,6 @@ If you have a preference for either the second option, as I do, or Recanati's op
 
 
 ---
-### Footnotes
-
-[^0]: Another important source for this distinction is Quine (2013), who distinguished occasion from standing sentences. But Quine's approach is much more behaviourist.
-
-[^1]: I neglect here that BERT uses sub-tokenization. 
-
-
----
 ### References
 
 Devlin, J., Chang, M.-W., Lee, K., & Toutanova, K. (2019). BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding. ArXiv:1810.04805 [Cs]. [http://arxiv.org/abs/1810.04805](http://arxiv.org/abs/1810.04805)
@@ -69,3 +61,11 @@ Recanati, F. (2012). Compositionality, Flexibility, And Context Dependence. In _
 Trask, A., Michalak, P., & Liu, J. (2015). sense2vec—A Fast and Accurate Method for Word Sense Disambiguation In Neural Word Embeddings. ArXiv:1511.06388 [Cs]. [http://arxiv.org/abs/1511.06388](http://arxiv.org/abs/1511.06388)
 
 Quine, W. V. O. (2013[1960]). _Word and Object_ (new edition). MIT Press.
+
+
+---
+### Footnotes
+
+[^0]: Another important source for this distinction is Quine (2013), who distinguished occasion from standing sentences. But Quine's approach is much more behaviourist.
+
+[^1]: I neglect here that BERT uses sub-tokenization. 

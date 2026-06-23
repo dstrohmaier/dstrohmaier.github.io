@@ -64,17 +64,6 @@ Coming from NLP rather than neuro-science, this paper also made clear to me that
 I've already listed above the conclusions I've drawn from this emerging literature. The papers indicate a clear direction: Transformer models do well at predicting brain measurements, usually better than RNNs, and the architecture plays a role. Why they are doing better remains unclear, with multiple hypotheses being considered. It is intriguing that both the hypothesis by Merkx and Frank (cue-based retrieval) and Michaelov et al. ('bag-of-words' semantic activation) have a semantic tendency, i.e. Transformers are taken to do better because they capture something about semantic processing in the brain. But these discussions remain mostly suggestive, with the experiment by Michaelov et al. concerning the predictive power of cosine distance being the strongest piece of evidence, as far as I can tell, and that is not paricularly strong evidence since the cosine distance doesn't necessarily just concern seamntics. Without a better understanding of language processing in the brain, it might prove difficult to reconstruct why the Transformer-architecture performs so well. Even worse, without better understanding of the human brain, it will become increasingly difficult to compare neural architectures in this way. 
 
 ---
-### Footnotes
-
-[^0]: I don't understand why this literature is so averse to publishing tables. Graphs are good, but being able to check against a table of data provides a way to test whether one has truly understood what is going on.
-
-[^1]: From the paper, it is not entirely clear to me whether the next word or a randomly masked word has to be predicted.
-
-[^2]: There is still a linear model trained on top of the randomly initialised models.
-
-[^3]: The Futrell 2018 dataset used by the authors is also story-based and the Transformer-model does better at predicting it, but it consists of self-paced reading data instead of brain measurements.
-
----
 ### References
 
 * Blank, I., Kanwisher, N., & Fedorenko, E. (2014). [A functional dissociation between language and multiple-demand systems revealed in patterns of BOLD signal fluctuations](https://doi.org/10.1152/jn.00884.2013). Journal of Neurophysiology, 112(5), 1105–1118. 
@@ -86,3 +75,14 @@ I've already listed above the conclusions I've drawn from this emerging literatu
 * Schrimpf, M., Blank, I. A., Tuckute, G., Kauf, C., Hosseini, E. A., Kanwisher, N., Tenenbaum, J. B., & Fedorenko, E. (2021). [The neural architecture of language: Integrative modeling converges on predictive processing](https://doi.org/10.1073/pnas.2105646118). Proceedings of the National Academy of Sciences, 118(45), e2105646118.
 * Yuan, Z., Tyen, G., & Strohmaier, D. (2021a). [Cambridge at SemEval-2021 Task 1: An Ensemble of Feature-Based and Neural Models for Lexical Complexity Prediction](https://doi.org/10.18653/v1/2021.semeval-1.74). Proceedings of the 15th International Workshop on Semantic Evaluation (SemEval-2021), 590–597. 
 * Yuan, Z., & Strohmaier, D. (2021b). [Cambridge at SemEval-2021 Task 2: Neural WiC-Model with Data Augmentation and Exploration of Representation](https://doi.org/10.18653/v1/2021.semeval-1.96). Proceedings of the 15th International Workshop on Semantic Evaluation (SemEval-2021), 730–737. 
+
+---
+### Footnotes
+
+[^0]: I don't understand why this literature is so averse to publishing tables. Graphs are good, but being able to check against a table of data provides a way to test whether one has truly understood what is going on.
+
+[^1]: From the paper, it is not entirely clear to me whether the next word or a randomly masked word has to be predicted.
+
+[^2]: There is still a linear model trained on top of the randomly initialised models.
+
+[^3]: The Futrell 2018 dataset used by the authors is also story-based and the Transformer-model does better at predicting it, but it consists of self-paced reading data instead of brain measurements.

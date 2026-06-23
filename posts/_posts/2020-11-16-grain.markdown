@@ -31,6 +31,13 @@ Further criteria could be proposed to ensure the integration of the metric in ot
 
 
 ---
+### References
+
+* Fellbaum, C. (Ed.). (1998). WordNet: An Electronic Lexical Database. MIT Press.
+* Ide, N., & Wilks, Y. (2007). Making Sense About Sense. In E. Agirre & P. Edmonds (Eds.), Word Sense Disambiguation: Algorithms and Applications (pp. 47–73). Springer Netherlands. https://doi.org/10.1007/978-1-4020-4809-8_3
+* Navigli, R. (2009). Word Sense Disambiguation: A Survey. ACM Computing Surveys, 41(2), 1–69. https://doi.org/10.1145/1459352.1459355
+
+---
 ### Footnotes
 [^0]: I use "sense" and "concept" interchangeably in this post.
 
@@ -43,10 +50,3 @@ Further criteria could be proposed to ensure the integration of the metric in ot
 [^4]: A generalization would be to take the average branching factor of set of hyponyms.
 
 [^5]: A 0th implicit criterion was that a metric of conceptual grain should provide at least a partial order over our concepts.
-
----
-### References
-
-* Fellbaum, C. (Ed.). (1998). WordNet: An Electronic Lexical Database. MIT Press.
-* Ide, N., & Wilks, Y. (2007). Making Sense About Sense. In E. Agirre & P. Edmonds (Eds.), Word Sense Disambiguation: Algorithms and Applications (pp. 47–73). Springer Netherlands. https://doi.org/10.1007/978-1-4020-4809-8_3
-* Navigli, R. (2009). Word Sense Disambiguation: A Survey. ACM Computing Surveys, 41(2), 1–69. https://doi.org/10.1145/1459352.1459355
