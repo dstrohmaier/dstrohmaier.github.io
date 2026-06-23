@@ -2,7 +2,7 @@
 layout: post
 title:  "Selected Papers on Whether Transformers Converge with Psychometric Data"
 date:   2022-12-31 13:33:13 +0100
-categories: lists
+category: lists
 ---
 
 

@@ -2,7 +2,7 @@
 layout: post
 title:  "Selected Papers on the Symbol Grounding Problem"
 date:   2025-10-19 13:33:13 +0100
-categories: lists
+category: lists
 ---
 
 

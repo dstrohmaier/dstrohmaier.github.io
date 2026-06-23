@@ -2,7 +2,7 @@
 layout: post
 title:  "Selected Papers on Embeddings"
 date:   2021-06-24 13:33:13 +0100
-categories: lists
+category: lists
 ---
 
 

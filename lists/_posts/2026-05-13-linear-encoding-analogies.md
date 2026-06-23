@@ -2,7 +2,7 @@
 layout: post
 title:  "Selected Papers on Linear Word Analogies in Embeddings"
 date:   2026-05-13 13:33:13 +0100
-categories: lists
+category: lists
 ---
 
 ## Early Papers on Word Analogies
