@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Reading Lists
-updated: 2021-07-07 16:22:47 +0100
+updated: 2026-06-28 11:39:31 +0200
 ---
 
 Here I collect a few reading lists of various sorts I put together. Some record what I have read or my personal favourites, others are of a more academic flavour.
@@ -12,7 +12,7 @@ Here I collect a few reading lists of various sorts I put together. Some record 
   {% assign currentdate = post.date | date: "%Y" %}
   {% if currentdate != date %}
     {% unless forloop.first %}</ul>{% endunless %}
-    <h3>{{ currentdate }}</h3>
+    <h2 id="{{ currentdate }}">{{ currentdate }}</h2>
     <ul>
     {% assign date = currentdate %}
   {% endif %}

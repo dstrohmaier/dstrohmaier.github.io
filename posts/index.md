@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Posts
-updated: 2023-02-12 14:19:33 +0000
+updated: 2026-06-28 11:39:31 +0200
 ---
 
 <p><img src="/assets/images/edisons-electric-pen.jpg" alt="electric pen" height="250" /></p>
@@ -12,7 +12,7 @@ updated: 2023-02-12 14:19:33 +0000
   {% assign currentdate = post.date | date: "%Y" %}
   {% if currentdate != date %}
     {% unless forloop.first %}</ul>{% endunless %}
-    <h3>{{ currentdate }}</h3>
+    <h2 id="{{ currentdate }}">{{ currentdate }}</h2>
     <ul>
     {% assign date = currentdate %}
   {% endif %}
