@@ -1,0 +1,1063 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="298.01547"
+   height="437.44705"
+   viewBox="0 0 223.5116 328.08529"
+   version="1.1"
+   id="svg49"
+   sodipodi:docname="ndfst.svg"
+   inkscape:export-filename="ndfst.pdf"
+   inkscape:export-xdpi="300"
+   inkscape:export-ydpi="300"
+   inkscape:version="1.4 (1:1.4+202410161351+e7c3feb100)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs49" />
+  <sodipodi:namedview
+     id="namedview49"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.95842451"
+     inkscape:cx="138.76941"
+     inkscape:cy="242.58562"
+     inkscape:window-width="1876"
+     inkscape:window-height="1011"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="graph0" />
+  <g
+     id="graph0"
+     class="graph"
+     transform="matrix(0.3842188,0,0,0.3842188,0.1921094,327.94995)">
+    <title
+       id="title1">agraph</title>
+    <!-- start -->
+    <g
+       id="node1"
+       class="node">
+      <title
+         id="title2">start</title>
+      <circle
+         fill="none"
+         stroke="#000000"
+         cx="29.280001"
+         cy="-505.04999"
+         id="ellipse2"
+         r="29.280001" />
+      <text
+         text-anchor="middle"
+         x="29.280001"
+         y="-500.85001"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text2">Start</text>
+    </g>
+    <!-- c -->
+    <g
+       id="node4"
+       class="node">
+      <title
+         id="title3">t</title>
+      <circle
+         fill="none"
+         stroke="#000000"
+         cx="168.53999"
+         cy="-753.04999"
+         id="ellipse3"
+         r="18" />
+    </g>
+    <!-- start&#45;&gt;c -->
+    <g
+       id="edge1"
+       class="edge">
+      <title
+         id="title4">start-&gt;t</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 44.45,-530.66 c 26.36,-47.63 82.65,-149.33 108.98,-196.89"
+         id="path4" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="150.22,-728.98 158.12,-736.04 156.34,-725.59 "
+         id="polygon4" />
+      <text
+         text-anchor="middle"
+         x="104.55"
+         y="-690.73999"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text4">True:</text>
+    </g>
+    <!-- i -->
+    <g
+       id="node5"
+       class="node">
+      <title
+         id="title5">f</title>
+      <circle
+         fill="none"
+         stroke="#000000"
+         cx="168.53999"
+         cy="-245.05"
+         id="ellipse5"
+         r="18" />
+    </g>
+    <!-- start&#45;&gt;i -->
+    <g
+       id="edge2"
+       class="edge">
+      <title
+         id="title6">start-&gt;f</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 43.94,-479.17 c 26.34,49.9 83.87,158.86 110.1,208.53"
+         id="path6" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="157,-272.53 158.57,-262.05 150.81,-269.26 "
+         id="polygon6" />
+      <text
+         text-anchor="middle"
+         x="104.55"
+         y="-417.73001"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text6">False:</text>
+    </g>
+    <!-- u -->
+    <g
+       id="node6"
+       class="node">
+      <title
+         id="title7">p</title>
+      <circle
+         fill="none"
+         stroke="#000000"
+         cx="168.53999"
+         cy="-505.04999"
+         id="ellipse7"
+         r="18" />
+    </g>
+    <!-- start&#45;&gt;u -->
+    <g
+       id="edge3"
+       class="edge">
+      <title
+         id="title8">start-&gt;p</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 58.72,-505.05 c 23.54,0 56.81,0 80.36,0"
+         id="path8" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="138.89,-508.55 148.89,-505.05 138.89,-501.55 "
+         id="polygon8" />
+      <text
+         text-anchor="middle"
+         x="104.55"
+         y="-509.25"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text8">P-Failure:</text>
+    </g>
+    <!-- matching -->
+    <g
+       id="node2"
+       class="node">
+      <title
+         id="title9">matching</title>
+      <polygon
+         fill="none"
+         stroke="#000000"
+         points="566.34,-707.05 566.34,-743.05 496.69,-743.05 496.69,-707.05 "
+         id="polygon9" />
+      <text
+         text-anchor="middle"
+         x="531.51001"
+         y="-720.84998"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text9">Matching</text>
+    </g>
+    <!-- non_matching -->
+    <g
+       id="node3"
+       class="node">
+      <title
+         id="title10">non_matching</title>
+      <polygon
+         fill="none"
+         stroke="#000000"
+         points="580.73,-287.05 580.73,-323.05 482.3,-323.05 482.3,-287.05 "
+         id="polygon10" />
+      <text
+         text-anchor="middle"
+         x="531.51001"
+         y="-300.85001"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text10">Non-Matching</text>
+    </g>
+    <!-- ct -->
+    <g
+       id="node7"
+       class="node">
+      <title
+         id="title11">tt</title>
+      <circle
+         fill="none"
+         stroke="#000000"
+         cx="299.64999"
+         cy="-835.04999"
+         id="ellipse11"
+         r="18" />
+    </g>
+    <!-- c&#45;&gt;ct -->
+    <g
+       id="edge4"
+       class="edge">
+      <title
+         id="title12">t-&gt;tt</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 179.53,-767.81 c 6.36,-8.54 15.24,-19 25.01,-26.24 20.24,-14.99 46.8,-25.92 66.54,-32.71"
+         id="path12" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="269.79,-830.02 280.38,-829.81 271.97,-823.37 "
+         id="polygon12" />
+      <text
+         text-anchor="middle"
+         x="234.10001"
+         y="-828.09998"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text12">True:</text>
+    </g>
+    <!-- cf -->
+    <g
+       id="node8"
+       class="node">
+      <title
+         id="title13">tf</title>
+      <circle
+         fill="none"
+         stroke="#000000"
+         cx="299.64999"
+         cy="-781.04999"
+         id="ellipse13"
+         r="18" />
+    </g>
+    <!-- c&#45;&gt;cf -->
+    <g
+       id="edge5"
+       class="edge">
+      <title
+         id="title14">t-&gt;tf</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 186.42,-756.72 c 21.36,-4.63 58.46,-12.67 84.13,-18.24"
+         id="path14" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="269.78,-778.37 280.29,-777.07 271.26,-771.53 "
+         id="polygon14" />
+      <text
+         text-anchor="middle"
+         x="234.10001"
+         y="-776.97998"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text14">False:</text>
+    </g>
+    <!-- cp -->
+    <g
+       id="node9"
+       class="node">
+      <title
+         id="title15">tu</title>
+      <circle
+         fill="none"
+         stroke="#000000"
+         cx="299.64999"
+         cy="-727.04999"
+         id="ellipse15"
+         r="18" />
+    </g>
+    <!-- c&#45;&gt;cp -->
+    <g
+       id="edge6"
+       class="edge">
+      <title
+         id="title16">t-&gt;tu</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 185.24,-745.3 c 5.92,2.62 12.8,5.32 19.3,7.05 21.53,5.7 46.6,8.51 65.45,9.88"
+         id="path16" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="270.11,-731.87 279.87,-727.75 269.67,-724.88 "
+         id="polygon16" />
+      <text
+         text-anchor="middle"
+         x="234.10001"
+         y="-742.45001"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text16">Unknown:</text>
+    </g>
+    <!-- it -->
+    <g
+       id="node10"
+       class="node">
+      <title
+         id="title17">ft</title>
+      <circle
+         fill="none"
+         stroke="#000000"
+         cx="299.64999"
+         cy="-85.050003"
+         id="ellipse17"
+         r="18" />
+    </g>
+    <!-- i&#45;&gt;it -->
+    <g
+       id="edge10"
+       class="edge">
+      <title
+         id="title18">f-&gt;ft</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 179.66,-230.31 c 6.83,9.8 16.16,22.87 24.88,34.06 24.91,31.93 55.48,67.42 74.88,89.53"
+         id="path18" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="282.02,-109.07 286,-99.26 276.76,-104.44 "
+         id="polygon18" />
+      <text
+         text-anchor="middle"
+         x="234.10001"
+         y="-200.45"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text18">True:</text>
+    </g>
+    <!-- if -->
+    <g
+       id="node11"
+       class="node">
+      <title
+         id="title19">ff</title>
+      <circle
+         fill="none"
+         stroke="#000000"
+         cx="299.64999"
+         cy="-295.04999"
+         id="ellipse19"
+         r="18" />
+    </g>
+    <!-- i&#45;&gt;if -->
+    <g
+       id="edge11"
+       class="edge">
+      <title
+         id="title20">f-&gt;ff</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 185.9,-251.39 c 21.63,-8.38 60.04,-23.25 85.95,-33.28"
+         id="path20" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="270.43,-287.88 281.02,-288.23 272.96,-281.35 "
+         id="polygon20" />
+      <text
+         text-anchor="middle"
+         x="234.10001"
+         y="-284.48001"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text20">False:</text>
+    </g>
+    <!-- ip -->
+    <g
+       id="node12"
+       class="node">
+      <title
+         id="title21">fu</title>
+      <circle
+         fill="none"
+         stroke="#000000"
+         cx="299.64999"
+         cy="-205.05"
+         id="ellipse21"
+         r="18" />
+    </g>
+    <!-- i&#45;&gt;ip -->
+    <g
+       id="edge12"
+       class="edge">
+      <title
+         id="title22">f-&gt;fu</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 186.16,-239.91 c 21.5,6.66 59.25,18.36 85.04,26.35"
+         id="path22" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="272.14,-216.93 280.66,-210.63 270.07,-210.25 "
+         id="polygon22" />
+      <text
+         text-anchor="middle"
+         x="234.10001"
+         y="-237.44"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text22">Unknown:</text>
+    </g>
+    <!-- ut -->
+    <g
+       id="node13"
+       class="node">
+      <title
+         id="title23">pt</title>
+      <circle
+         fill="none"
+         stroke="#000000"
+         cx="299.64999"
+         cy="-438.04999"
+         id="ellipse23"
+         r="18" />
+    </g>
+    <!-- u&#45;&gt;ut -->
+    <g
+       id="edge22"
+       class="edge">
+      <title
+         id="title24">p-&gt;pt</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 184.38,-495.88 c 6.17,3.72 13.45,7.99 20.16,11.63 22.62,12.24 48.93,25.04 67.98,34.05"
+         id="path24" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="273.88,-453.43 281.44,-446 270.9,-447.09 "
+         id="polygon24" />
+      <text
+         text-anchor="middle"
+         x="234.10001"
+         y="-488.45001"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text24">True:</text>
+    </g>
+    <!-- uf -->
+    <g
+       id="node14"
+       class="node">
+      <title
+         id="title25">pf</title>
+      <circle
+         fill="none"
+         stroke="#000000"
+         cx="299.64999"
+         cy="-505.04999"
+         id="ellipse25"
+         r="18" />
+    </g>
+    <!-- u&#45;&gt;uf -->
+    <g
+       id="edge23"
+       class="edge">
+      <title
+         id="title26">p-&gt;pf</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 186.96,-505.05 c 21.29,0 57.63,0 83.06,0"
+         id="path26" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="270,-508.55 280,-505.05 270,-501.55 "
+         id="polygon26" />
+      <text
+         text-anchor="middle"
+         x="234.10001"
+         y="-509.25"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text26">False:</text>
+    </g>
+    <!-- ft&#45;&gt;non_matching -->
+    <g
+       id="node15"
+       class="node">
+      <title
+         id="title27">pu</title>
+      <circle
+         fill="none"
+         stroke="#000000"
+         cx="299.64999"
+         cy="-611.04999"
+         id="ellipse27"
+         r="18" />
+    </g>
+    <!-- ft&#45;&gt;non_matching -->
+    <g
+       id="edge24"
+       class="edge">
+      <title
+         id="title28">p-&gt;pu</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 182.87,-516 c 22.14,-18.17 66.68,-54.74 93.61,-76.85"
+         id="path28" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="274.08,-595.41 284.03,-599.05 278.52,-590 "
+         id="polygon28" />
+      <text
+         text-anchor="middle"
+         x="234.10001"
+         y="-583.92999"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text28">Unknown:</text>
+    </g>
+    <!-- ft&#45;&gt;non_matching -->
+    <g
+       id="edge7"
+       class="edge">
+      <title
+         id="title29">tt-&gt;matching</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 318.1,-834.02 c 31.28,2.53 98.15,11.04 146.2,38.97 18.44,10.71 34.94,28.13 46.86,42.9"
+         id="path29" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="513.68,-754.62 517.04,-744.57 508.14,-750.33 "
+         id="polygon29" />
+      <text
+         text-anchor="middle"
+         x="399.98001"
+         y="-836.41998"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text29">C:factive</text>
+    </g>
+    <!-- ft&#45;&gt;non_matching -->
+    <g
+       id="edge8"
+       class="edge">
+      <title
+         id="title30">tf-&gt;matching</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 317.53,-778.22 c 29.85,5.18 93.81,16.92 146.77,31.17 6.91,1.85 14.15,4.03 21.21,6.27"
+         id="path30" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="486.52,-744.14 494.94,-737.71 484.35,-737.48 "
+         id="polygon30" />
+      <text
+         text-anchor="middle"
+         x="399.98001"
+         y="-778.84998"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text30">I:contrafactive</text>
+    </g>
+    <!-- ft&#45;&gt;non_matching -->
+    <g
+       id="edge9"
+       class="edge">
+      <title
+         id="title31">tu-&gt;matching</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 317.93,-726.9 c 35.07,0.3 115.59,1 166.86,1.45"
+         id="path31" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="484.72,-728.95 494.68,-725.37 484.65,-721.95 "
+         id="polygon31" />
+      <text
+         text-anchor="middle"
+         x="399.98001"
+         y="-730.91998"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text31">U:non-factive</text>
+    </g>
+    <!-- ff&#45;&gt;non_matching -->
+    <g
+       id="edge13"
+       class="edge">
+      <title
+         id="title32">ft-&gt;non_matching</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 318.1,-84.69 c 37.48,0.42 124.12,-0.63 146.2,-18.56 52.3,-42.49 63.67,-127.15 65.9,-172.13"
+         id="path32" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="526.69,-275.3 530.55,-285.17 533.69,-275.05 "
+         id="polygon32" />
+      <text
+         text-anchor="middle"
+         x="399.98001"
+         y="-107.45"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text32">C:factive</text>
+    </g>
+    <!-- ff&#45;&gt;non_matching -->
+    <g
+       id="edge14"
+       class="edge">
+      <title
+         id="title33">ft-&gt;non_matching</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 314.51,-74.49 c 6.13,4.05 13.65,8.18 21.14,10.24 55.14,15.14 83.18,34.65 128.65,0 33.72,-25.71 54.57,-152.69 62.53,-211.2"
+         id="path33" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="523.35,-275.88 528.13,-285.33 530.29,-274.96 "
+         id="polygon33" />
+      <text
+         text-anchor="middle"
+         x="399.98001"
+         y="-68.449997"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text33">I:factive</text>
+    </g>
+    <!-- ff&#45;&gt;non_matching -->
+    <g
+       id="edge15"
+       class="edge">
+      <title
+         id="title34">ft-&gt;non_matching</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 305.35,-67.69 c 4.94,14.47 14.28,34.17 30.3,43.44 49.5,28.61 83.82,35.48 128.65,0 39.37,-31.17 57.69,-185.79 63.78,-251.35"
+         id="path34" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="524.57,-275.6 528.94,-285.24 531.54,-274.97 "
+         id="polygon34" />
+      <text
+         text-anchor="middle"
+         x="399.98001"
+         y="-28.450001"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text34">U:factive</text>
+    </g>
+    <!-- fu&#45;&gt;non_matching -->
+    <g
+       id="edge16"
+       class="edge">
+      <title
+         id="title35">ff-&gt;non_matching</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 312.27,-282 c 6.25,6.03 14.5,12.56 23.38,15.75 53.83,19.29 73.47,14.97 128.65,0 11.19,-3.04 22.42,-8.49 32.37,-14.37"
+         id="path35" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="494.53,-283.41 504.87,-285.76 498.25,-277.48 "
+         id="polygon35" />
+      <text
+         text-anchor="middle"
+         x="399.98001"
+         y="-270.45001"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text35">C:contrafactive</text>
+    </g>
+    <!-- fu&#45;&gt;non_matching -->
+    <g
+       id="edge17"
+       class="edge">
+      <title
+         id="title36">ff-&gt;non_matching</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 312.65,-308.04 c 6.23,-5.79 14.34,-11.98 23,-15.01 43.57,-15.29 95.8,-9.27 135.21,-0.26"
+         id="path36" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="471.52,-326.76 480.41,-321 469.87,-319.95 "
+         id="polygon36" />
+      <text
+         text-anchor="middle"
+         x="399.98001"
+         y="-336.60999"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text36">I:contrafactive</text>
+    </g>
+    <!-- fu&#45;&gt;non_matching -->
+    <g
+       id="edge18"
+       class="edge">
+      <title
+         id="title37">ff-&gt;non_matching</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 317.93,-295.81 c 32.03,-1.39 102.01,-4.43 152.95,-6.65"
+         id="path37" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="470.43,-305.94 480.57,-302.88 470.74,-298.95 "
+         id="polygon37" />
+      <text
+         text-anchor="middle"
+         x="399.98001"
+         y="-306.29999"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text37">U:contrafactive</text>
+    </g>
+    <!-- fu&#45;&gt;non_matching -->
+    <g
+       id="edge19"
+       class="edge">
+      <title
+         id="title38">fu-&gt;non_matching</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 305.72,-187.69 c 5.09,13.95 14.44,32.63 29.93,41.44 49.71,28.25 81.07,31.7 128.65,0 43.29,-28.85 58.32,-91.94 63.51,-129.33"
+         id="path38" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="524.3,-275.74 528.99,-285.24 531.25,-274.89 "
+         id="polygon38" />
+      <text
+         text-anchor="middle"
+         x="399.98001"
+         y="-150.45"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text38">C:non-factive</text>
+    </g>
+    <!-- fu&#45;&gt;non_matching -->
+    <g
+       id="edge20"
+       class="edge">
+      <title
+         id="title39">fu-&gt;non_matching</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 318.09,-204.33 c 31.29,0.55 98.15,-1.75 146.21,-27.92 19.51,-10.63 36.28,-29.24 48.06,-44.98"
+         id="path39" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="509.49,-279.24 518.15,-285.34 515.19,-275.17 "
+         id="polygon39" />
+      <text
+         text-anchor="middle"
+         x="399.98001"
+         y="-236.45"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text39">I:non-factive</text>
+    </g>
+    <!-- fu&#45;&gt;non_matching -->
+    <g
+       id="edge21"
+       class="edge">
+      <title
+         id="title40">fu-&gt;non_matching</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 314.43,-193.98 c 6.13,4.23 13.65,8.56 21.22,10.73 54.98,15.72 79.5,29.22 128.65,0 33.6,-19.99 51.22,-63.65 59.61,-92.9"
+         id="path40" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="520.44,-276.71 526.39,-285.48 527.21,-274.92 "
+         id="polygon40" />
+      <text
+         text-anchor="middle"
+         x="399.98001"
+         y="-187.45"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text40">U:non-factive</text>
+    </g>
+    <!-- ff&#45;&gt;non_matching -->
+    <g
+       id="edge25"
+       class="edge">
+      <title
+         id="title41">pt-&gt;matching</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 308.33,-454.13 c 3.21,-7.2 6.78,-15.86 9.32,-23.92 11.61,-36.83 -10.11,-58.54 18,-85 42.1,-39.63 82.36,15.43 128.65,-19.2 36.63,-27.42 53.67,-80.06 61.08,-113.2"
+         id="path41" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="521.94,-696.12 527.38,-705.21 528.8,-694.71 "
+         id="polygon41" />
+      <text
+         text-anchor="middle"
+         x="399.98001"
+         y="-586.45001"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text41">C:contrafactive</text>
+    </g>
+    <!-- ff&#45;&gt;non_matching -->
+    <g
+       id="edge26"
+       class="edge">
+      <title
+         id="title42">pt-&gt;non_matching</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 307.8,-421.67 c 5.87,11.56 15.26,26.53 27.85,35.42 48.25,34.04 75.22,8.05 128.65,33.2 12.62,5.93 25.3,14.38 36.14,22.54"
+         id="path42" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="502.52,-333.33 508.25,-324.42 498.22,-327.81 "
+         id="polygon42" />
+      <text
+         text-anchor="middle"
+         x="399.98001"
+         y="-390.45001"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text42">I:contrafactive</text>
+    </g>
+    <!-- ff&#45;&gt;non_matching -->
+    <g
+       id="edge27"
+       class="edge">
+      <title
+         id="title43">pt-&gt;non_matching</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 316.89,-432.03 c 5.85,2.03 12.55,4.18 18.76,5.78 56.27,14.47 79.97,-8.52 128.65,23.2 25.58,16.66 43.78,47.02 54.54,69.55"
+         id="path43" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="521.96,-335.1 522.91,-324.54 515.59,-332.2 "
+         id="polygon43" />
+      <text
+         text-anchor="middle"
+         x="399.98001"
+         y="-430.45001"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text43">U:contrafactive</text>
+    </g>
+    <!-- fu&#45;&gt;non_matching -->
+    <g
+       id="edge29"
+       class="edge">
+      <title
+         id="title44">pf-&gt;matching</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 301.83,-523.29 c 2.47,-22.34 10.12,-59.67 33.82,-79.76 44.32,-37.57 80.03,8.6 128.65,-23.2 25.69,-16.81 43.87,-47.42 54.6,-70.13"
+         id="path44" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="515.67,-697.73 522.95,-705.42 522.06,-694.86 "
+         id="polygon44" />
+      <text
+         text-anchor="middle"
+         x="399.98001"
+         y="-630.45001"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text44">I:factive</text>
+    </g>
+    <!-- fu&#45;&gt;non_matching -->
+    <g
+       id="edge28"
+       class="edge">
+      <title
+         id="title45">pf-&gt;non_matching</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 310.25,-490.28 c 6.23,8.38 15.1,18.29 25.4,24.03 50.78,28.24 82.43,-12.01 128.65,23.2 35.21,26.81 52.63,77.14 60.51,109.04"
+         id="path45" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="528.13,-335.17 526.95,-324.64 521.31,-333.6 "
+         id="polygon45" />
+      <text
+         text-anchor="middle"
+         x="399.98001"
+         y="-470.45001"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text45">C:factive</text>
+    </g>
+    <!-- fu&#45;&gt;non_matching -->
+    <g
+       id="edge30"
+       class="edge">
+      <title
+         id="title46">pf-&gt;non_matching</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 318.07,-504.92 c 37.42,0.64 123.95,4.06 146.23,21.87 45.74,36.54 59.88,108.02 64.26,148.39"
+         id="path46" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="532.02,-335.23 529.46,-324.95 525.05,-334.58 "
+         id="polygon46" />
+      <text
+         text-anchor="middle"
+         x="399.98001"
+         y="-508.60001"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text46">U:factive</text>
+    </g>
+    <!-- fu&#45;&gt;non_matching -->
+    <g
+       id="edge33"
+       class="edge">
+      <title
+         id="title47">pu-&gt;matching</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 304.4,-628.83 c 4.48,-16.7 13.7,-41.03 31.25,-54.22 46.38,-34.87 72.17,-8.94 128.65,-22.2 6.9,-1.63 14.14,-3.55 21.19,-5.56"
+         id="path47" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="484.32,-714.11 494.9,-713.57 486.29,-707.39 "
+         id="polygon47" />
+      <text
+         text-anchor="middle"
+         x="399.98001"
+         y="-709.45001"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text47">U:factive,contrafactive</text>
+    </g>
+    <!-- fu&#45;&gt;non_matching -->
+    <g
+       id="edge31"
+       class="edge">
+      <title
+         id="title48">pu-&gt;non_matching</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 311.38,-624.86 c 6.25,-6.88 14.76,-14.5 24.27,-18.19 26.65,-10.35 106.58,-18.17 128.65,0 47.45,39.05 61.39,233.31 65.04,308.35"
+         id="path48" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="532.83,-334.99 529.79,-324.84 525.84,-334.67 "
+         id="polygon48" />
+      <text
+         text-anchor="middle"
+         x="399.98001"
+         y="-658.14001"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text48">C:factive,contrafactive</text>
+    </g>
+    <!-- fu&#45;&gt;non_matching -->
+    <g
+       id="edge32"
+       class="edge">
+      <title
+         id="title49">pu-&gt;non_matching</title>
+      <path
+         fill="none"
+         stroke="#000000"
+         d="m 304.74,-593.36 c 4.66,16.01 13.95,38.89 30.91,51.11 46.91,33.78 84.89,-18.58 128.65,19.2 55.51,47.9 65.35,140.73 66.55,188.3"
+         id="path49" />
+      <polygon
+         fill="#000000"
+         stroke="#000000"
+         points="534.35,-334.97 530.97,-324.92 527.35,-334.88 "
+         id="polygon49" />
+      <text
+         text-anchor="middle"
+         x="399.98001"
+         y="-546.45001"
+         font-family="Times, serif"
+         font-size="14px"
+         id="text49">I:factive,contrafactive</text>
+    </g>
+  </g>
+</svg>
