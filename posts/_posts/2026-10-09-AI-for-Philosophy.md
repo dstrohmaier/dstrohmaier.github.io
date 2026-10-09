@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "AI for Philosophy: An Exploration of Commitment-Based Preference Change"
-date:   2026-10-10 08:57:13 +0100
+date:   2026-10-09 08:57:13 +0100
 category: posts
 ---
 
